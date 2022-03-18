@@ -4,17 +4,19 @@ import ReactDOM from 'react-dom';
 import App from './App';
 // import reportWebVitals from './reportWebVitals';
 
+//set up our store & app connected to store
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import {Provider } from 'react-redux' // to connect to our store
+
+
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-
-
-
-
 
 
 

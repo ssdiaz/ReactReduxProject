@@ -1,0 +1,35 @@
+  
+Our fetch request:
+    componentDidMount() { //note: fetch request default ot GET so you dont need the second part
+        fetch('http://localhost:3000/api/v1/attendees', {
+        method: 'GET'
+        })
+        .then(response => response.json()) //response here is the return value of the fetch request
+        .then(data => console.log(data))  //data here is the return value above (which is the fetch return in json form)
+    } 
+        ...
+        // componentDidMount() { //note: fetch request default ot GET so you dont need the second part
+        //   fetch('http://localhost:3000/api/v1/attendees', {
+        //     method: 'GET'
+        //   })
+        //   .then(response => response.json()) //response here is the return value of the fetch request
+        //   .then(data => {
+        //     console.log(data[0].name)
+        //     console.log(data)
+        //   })  //data here is the return value above (which is the fetch return in json form)
+
+        //   fetch('http://localhost:3000/api/v1/activities', {
+        //     method: 'GET'
+        //   })
+        //   .then(response => response.json()) //response here is the return value of the fetch request
+        //   .then(data => {
+        //     console.log(data[0].name)
+        //     console.log(data)
+        //   })  //data here is the return value above (which is the fetch return in json form)
+        // }
+
+NOTE:
+ need to run backend server (on localhost 3000) and the frontend npm start second so you can run on a different port (3001)
+ - have to install deux:
+    - npm install redux --save react-redux --save redux-thunk --save react-router-dom --save
+    - the save tag adds them to the package.json file, which can be imported into your files

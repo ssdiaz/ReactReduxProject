@@ -1,8 +1,12 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 // import './App.css';
 import React, { Component } from "react";
 
 class App extends Component {
+
+
+
+
   render() {
     return (
       <div className="App">
@@ -49,3 +53,27 @@ export default App;
 //   );
 // }
 // export default App;
+
+
+
+// fetch requests:
+
+  // componentDidMount() { //note: fetch request default ot GET so you dont need the second part
+  //   fetch('http://localhost:3000/api/v1/attendees', {
+  //     method: 'GET'
+  //   })
+  //   .then(response => response.json()) //response here is the return value of the fetch request
+  //   .then(data => {
+  //     console.log(data[0].name)
+  //     console.log(data)
+  //   })  //data here is the return value above (which is the fetch return in json form)
+
+  //   fetch('http://localhost:3000/api/v1/activities', {
+  //     method: 'GET'
+  //   })
+  //   .then(response => response.json()) //response here is the return value of the fetch request
+  //   .then(data => {
+  //     console.log(data[0].name)
+  //     console.log(data)
+  //   })  //data here is the return value above (which is the fetch return in json form)
+  // }
