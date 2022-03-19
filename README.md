@@ -1,3 +1,10 @@
+# React Redux Project
+## Bachelorette Planner (Frontend)
+
+This the frontend setup using React-Redux for the Bachelorette Planner Project. The backend uses Rails API and is found in GitHub Repo: https://github.com/ssdiaz/ReactReduxProject_backend
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

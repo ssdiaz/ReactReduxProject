@@ -33,3 +33,4 @@ NOTE:
  - have to install deux:
     - npm install redux --save react-redux --save redux-thunk --save react-router-dom --save
     - the save tag adds them to the package.json file, which can be imported into your files
+- Video 4 is we set up the store (EXpense Tracker)
