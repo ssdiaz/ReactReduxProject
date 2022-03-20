@@ -12,6 +12,8 @@ import AttendeesInput from '../components/AttendeeInput';
 
 class AttendeesContainer extends Component {
 
+    // when this component mounts, we have to make that connection to the backend; use compnentDidMounts to make connection to backend anytime the component refreshes/changes
+    // when you refreash, redux/react will not hold the states, so you lose your data if you don't call the below
     componentDidMount() {
         this.props.fetchAttendees()
     }
@@ -21,7 +23,7 @@ class AttendeesContainer extends Component {
             <div>
                 Attendees Container text
                 <AttendeesInput />
-                <Attendees attendees={this.props.attendees} />
+                <Attendees attendees={this.props.attendees} /> {/* here we're sending the state/data as props to the component */}
             </div>
         )
     }
@@ -29,7 +31,8 @@ class AttendeesContainer extends Component {
 
 const mapStateToProps = state => { //state from our Redux store
     console.log(state, "-> this is state in mapStateToProps")
-    //send as props to child components in the render above
+    // need to send this state as props to child components in the render above ... attendees={this.props.attendees} 
+    // this method allows us to access the state as props
 
     return {
         attendees: state.attendees

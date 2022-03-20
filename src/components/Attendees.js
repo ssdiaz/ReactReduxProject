@@ -9,14 +9,29 @@ import React, { Component } from 'react';
 
 
 
-const Attendees = props => {
+// const Attendees = ({attendees}) => {     //=> returns [{an array of attendee objects}]
+const Attendees = props => {                //=> returns {attendees: Array(1)} ... returns an attendees object which contains an array of objects (the above); outer layer of {attendees}
 // class Attendees extends Component {
+
+    // console.log(attendees, '-> in Attendees')
+    console.log(props, '-> in Attendees')
+
+    // attendee = {props}
 
     return(
         <div>
-            Attendees text
+            Attendees text:
+            
+            {props.attendees.map((attendee, index) => 
+                <li key={attendee.id}>Name: {attendee.name} | Phone: {attendee.phone} | Status: {attendee.status}  | Notes: {attendee.notes}  | Relationship: {attendee.relationship}  | Loding Budget: {attendee.lodgingBudget}  | Events Budget: {attendee.eventsBudget}                           </li>  
+            )}
+ 
         </div>
     )
 }
 
 export default Attendees;
+
+
+
+// note: key can also be <li key={attendee.id}
