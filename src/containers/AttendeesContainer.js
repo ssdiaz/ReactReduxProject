@@ -7,7 +7,10 @@ import { connect } from 'react-redux';
 import { fetchAttendees  } from '../actions/fetchAttendees';
 
 import Attendees from '../components/Attendees';
-import AttendeesInput from '../components/AttendeeInput';
+import AttendeeInput from '../components/AttendeeInput';
+import Attendee from '../components/Attendee';
+
+import { Route } from 'react-router-dom'
 
 
 class AttendeesContainer extends Component {
@@ -15,18 +18,24 @@ class AttendeesContainer extends Component {
     // when this component mounts, we have to make that connection to the backend; use compnentDidMounts to make connection to backend anytime the component refreshes/changes
     // when you refreash, redux/react will not hold the states, so you lose your data if you don't call the below
     componentDidMount() {
-        this.props.fetchAttendees()
+        this.props.fetchAttendees() //returns the attendees array
     }
 
     render() {
         return(
             <div>
                 <h2>Attendees Container</h2>
-                <Attendees attendees={this.props.attendees} /> {/* here we're sending the state/data as props to the component */}
-                <AttendeesInput />
+                
+                {/*<Attendees attendees={this.props.attendees} /> */}   {/* here we're sending the state/data as props to the component */}
+                {/* <AttendeeInput /> */}
+                <Route path='/attendees/new' component={AttendeeInput} />
+                <Route path='/attendees/:id' render={ (routerProps) => <Attendee {...routerProps} attendees={this.props.attendees} /> } />
+                <Route exact path='/attendees' render={ (routerProps) => <Attendees {...routerProps} attendees={this.props.attendees} /> } />            
             </div>
         )
     }
+
+
 }
 
 const mapStateToProps = state => { //state from our Redux store
@@ -41,3 +50,9 @@ const mapStateToProps = state => { //state from our Redux store
 
 export default connect(mapStateToProps, {fetchAttendees})(AttendeesContainer);
 // export default AttendeesContainer;
+
+
+
+    //Routes overview [[in return()]]
+        //  render above takes in a function/regular component syntax, whereas component just points to a component (can't pass props with component) 
+        // the components are no longer rendering directly; they render on the condition of the URLs

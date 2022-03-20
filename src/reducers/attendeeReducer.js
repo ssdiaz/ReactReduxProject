@@ -3,7 +3,7 @@
 // default state is really only used the first time, previosutState is used after
 
 export default function attendeeReducer(state = {attendees: []}, action) {
-    console.log(state, "-> this is state in function attendeeReducer")
+    console.log(state, "-> state in attendeeReducer")
 
     // debugger
     switch (action.type) {

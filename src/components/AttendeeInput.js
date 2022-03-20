@@ -4,7 +4,7 @@ import { addAttendee } from '../actions/addAttendee';
 
 
 //class compoent so we can control our form; local state to control value or form data availible to redux store.
-class AttendeesInput extends Component {
+class AttendeeInput extends Component {
 
     //NOTE: you're gonna wanna keep this in redux bc youre using the same form to create new and to edit...
     // constructor(props) {
@@ -23,7 +23,7 @@ class AttendeesInput extends Component {
 
     handleChange = event => {
         // debugger
-        this.setState({
+        this.setState({ //setState is asynchrounus - won't clear out state until rest of function has ran
             [event.target.name]: event.target.value
         })
     }
@@ -32,6 +32,15 @@ class AttendeesInput extends Component {
         //use an action creator to send the user's inputs from the form to the backend database
         event.preventDefault() //so we don't lose our form data before the re-render
         this.props.addAttendee(this.state)
+        this.setState({
+            name: '',
+            phone: '',
+            status: '',
+            notes: '',
+            relationship: '',
+            lodgingBudget: null,
+            eventsBudget: null,
+        })
     }
 
     //uncontrolled comonent
@@ -79,6 +88,6 @@ class AttendeesInput extends Component {
 }
 
 
-export default connect(null, {addAttendee})(AttendeesInput);
+export default connect(null, {addAttendee})(AttendeeInput);
 
 

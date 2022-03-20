@@ -19,7 +19,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1>App Container text</h1>
+        <h1>App Container</h1>
         <AttendeesContainer />
       </div>
     );
@@ -52,13 +52,53 @@ class App extends React.Component {
 // export default connect(null, {fetchAttendees})(App);
   // this connect is automatically calling dispatch for us on the return value of fetchAccounts.
   // thunk allows us to call dispatch inside the action creator to allow it to wait for the action dispatch to finish before we dispatch anything to our reducer
-export default App;
+//NOTE - APP is not currently connected to our Redux store!
+  export default App;
 
 
 
 
 
- 
+ //to connect to store: ``````````````````````````````````````````````````````
+// class App extends React.Component {
+
+//   componentDidMount() { //note: fetch request default ot GET so you dont need the second part
+//     this.props.fetchAttendees()
+//     // this.props.fetchAttendees({type: 'FETCH_ATTENDEES', payload: {name: 'Sami'}})
+//   }
+
+//   render() {
+//     return (
+//       <div className="App">
+//         <h1>App Container</h1>
+//         <AttendeesContainer />
+//       </div>
+//     );
+//   }
+// }
+
+
+// const mapStateToProps = state => { //state from our Redux store
+//   console.log(state, "-> this is state in mapStateToProps")
+//   // need to send this state as props to child components in the render above ... attendees={this.props.attendees} 
+//   // this method allows us to access the state as props
+
+//   return {
+//       attendees: state.attendees
+//   }
+// }
+
+// export default connect(mapStateToProps, {fetchAttendees})(App);
+//`````````````````````````````````````````````````````````````````````````````
+
+
+
+
+
+
+
+
+
 
 
 

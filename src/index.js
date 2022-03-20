@@ -19,6 +19,13 @@ import attendeeReducer from './reducers/attendeeReducer';
 
 import App from './App';
 
+
+//to use reouter:
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+
+
+
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 // const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 // const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__()
@@ -44,7 +51,9 @@ const store = createStore( attendeeReducer,  composeEnhancers( applyMiddleware(t
 //NOTE: we are rendering App to the DOM in the below
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Router> 
+      <App />
+    </Router>
   </Provider>
   ,
   document.getElementById('root')
