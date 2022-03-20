@@ -1,38 +1,27 @@
 // to set up dev tppls: like thunk, store, enhancers:
   // https://redux-observable.js.org/docs/basics/SettingUpTheMiddleware.html
 
+// import './index.css';
+// import reportWebVitals from './reportWebVitals';
+
 
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 
-// import './index.css';
-// import reportWebVitals from './reportWebVitals';
-
-
 // set up our store & app connected to store
 import { Provider } from 'react-redux' // to connect to our store
-import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
+// import { createStore, applyMiddleware, compose } from 'redux'; 
+import { createStore, applyMiddleware, compose, combineReducers } from 'redux'; 
 import thunk from 'redux-thunk';
 
-
-// import our Reducers
-  // import rootReducer from "./reducers"
-import attendeeReducer from './reducers/attendeeReducer'
-
+// import our Reducers    // import rootReducer from "./reducers"
+import attendeeReducer from './reducers/attendeeReducer';
 
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-
-//store: stores data globally
-const myStore = createStore( reducers,  
-  composeEnhancers(
-    applyMiddleware(thunk) 
-  )
-);
-
-//waht to do with our store based on certain actions
+//what to do with our store based on certain actions
 //dispatch to reducers (send actions to our reducers; reducers return new version of our store)
 const reducers = combineReducers(
   {
@@ -40,10 +29,14 @@ const reducers = combineReducers(
   }
 )
 
+//store: stores data globally
+// let store = createStore( attendeeReducer,  composeEnhancers(applyMiddleware(thunk)));
+const store = createStore( reducers,  composeEnhancers( applyMiddleware(thunk) ) );
+
 
 //pass store in as a prop
 ReactDOM.render(
-  <Provider store={myStore}>
+  <Provider store={store}>
     <App />
   </Provider>
   ,

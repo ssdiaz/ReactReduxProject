@@ -1,50 +1,46 @@
 // import logo from './logo.svg';
 // import './App.css';
-import React, { Component } from "react";
-import { connect } from 'react-redux';
+// import React, { Component } from 'react';
+// import { connect } from 'react-redux';
+import React from 'react';
 
 
+class App extends React.Component {
 
-class App extends Component {
 
+  // componentDidMount() { //note: fetch request default ot GET so you dont need the second part
+  //   fetch('http://localhost:3000/api/v1/attendees', {
+  //     method: 'GET'
+  //   })
+  //   .then(response => response.json()) //response here is the return value of the fetch request
+  //   .then(data => {
+  //     console.log(data[0].name)
+  //     console.log(data)
+  //   })  //data here is the return value above (which is the fetch return in json form)
 
-  componentDidMount() { //note: fetch request default ot GET so you dont need the second part
-    fetch('http://localhost:3000/api/v1/attendees', {
-      method: 'GET'
-    })
-    .then(response => response.json()) //response here is the return value of the fetch request
-    .then(data => {
-      console.log(data[0].name)
-      console.log(data)
-    })  //data here is the return value above (which is the fetch return in json form)
-
-    // fetch('http://localhost:3000/api/v1/activities', {
-    //   method: 'GET'
-    // })
-    // .then(response => response.json()) //response here is the return value of the fetch request
-    // .then(data => {
-    //   console.log(data[0].name)
-    //   console.log(data)
-    // })  //data here is the return value above (which is the fetch return in json form)
-  }
+  //   // fetch('http://localhost:3000/api/v1/activities', {
+  //   //   method: 'GET'
+  //   // })
+  //   // .then(response => response.json()) //response here is the return value of the fetch request
+  //   // .then(data => {
+  //   //   console.log(data[0].name)
+  //   //   console.log(data)
+  //   // })  //data here is the return value above (which is the fetch return in json form)
+  // }
 
   render() {
     return (
       <div className="App">
         App
-
-        <header className="App-header">
-
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-
-        </header>
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
       </div>
     );
   }
 }
-export default connect()(App);
+// export default connect()(App);
+export default App;
 // connect - allows access to a particular part of our store
 
 
