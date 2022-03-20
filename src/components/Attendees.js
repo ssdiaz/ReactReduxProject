@@ -20,7 +20,7 @@ const Attendees = props => {                //=> returns {attendees: Array(1)} .
 
     return(
         <div>
-            Attendees text:
+            <h3>Attendees</h3>
             
             {props.attendees.map((attendee, index) => 
                 <li key={attendee.id}>Name: {attendee.name} | Phone: {attendee.phone} | Status: {attendee.status}  | Notes: {attendee.notes}  | Relationship: {attendee.relationship}  | Loding Budget: {attendee.lodgingBudget}  | Events Budget: {attendee.eventsBudget}                           </li>  

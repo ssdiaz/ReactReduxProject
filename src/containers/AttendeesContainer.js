@@ -21,9 +21,9 @@ class AttendeesContainer extends Component {
     render() {
         return(
             <div>
-                Attendees Container text
-                <AttendeesInput />
+                <h2>Attendees Container</h2>
                 <Attendees attendees={this.props.attendees} /> {/* here we're sending the state/data as props to the component */}
+                <AttendeesInput />
             </div>
         )
     }

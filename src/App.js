@@ -19,7 +19,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        App Container text
+        <h1>App Container text</h1>
         <AttendeesContainer />
       </div>
     );
