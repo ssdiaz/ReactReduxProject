@@ -19,8 +19,8 @@ import attendeeReducer from './reducers/attendeeReducer';
 
 import App from './App';
 
-// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+// const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 // const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__()
 
 
@@ -41,6 +41,7 @@ const store = createStore( attendeeReducer,  composeEnhancers( applyMiddleware(t
 
 
 //pass store in as a prop
+//NOTE: we are rendering App to the DOM in the below
 ReactDOM.render(
   <Provider store={store}>
     <App />
@@ -49,6 +50,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 // provider - allows the store to be global to our components in app
+  // we can connect (to the store) any component that is a child/grandchild of the provider - but to get the data updated, you need to connect that specific component 
 
 
 
