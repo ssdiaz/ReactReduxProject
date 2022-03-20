@@ -10,6 +10,9 @@ export default function attendeeReducer(state = {attendees: []}, action) {
         case 'FETCH_ATTENDEES':
             // return [...state, action.attendees];
             return {attendees: action.payload}
+        case 'ADD_ATTENDEE':
+            // return [...state, action.attendees];
+            return {...state, attendees: [...state.attendees, action.payload]}
         default:
             return state;
     }

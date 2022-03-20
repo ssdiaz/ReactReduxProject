@@ -13,12 +13,9 @@ export const addAttendee = (formStateData) => { //data comes from the state of t
             method: 'POST',
             body: JSON.stringify(formStateData)
         })
-        // .then(response => response.json()) //response here is the return value of the fetch request
-        // .then(data => {
-        // console.log(data[0].name)
-        // console.log(data)
-        // })  //data here is the return value above (which is the fetch return in json form)
-
+        .then(response => response.json()) //response here is the return value of the fetch request
+        .then(attendee => dispatch({type: 'ADD_ATTENDEE', payload: attendee}) )  //attenddee here needs to match our backend controllers??
+            // need to add these then statements so we can render immediately our new attendee without having to refresh the page
     }
 
 }
