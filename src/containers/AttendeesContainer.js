@@ -10,7 +10,7 @@ import Attendees from '../components/Attendees';
 import AttendeeInput from '../components/AttendeeInput';
 import Attendee from '../components/Attendee';
 
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 
 
 class AttendeesContainer extends Component {
@@ -25,16 +25,17 @@ class AttendeesContainer extends Component {
         return(
             <div>
                 <h2>Attendees Container</h2>
-                
-                {/*<Attendees attendees={this.props.attendees} /> */}   {/* here we're sending the state/data as props to the component */}
-                {/* <AttendeeInput /> */}
-                <Route exact path='/attendees/new' component={AttendeeInput} />
-                <Route path='/attendees/:id' render={ (routerProps) => <Attendee {...routerProps} attendees={this.props.attendees} /> } />
-                <Route exact path='/attendees' render={ (routerProps) => <Attendees {...routerProps} attendees={this.props.attendees} /> } />            
+                <Switch>
+                    {/*<Attendees attendees={this.props.attendees} /> */}   {/* here we're sending the state/data as props to the component */}
+                    {/* <AttendeeInput /> */}
+                    <Route  path='/attendees/new' component={AttendeeInput} />
+                    <Route path='/attendees/:id' render={ (routerProps) => <Attendee {...routerProps} attendees={this.props.attendees} /> } />
+                    <Route  path='/attendees' render={ (routerProps) => <Attendees {...routerProps} attendees={this.props.attendees} /> } />            
+                </Switch>
             </div>
         )
     }
-ex
+// Switch Notes - first route that matches that path; chooses first route that mateches that path; order matters! 
 
 }
 

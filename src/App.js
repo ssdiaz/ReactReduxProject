@@ -5,8 +5,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import AttendeesContainer from './containers/AttendeesContainer';
-
 // import { fetchAttendees } from './actions/fetchAttendees';
+
+import ActivitiesContainer from './containers/ActivitiesContainer';
+
 
 
 class App extends React.Component {
@@ -21,6 +23,7 @@ class App extends React.Component {
       <div className="App">
         <h1>App Container</h1>
         <AttendeesContainer />
+        <ActivitiesContainer />
       </div>
     );
   }
