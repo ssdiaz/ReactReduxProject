@@ -28,13 +28,13 @@ class AttendeesContainer extends Component {
                 
                 {/*<Attendees attendees={this.props.attendees} /> */}   {/* here we're sending the state/data as props to the component */}
                 {/* <AttendeeInput /> */}
-                <Route path='/attendees/new' component={AttendeeInput} />
+                <Route exact path='/attendees/new' component={AttendeeInput} />
                 <Route path='/attendees/:id' render={ (routerProps) => <Attendee {...routerProps} attendees={this.props.attendees} /> } />
                 <Route exact path='/attendees' render={ (routerProps) => <Attendees {...routerProps} attendees={this.props.attendees} /> } />            
             </div>
         )
     }
-
+ex
 
 }
 

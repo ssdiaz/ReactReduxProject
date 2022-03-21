@@ -1,6 +1,6 @@
 import React from 'react';
 import Attendee from './Attendee';
-import { Route } from 'react-router-dom'
+import { Route, Link } from 'react-router-dom'
 //functional comp, bnecasue it presents a list of accounts.... could be class comp as a well
     // with a class component, if props are being passed, we can just call with this.props
     // with a functional component, we have to pass the props in as an argument
@@ -18,7 +18,13 @@ const Attendees = (props) => {                //=> returns {attendees: Array(1)}
     return(        
         <div>
             {props.attendees.map(attendee => 
-                <div key={attendee.id}><Attendee attendee={attendee} /></div>
+                <li key={attendee.id}>
+                    <Link to={`/attendees/${attendee.id}`}>{attendee.name}</Link>
+                </li>
+
+
+
+
             )} 
         </div>
     )
