@@ -1,6 +1,5 @@
 // to set up dev tppls: like thunk, store, enhancers:
   // https://redux-observable.js.org/docs/basics/SettingUpTheMiddleware.html
-
 // import './index.css';
 // import reportWebVitals from './reportWebVitals';
 
@@ -23,7 +22,8 @@ import App from './App';
 
 
 //to use reouter:
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+// import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 
 
@@ -36,8 +36,8 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 //what to do with our store based on certain actions
 //dispatch to reducers (send actions to our reducers; reducers return new version of our store)
 const rootReducer = combineReducers({
-    attendees: attendeeReducer,
-    activities: activitiesReducer
+    attendeeReducer,
+    activitiesReducer
   });
 
 //store: stores data globally

@@ -10,7 +10,7 @@ const Attendee = (props) => {
     const findAttendee = (props) => {
         // console.log(props.attendees.find(attendee => attendee.id == props.match.params.id), 'um this???')
         return(
-            props.attendees.find(attendee => attendee.id == props.match.params.id)
+            props.attendees && props.attendees.find(attendee => attendee.id == props.match.params.id)
         )
     };
     // function findAttendee() {

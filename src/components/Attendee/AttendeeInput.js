@@ -50,8 +50,9 @@ class AttendeeInput extends Component {
             <div>
                 <h3>Attendees Input</h3>
 
+                <h4>Create New Attendee:</h4>
+
                 <form onSubmit={this.handleSubmit}>
-                    <h4>Create New Attendee:</h4>
                     {/* <label htmlFor="new">Create New Attendeee</label> */}
                         
                     <label>Name: </label>
@@ -75,11 +76,8 @@ class AttendeeInput extends Component {
                     <label>Notes: </label>
                     <textarea type="text" className="notes" placeholder='Notes' value={this.state.notes} name="notes" onChange={this.handleChange} /><br/>
 
-
                     <button type="submit">Create New Attendee</button>
-
                 </form>
-
             </div>
         )
     }

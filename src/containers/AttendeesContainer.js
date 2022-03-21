@@ -20,8 +20,13 @@ class AttendeesContainer extends Component {
     componentDidMount() {
         this.props.fetchAttendees() //returns the attendees array
     }
-
+    
     render() {
+        
+        console.log(this.props.attendees, 'propsssssss   this.props.attendees')
+        // console.log(this.props.attendees && this.props.attendees.map(att => att.name), 'propsssssss')
+
+
         return(
             <div>
                 <h2>Attendees Container</h2>
@@ -40,12 +45,15 @@ class AttendeesContainer extends Component {
 }
 
 const mapStateToProps = state => { //state from our Redux store
-    // console.log(state, "-> this is state in mapStateToProps")
+    console.log(state, "-> this is state in mapStateToProps")
+    console.log(state.attendees, "-> this is state.ATTENDEES in mapStateToProps")
+    // console.log(state.attendeeReducer.attendees, "-> this is state.ATTENDEES in mapStateToProps")
     // need to send this state as props to child components in the render above ... attendees={this.props.attendees} 
     // this method allows us to access the state as props
 
     return {
-        attendees: state.attendees
+        // attendees: state.attendees
+        attendees: state.attendeeReducer.attendees
     }
 }
 

@@ -3,7 +3,7 @@
 // import React, { Component } from 'react';
 
 import React from 'react';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 import AttendeesContainer from './containers/AttendeesContainer';
 import ActivitiesContainer from './containers/ActivitiesContainer';
 // import { fetchAttendees } from './actions/fetchAttendees';
@@ -22,6 +22,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <h1>App Container</h1>
+
         <AttendeesContainer />
         <ActivitiesContainer />
       </div>

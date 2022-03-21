@@ -13,18 +13,16 @@ import { Route, Link } from 'react-router-dom'
 const Attendees = (props) => {                //=> returns {attendees: Array(1)} ... returns an attendees object which contains an array of objects (the above); outer layer of {attendees}
 // class Attendees extends Component {
 
-    // console.log(props.attendees.map( att => att.name), '-> props array obj passing to Attendee comp')
-
+    console.log(props, 'attendeess props -')
+    console.log(props.attendees, 'attendeess props ----object?')
+    // console.log(props.attendees && props.attendees.map( att => att.name), '-> props array obj passing to Attendee comp')
+    // console.log(props.attendees ? props.attendees.map(attendee => attendee.name) : 'no :/', '-> props array obj passing to Attendee comp')
     return(        
         <div>
-            {props.attendees.map(attendee => 
+            {props.attendees && props.attendees.map(attendee => 
                 <li key={attendee.id}>
                     <Link to={`/attendees/${attendee.id}`}>{attendee.name}</Link>
                 </li>
-
-
-
-
             )} 
         </div>
     )
