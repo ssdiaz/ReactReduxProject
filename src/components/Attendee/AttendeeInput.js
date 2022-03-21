@@ -73,7 +73,7 @@ class AttendeeInput extends Component {
                     <input type="text" className="eventsBudget" placeholder='Events Budget' value={this.state.eventsBudget} name="eventsBudget" onChange={this.handleChange} /><br/>
                     
                     <label>Notes: </label>
-                    <input type="text" className="notes" placeholder='Notes' value={this.state.notes} name="notes" onChange={this.handleChange} /><br/>
+                    <textarea type="text" className="notes" placeholder='Notes' value={this.state.notes} name="notes" onChange={this.handleChange} /><br/>
 
 
                     <button type="submit">Create New Attendee</button>

@@ -14,7 +14,6 @@ class ActivitiesContainer extends Component {
         this.props.fetchActivities()
     }
 
-
     render() {
         return (
             <div>
@@ -27,7 +26,7 @@ class ActivitiesContainer extends Component {
 }
 
 const mapStateToProps = state => {
-    console.log(state, 'activ containers state - mapStateToProps')
+    // console.log(state, 'activ containers state - mapStateToProps')
     // return state
     return {
         activities: state.activities
