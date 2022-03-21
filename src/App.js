@@ -5,15 +5,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import AttendeesContainer from './containers/AttendeesContainer';
+import ActivitiesContainer from './containers/ActivitiesContainer';
 // import { fetchAttendees } from './actions/fetchAttendees';
 
-import ActivitiesContainer from './containers/ActivitiesContainer';
 
 
 
 class App extends React.Component {
 
-  // componentDidMount() { //note: fetch request default ot GET so you dont need the second part
+  // componentDidMount() { //note: fetch request defaults to GET so you dont need the second part
   //   // this.props.fetchAttendees()
   //   // this.props.fetchAttendees({type: 'FETCH_ATTENDEES', payload: {name: 'Sami'}})
   // }
@@ -56,13 +56,14 @@ class App extends React.Component {
   // this connect is automatically calling dispatch for us on the return value of fetchAccounts.
   // thunk allows us to call dispatch inside the action creator to allow it to wait for the action dispatch to finish before we dispatch anything to our reducer
 //NOTE - APP is not currently connected to our Redux store!
-  export default App;
+ 
+export default App;
 
 
 
 
 
- //to connect to store: ``````````````````````````````````````````````````````
+//to connect to store: ``````````````````````````````````````````````````````
 // class App extends React.Component {
 
 //   componentDidMount() { //note: fetch request default ot GET so you dont need the second part

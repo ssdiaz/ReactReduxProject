@@ -9,10 +9,10 @@ export function fetchAttendees() {       // return action
         })
         .then(response => response.json()) //response here is the return value of the fetch request, once fetch is resolved. Here, we turn it into JSON to read
         .then(attendees => { // attendes argument here is the same as response.json() above.
-            console.log(attendees[0].name, '-> inside fetchAttendees; name of attendees[0] --- from fetch and then JSONed') 
-            console.log(attendees, '-> inside fetchAttendees; attendees')
+            // console.log(attendees[0].name, '-> inside fetchAttendees; name of attendees[0] --- from fetch and then JSONed') 
+            // console.log(attendees, '-> inside fetchAttendees; attendees')
 
-            dispatch({          //dispatching here is saying access our reducer and this action object and update our redux store nbased on this info beloe:
+            dispatch({          //dispatching here is saying access our reducer and this action object and update our redux store based on this info below:
                 type: 'FETCH_ATTENDEES', 
                 payload: attendees //NOTE: this 'attendees' word must match the .then arguement word
             })

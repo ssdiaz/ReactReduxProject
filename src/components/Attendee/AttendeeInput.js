@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addAttendee } from '../actions/addAttendee';
+import { addAttendee } from '../../actions/Attendee/addAttendee';
 
 
 //class compoent so we can control our form; local state to control value or form data availible to redux store.

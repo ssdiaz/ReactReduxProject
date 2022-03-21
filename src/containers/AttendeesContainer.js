@@ -4,11 +4,11 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchAttendees  } from '../actions/fetchAttendees';
+import { fetchAttendees } from '../actions/Attendee/fetchAttendees';
 
-import Attendees from '../components/Attendees';
-import AttendeeInput from '../components/AttendeeInput';
-import Attendee from '../components/Attendee';
+import Attendees from '../components/Attendee/Attendees';
+import AttendeeInput from '../components/Attendee/AttendeeInput';
+import Attendee from '../components/Attendee/Attendee';
 
 import { Route, Switch } from 'react-router-dom'
 
@@ -40,7 +40,7 @@ class AttendeesContainer extends Component {
 }
 
 const mapStateToProps = state => { //state from our Redux store
-    console.log(state, "-> this is state in mapStateToProps")
+    // console.log(state, "-> this is state in mapStateToProps")
     // need to send this state as props to child components in the render above ... attendees={this.props.attendees} 
     // this method allows us to access the state as props
 
@@ -54,6 +54,6 @@ export default connect(mapStateToProps, {fetchAttendees})(AttendeesContainer);
 
 
 
-    //Routes overview [[in return()]]
-        //  render above takes in a function/regular component syntax, whereas component just points to a component (can't pass props with component) 
-        // the components are no longer rendering directly; they render on the condition of the URLs
+//Routes overview [[in return()]]
+    //  render above takes in a function/regular component syntax, whereas component just points to a component (can't pass props with component) 
+    // the components are no longer rendering directly; they render on the condition of the URLs
