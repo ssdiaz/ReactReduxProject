@@ -3,34 +3,36 @@ import { connect } from 'react-redux';
 import { addAttendee } from '../../actions/Attendee/addAttendee';
 
 
-//class compoent so we can control our form; local state to control value or form data availible to redux store.
-class AttendeeInput extends Component {
-
-    //NOTE: you're gonna wanna keep this in redux bc youre using the same form to create new and to edit...
-    constructor(props) {
+class AttendeeInput extends Component {                                         //class compoent so we can control our form; local state to control value or form data availible to redux store.
+        
+    constructor(props) {                                                         //NOTE: you're want this in redux bc youre using the same form to create new and to edit...
+        // console.log(props, 'constructor')    
         super(props)
         this.state = {   
             name: '',
-            phone: '1111111111',
+            phone: '5555555555',
             status: '',
             notes: '',
-            relationship: 'Bride',
+            relationship: 'Attendee',
             lodgingBudget: null,
             eventsBudget: null,
+            trip_id: props.trip.id,
         }
     }
 
     handleChange = (event) => {
-        // debugger
-        this.setState({ //setState is asynchrounus - won't clear out state until rest of function has ran
+        this.setState({                                                             //setState is asynchrounus - won't clear out state until rest of function has ran
             [event.target.name]: event.target.value
         })
     }
-
+    
     handleSubmit = (event) => {
         //use an action creator to send the user's inputs from the form to the backend database
         event.preventDefault() //so we don't lose our form data before the re-render
-        this.props.addAttendee(this.state)
+        // console.log(this.state, 'state')
+        // console.log(this.props, 'props')
+
+        this.props.addAttendee(this.state, this.props.trip.id)
         this.setState({
             name: '',
             phone: '',
@@ -39,8 +41,9 @@ class AttendeeInput extends Component {
             relationship: '',
             lodgingBudget: null,
             eventsBudget: null,
+            trip_id: this.props.trip.id,
         })
-        // this.props.history.push('/attendees'); //https://stackoverflow.com/questions/44522811/how-to-redirect-to-home-page-after-submitting-redux-form
+        // this.props.history.push({`/trips/${this.props.trip.id}/attendees/new`}); //https://stackoverflow.com/questions/44522811/how-to-redirect-to-home-page-after-submitting-redux-form
     }
 
     //uncontrolled comonent
@@ -75,17 +78,29 @@ class AttendeeInput extends Component {
                     
                     <label>Notes: </label>
                     <textarea type="text" className="notes" placeholder='Notes' value={this.state.notes} name="notes" onChange={this.handleChange} /><br/>
-
+             
                     <button type="submit">Create New Attendee</button>
                 </form>
             </div>
         )
     }
-
-
 }
 
-
 export default connect(null, {addAttendee})(AttendeeInput);
+
+
+// const mapStateToProps = state => { 
+//     // console.log(state, 'state! map here')
+//     console.log(state.tripReducer.trips, 'state!')
+//     return {
+//         trips: state.tripReducer.trips
+//     }
+// }
+
+
+
+
+// export default connect(null)(AttendeeInput);
+// export default connect(mapStateToProps, {addAttendee})(AttendeeInput);
 
 

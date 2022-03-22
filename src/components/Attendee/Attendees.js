@@ -17,19 +17,21 @@ const Attendees = (props) => {
     //     // this.setState({ state: props });
     // }
     
-    console.log(props.attendees, 'props in attendees') //=> attendees array
+    // console.log(props.attendees, 'props in attendees') //=> attendees array
     // console.log(props.attendees, 'props') //=> attendees array
+    // console.log(props,'props in findAtt')
     
+
     return(        
         <div>
             {props.attendees && props.attendees.map(attendee => 
                 <li key={attendee.id}>
                     <Link to={`/trips/${props.trip.id}/attendees/${attendee.name}`}  attendee={attendee} trip={attendee.trip} >{attendee.name}</Link>
                     {/* <button onClick={() => handleDelete(attendee)}>Delete</button> */}
-                    {/* <Attendee handleDelete={props.handleDelete} key={attendee.id} attendee={attendee}  /> */}
+                    {/* <Attendee handleDelete={props.handleDelete} key={attendee.id} attendee={attendee}  /> */}                    
                 </li>
             )} 
-            <AttendeeInput />
+            <AttendeeInput trip={props.trip} />
         </div>
     )
 }

@@ -22,7 +22,7 @@ class AttendeesContainer extends Component {
 
     
     render() {
-        // console.log(this.props.trip.id, 'props in attendCont') //=> gives you the full trip details //{this.props.trip.attendees.map(att => att.name)}
+        console.log(this.props.trip.id, 'props in attendCont') //=> gives you the full trip details //{this.props.trip.attendees.map(att => att.name)}
 
         let tripID = this.props && this.props.trip.id //=2
 
@@ -35,8 +35,9 @@ class AttendeesContainer extends Component {
                 {/* <AttendeeInput /> */}
                 <Switch>
                     {/*<Attendees attendees={this.props.trip.attendees} /> */}   {/* here we're sending the state/data as props to the component */}
-                    <Route path={`/trips/${tripID}/attendees/new`} component={AttendeeInput} />
-                    <Route path={`/trips/${tripID}/attendees/:name`} render={ (routerProps) => <Attendee {...routerProps} attendees={this.props.trip.attendees}  trip={this.props.trip}     /> } />
+                    {/* <Route path={`/trips/${tripID}/attendees/new`} render={ (routerProps) => <AttendeeInput {...routerProps} attendees={this.props.trip.attendees}  trip={this.props.trip}   /> }  /> */}
+                    <Route path={`/trips/${tripID}/attendees/new`} component={(routerProps) => <AttendeeInput/>} trip={this.props.trip}  />
+                    <Route path={`/trips/${tripID}/attendees/:name`} render={ (routerProps) => <Attendee {...routerProps} attendees={this.props.trip.attendees}  trip={this.props.trip}   /> } />
                     <Route path={`/trips/${tripID}/attendees`} render={ (routerProps) => <Attendees {...routerProps} attendees={this.props.trip.attendees}  trip={this.props.trip} /> } />            
                 </Switch>
             </div>

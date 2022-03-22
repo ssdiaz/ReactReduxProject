@@ -8,11 +8,11 @@ import { deleteAttendee } from '../../actions/Attendee/deleteAttendee';
 
 // function Attendee(props) {
 const Attendee = (props) => {
-    // console.log(props.attendees, 'props in ATTENDEE, props.attendees')
-    // console.log(props.match.params.name, 'match')
+    // console.log(props.attendees, 'props in ATTENDEE, props.attendees') //==> Sam
+    // console.log(props, 'props in ATTENDEE, props.attendees') //==> Sam
+    // console.log(props.match.params.name, 'match') //=> Sam (clicked)
 
     const findAttendee = (props) => {
-        // console.log(props.attendees.find(attendee => attendee.id == props.match.params.id), 'um this???')
         return(
             props.attendees && props.attendees.find(attendee => attendee.name == props.match.params.name) //I switched this to name instead of id
         )
@@ -51,6 +51,21 @@ const Attendee = (props) => {
 
 
 export default connect(null, {deleteAttendee})(Attendee);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

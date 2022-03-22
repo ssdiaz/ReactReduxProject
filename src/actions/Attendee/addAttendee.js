@@ -1,21 +1,25 @@
 
 
-export const addAttendee = (formStateData) => { //data comes from the state of the form
+export const addAttendee = (stateFormData, tripID) => { //data comes from the state of the form
+
+   
 
     return (dispatch) => {
-        fetch('http://localhost:3000/api/v1/attendees', {
+        // fetch(`http://localhost:3000/api/v1/attendees`, {
+        fetch(`http://localhost:3000/api/v1/trips/${tripID}/attendees`, {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             } ,    
             method: 'POST',
-            body: JSON.stringify(formStateData)
+            body: JSON.stringify(stateFormData)
         })
         .then(response => response.json()) //response here is the return value of the fetch request
         .then(attendee => {                
             if (attendee.error){
                 alert(attendee.error)
             } else {
+                alert('Attendee Added')
                 return dispatch({type: 'ADD_ATTENDEE', payload: attendee}) 
             }
         })  

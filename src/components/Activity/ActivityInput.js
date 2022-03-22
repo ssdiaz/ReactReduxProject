@@ -13,7 +13,8 @@ class ActivityInput extends Component {
         includeInTotal: true,
         comment: "",
         day: "",
-        time: ""
+        time: "",
+        trip_id: null
     }
 
     handleChange = event => {
@@ -34,7 +35,8 @@ class ActivityInput extends Component {
             includeInTotal: true,
             comment: "",
             day: "",
-            time: ""
+            time: "",
+            trip_id: null,
         }
     }
 
