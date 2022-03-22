@@ -1,6 +1,7 @@
 
 
-export default function activityReducer(state = {activities: []}, action) {
+export function activityReducer(state = {activities: []}, action) {
+// export default function activityReducer(state = {activities: []}, action) {
     // console.log(state, ' -> in activities Reducer')
     // console.log(action.payload, 'activies ACTION.PAYLOAD activitiesReducer')
 

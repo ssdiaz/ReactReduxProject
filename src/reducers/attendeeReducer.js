@@ -2,14 +2,15 @@
 // a reducer is really just a function (25 mins Part 4)
 // default state is really only used the first time, previosutState is used after
 
-export default function attendeeReducer(state = {attendees: []}, action) {
+export function attendeeReducer(state = {attendees: []}, action) {
+// export default function attendeeReducer(state = {attendees: []}, action) {
     // console.log(state, "-> state in attendeeReducer")
     // console.log(action, "-> action in attendeeReducer")
     // console.log(action.payload, "-> action.payload in attendeeReducer")
     // console.log(state.attendeees, "-> state.attendeees")
     // console.log(state, "-> state")
 
-    console.log(action);
+    // console.log(action);
     switch (action.type) {
         case 'FETCH_ATTENDEES':
             // return [state.attendees: action.payload]

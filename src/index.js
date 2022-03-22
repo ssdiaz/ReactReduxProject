@@ -13,13 +13,14 @@ import { Provider } from 'react-redux';           // set up our store & app conn
 import { BrowserRouter as Router } from 'react-router-dom'; //to use Router in App // import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import App from './App';
-import attendeeReducer from './reducers/attendeeReducer';         // import our Reducers    // import rootReducer from "./reducers"
-import activityReducer from './reducers/activityReducer';
-
+import { attendeeReducer } from './reducers/attendeeReducer';         // import our Reducers    // import rootReducer from "./reducers"
+import { activityReducer } from './reducers/activityReducer';
+import { tripReducer } from './reducers/tripReducer';
 
 const rootReducer = combineReducers({         //dispatch to reducers (send actions to our reducers; reducers return new version of our store)
   attendeeReducer,
-  activityReducer
+  activityReducer, 
+  tripReducer
 });
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore( rootReducer,  composeEnhancers( applyMiddleware(thunk) ) );     //store: stores data globally

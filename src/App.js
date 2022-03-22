@@ -4,6 +4,7 @@ import React from 'react';
 import AttendeesContainer from './containers/AttendeesContainer';
 import ActivitiesContainer from './containers/ActivitiesContainer';
 import NavBar from './components/NavBar';
+import TripsContainer from './containers/TripsContainer';
 
 class App extends React.Component {
 
@@ -18,7 +19,7 @@ class App extends React.Component {
 
         <AttendeesContainer />
         <ActivitiesContainer />
-
+        <TripsContainer />
         
 
 
