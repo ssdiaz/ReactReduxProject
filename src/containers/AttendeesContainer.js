@@ -22,7 +22,7 @@ class AttendeesContainer extends Component {
 
     
     render() {
-        console.log(this.props.trip.id, 'props in attendCont') //=> gives you the full trip details //{this.props.trip.attendees.map(att => att.name)}
+        // console.log(this.props.trip.id, 'props in attendCont') //=> gives you the full trip details //{this.props.trip.attendees.map(att => att.name)}
 
         let tripID = this.props && this.props.trip.id //=2
 

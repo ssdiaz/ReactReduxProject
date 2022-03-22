@@ -17,6 +17,7 @@ class TripsContainer extends Component {
             <div>
 
                 <h3>Trip Details:</h3>
+
                 {this.props.trips.map( (trip, index) => 
                     <div>
                         <h4>Trip {index+1}:</h4>

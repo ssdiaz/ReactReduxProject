@@ -9,7 +9,7 @@ import { deleteAttendee } from '../../actions/Attendee/deleteAttendee';
 // function Attendee(props) {
 const Attendee = (props) => {
     // console.log(props.attendees, 'props in ATTENDEE, props.attendees') //==> Sam
-    // console.log(props, 'props in ATTENDEE, props.attendees') //==> Sam
+    console.log(props, 'props in ATTENDEE, props.attendees') //==> Sam
     // console.log(props.match.params.name, 'match') //=> Sam (clicked)
 
     const findAttendee = (props) => {
@@ -21,7 +21,7 @@ const Attendee = (props) => {
     let attendee = findAttendee(props)
    
     const handleDelete = (attendee) => {
-        props.deleteAttendee(attendee.id) //not this.props here because it's a functinal component
+        props.deleteAttendee(attendee.id, props.trip.id) //not this.props here because it's a functinal component
         props.history.push('/attendees'); //https://stackoverflow.com/questions/44522811/how-to-redirect-to-home-page-after-submitting-redux-form
         // this.setState({});
     }
