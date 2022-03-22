@@ -7,21 +7,20 @@ import { addAttendee } from '../../actions/Attendee/addAttendee';
 class AttendeeInput extends Component {
 
     //NOTE: you're gonna wanna keep this in redux bc youre using the same form to create new and to edit...
-    // constructor(props) {
-        // super(props)
-        state = {   
+    constructor(props) {
+        super(props)
+        this.state = {   
             name: '',
-            phone: '',
+            phone: '1111111111',
             status: '',
             notes: '',
-            relationship: '',
+            relationship: 'Bride',
             lodgingBudget: null,
             eventsBudget: null,
         }
-    // }
+    }
 
-
-    handleChange = event => {
+    handleChange = (event) => {
         // debugger
         this.setState({ //setState is asynchrounus - won't clear out state until rest of function has ran
             [event.target.name]: event.target.value
@@ -41,6 +40,7 @@ class AttendeeInput extends Component {
             lodgingBudget: null,
             eventsBudget: null,
         })
+        // this.props.history.push('/attendees'); //https://stackoverflow.com/questions/44522811/how-to-redirect-to-home-page-after-submitting-redux-form
     }
 
     //uncontrolled comonent

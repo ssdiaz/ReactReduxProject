@@ -2,7 +2,9 @@
 //stateless named function skeleton
 
 import React from 'react';
-import { Redirect } from 'react-router-dom'
+// import { Redirect } from 'react-router-dom'
+import { connect } from 'react-redux';
+import { deleteAttendee } from '../../actions/Attendee/deleteAttendee';
 
 // function Attendee(props) {
 const Attendee = (props) => {
@@ -26,6 +28,13 @@ const Attendee = (props) => {
     let attendee = findAttendee(props)
    
 
+    const handleDelete = (attendee) => {
+        props.deleteAttendee(attendee.id) //not this.props here because it's a functinal component
+        props.history.push('/attendees'); //https://stackoverflow.com/questions/44522811/how-to-redirect-to-home-page-after-submitting-redux-form
+        // this.setState({});
+    }
+    
+
     const attendeeDetails = () => {
         return(
             <div>
@@ -36,6 +45,7 @@ const Attendee = (props) => {
                 <li>Relationship: {attendee.relationship}</li> 
                 <li>Lodging Budget: {attendee.lodgingBudget} </li>
                 <li>Events Budget: {attendee.eventsBudget}</li> 
+                <button onClick={() => handleDelete(attendee)}>Delete</button>
             </div>
         )
     }
@@ -48,5 +58,25 @@ const Attendee = (props) => {
     );
 }
 
-export default Attendee;
+
+const mapStateToProps = state => { 
+    console.log(state.attendeeReducer.attendees, 'state')
+
+    return {
+        attendees: state.attendeeReducer.attendees
+    }
+}
+
+
+// export default Attendee;
+export default connect(mapStateToProps, {deleteAttendee})(Attendee);
+
+
+
+
+
+
+
+
+
 

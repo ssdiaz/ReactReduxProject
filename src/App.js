@@ -1,64 +1,48 @@
-// import logo from './logo.svg';
-// import './App.css';
-// import React, { Component } from 'react';
+//App.js => the root component of the react app
 
 import React from 'react';
-// import { connect } from 'react-redux';
 import AttendeesContainer from './containers/AttendeesContainer';
 import ActivitiesContainer from './containers/ActivitiesContainer';
-// import { fetchAttendees } from './actions/fetchAttendees';
-
-
-
+import NavBar from './components/NavBar';
 
 class App extends React.Component {
-
-  // componentDidMount() { //note: fetch request defaults to GET so you dont need the second part
-  //   // this.props.fetchAttendees()
-  //   // this.props.fetchAttendees({type: 'FETCH_ATTENDEES', payload: {name: 'Sami'}})
-  // }
 
   render() {
     return (
       <div className="App">
-        <h1>App Container</h1>
+        <h1>BACHELORETTE PLANNER</h1>
+
+        <NavBar />
+
+        {/* <h1>BACHELORETTE PLANNER</h1> */}
 
         <AttendeesContainer />
         <ActivitiesContainer />
+
+        
+
+
       </div>
     );
   }
 }
 
-// const mapStateToProps = (state) => {
-//   //mapStateToProps - accessing values in our store as props so we can use this.props.___ in our App component
-//   // for SEEING what's in our store
-//   return {
-//     attendees: state.attendees
-//   }
-// }
+export default App;
 
-// mapDispatch allows us to update our store; dispatch new actions to our store directly from the above component
-// return value of mapStateToProps is coming from our store
-// const mapDispatchToProps = action => {
-//   //for adding a value to our store
-//   return{
-//   }
-// }
-
-
-// export default App;
-// connect - allows access to a particular part of our store; connects our redux store to the component in between Provider
-
-// export default connect(mapStateToProps, mapDispatchToProps)(App);
-//NOTE: instead of mapDispatchToProps, you can pass in an action creator 
-
+//NOTE - APP is not currently connected to our Redux store!
 // export default connect(null, {fetchAttendees})(App);
   // this connect is automatically calling dispatch for us on the return value of fetchAccounts.
   // thunk allows us to call dispatch inside the action creator to allow it to wait for the action dispatch to finish before we dispatch anything to our reducer
-//NOTE - APP is not currently connected to our Redux store!
- 
-export default App;
+  
+
+
+
+
+
+
+
+
+
 
 
 
@@ -154,3 +138,86 @@ export default App;
   //     console.log(data)
   //   })  //data here is the return value above (which is the fetch return in json form)
   // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//   //App.js => the root component of the react app
+
+// // import logo from './logo.svg';
+// // import './App.css';
+// // import React, { Component } from 'react';
+
+// import React from 'react';
+// // import { connect } from 'react-redux';
+// import AttendeesContainer from './containers/AttendeesContainer';
+// import ActivitiesContainer from './containers/ActivitiesContainer';
+// // import { fetchAttendees } from './actions/fetchAttendees';
+
+// import NavBar from './components/NavBar';
+
+
+
+
+// class App extends React.Component {
+
+//   // componentDidMount() { //note: fetch request defaults to GET so you dont need the second part
+//   //   // this.props.fetchAttendees()
+//   //   // this.props.fetchAttendees({type: 'FETCH_ATTENDEES', payload: {name: 'Sami'}})
+//   // }
+
+//   render() {
+//     return (
+//       <div className="App">
+
+//         <NavBar />
+//         <h1>App Container</h1>
+
+//         <AttendeesContainer />
+//         <ActivitiesContainer />
+//       </div>
+//     );
+//   }
+// }
+
+// // const mapStateToProps = (state) => {
+// //   //mapStateToProps - accessing values in our store as props so we can use this.props.___ in our App component
+// //   // for SEEING what's in our store
+// //   return {
+// //     attendees: state.attendees
+// //   }
+// // }
+
+// // mapDispatch allows us to update our store; dispatch new actions to our store directly from the above component
+// // return value of mapStateToProps is coming from our store
+// // const mapDispatchToProps = action => {
+// //   //for adding a value to our store
+// //   return{
+// //   }
+// // }
+
+
+// // export default App;
+// // connect - allows access to a particular part of our store; connects our redux store to the component in between Provider
+
+// // export default connect(mapStateToProps, mapDispatchToProps)(App);
+// //NOTE: instead of mapDispatchToProps, you can pass in an action creator 
+
+// // export default connect(null, {fetchAttendees})(App);
+//   // this connect is automatically calling dispatch for us on the return value of fetchAccounts.
+//   // thunk allows us to call dispatch inside the action creator to allow it to wait for the action dispatch to finish before we dispatch anything to our reducer
+// //NOTE - APP is not currently connected to our Redux store!
+ 
+// export default App;
