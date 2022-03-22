@@ -14,46 +14,46 @@ class AttendeesContainer extends Component {
 
     // when this component mounts, we have to make that connection to the backend; use compnentDidMounts to make connection to backend anytime the component refreshes/changes
     // when you refreash, redux/react will not hold the states, so you lose your data if you don't call the below
-    componentDidMount() {
-        this.props.fetchAttendees() //returns the attendees array
-    }
+    // componentDidMount() {
+    //     this.props.fetchAttendees() //returns the attendees array
+    //     console.log(trip, 'props attCont')
+    // }
+
+
     
     render() {
+        // console.log(this.props.trip.id, 'props in attendCont') //=> gives you the full trip details //{this.props.trip.attendees.map(att => att.name)}
+
+        let tripID = this.props && this.props.trip.id //=2
+
 
         return(
             <div>
                 {/* <h2>Attendees Container</h2> */}
-
-                <h3><Link to='/attendees' style={{paddingRight: '10px'}} >Manage Attendees</Link></h3>
+                <h3><Link to={`/trips/${tripID}/attendees`} style={{paddingRight: '10px'}} >Manage Attendees</Link></h3>
 
                 {/* <AttendeeInput /> */}
                 <Switch>
-                    {/*<Attendees attendees={this.props.attendees} /> */}   {/* here we're sending the state/data as props to the component */}
-                    <Route path='/attendees/new' component={AttendeeInput} />
-                    <Route path='/attendees/:id' render={ (routerProps) => <Attendee {...routerProps} attendees={this.props.attendees}       /> } />
-                    <Route path='/attendees' render={ (routerProps) => <Attendees {...routerProps} attendees={this.props.attendees} /> } />            
+                    {/*<Attendees attendees={this.props.trip.attendees} /> */}   {/* here we're sending the state/data as props to the component */}
+                    <Route path={`/trips/${tripID}/attendees/new`} component={AttendeeInput} />
+                    <Route path={`/trips/${tripID}/attendees/:name`} render={ (routerProps) => <Attendee {...routerProps} attendees={this.props.trip.attendees}  trip={this.props.trip}     /> } />
+                    <Route path={`/trips/${tripID}/attendees`} render={ (routerProps) => <Attendees {...routerProps} attendees={this.props.trip.attendees}  trip={this.props.trip} /> } />            
                 </Switch>
             </div>
         )
     }
-// Switch Notes - first route that matches that path; chooses first route that mateches that path; order matters! 
-
 }
 
-const mapStateToProps = state => { //state from our Redux store
-    return {
-        attendees: state.attendeeReducer.attendees
-    }
-}
+// const mapStateToProps = state => { //state from our Redux store
+//     console.log(state.tripReducer.trips, 'state')
+//     return {
+//         // attendees: state.attendeeReducer.attendees
+//         // attendees: state.tripReducer.trips.attendees
+//         // attendees: state.tripReducer.trips.attendees
+//     }
+// }
 
-export default connect(mapStateToProps, {fetchAttendees})(AttendeesContainer);
-
-
-//Routes overview [[in return()]]
-    //  render above takes in a function/regular component syntax, whereas component just points to a component (can't pass props with component) 
-    // the components are no longer rendering directly; they render on the condition of the URLs
-
-
+export default AttendeesContainer;
 
 
 

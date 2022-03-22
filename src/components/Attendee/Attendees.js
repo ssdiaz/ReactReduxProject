@@ -17,12 +17,14 @@ const Attendees = (props) => {
     //     // this.setState({ state: props });
     // }
     
+    console.log(props.attendees, 'props in attendees') //=> attendees array
+    // console.log(props.attendees, 'props') //=> attendees array
     
     return(        
         <div>
             {props.attendees && props.attendees.map(attendee => 
                 <li key={attendee.id}>
-                    <Link to={`/attendees/${attendee.id}`}  attendee={attendee}    >{attendee.name}</Link>
+                    <Link to={`/trips/${props.trip.id}/attendees/${attendee.name}`}  attendee={attendee} trip={attendee.trip} >{attendee.name}</Link>
                     {/* <button onClick={() => handleDelete(attendee)}>Delete</button> */}
                     {/* <Attendee handleDelete={props.handleDelete} key={attendee.id} attendee={attendee}  /> */}
                 </li>
@@ -31,7 +33,7 @@ const Attendees = (props) => {
         </div>
     )
 }
-
+//http://localhost:3000/api/v1/trips/2/attendees/68
 
 
 

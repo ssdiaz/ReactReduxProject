@@ -8,7 +8,7 @@ class TripsContainer extends Component {
 
     componentDidMount() {
         this.props.fetchTrips() 
-        console.log(this.props)
+        // console.log(this.props, 'props?')
     }
 
 
@@ -24,19 +24,21 @@ class TripsContainer extends Component {
                             <li>Location: {trip.location}</li>
                             <li>Start Date: {trip.start_date}</li>
                             <li>End Date: {trip.end_date}</li>
+                            {/* <li>attendee {trip.attendees.map(att => att.name)}</li> */}
+                            <AttendeesContainer trip={trip} />
                         </ul>
                     </div>
                 )}
 
-                <AttendeesContainer />
-                <ActivitiesContainer />
-                
+                {/* <ActivitiesContainer /> */}
+
             </div>
         );
     }
 }
 
 const mapStateToProps = state => { 
+    // console.log(state, 'state!')
     // console.log(state.tripReducer.trips.length, 'state!')
     return {
         trips: state.tripReducer.trips
