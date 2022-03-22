@@ -1,8 +1,8 @@
 //App.js => the root component of the react app
 
 import React from 'react';
-import AttendeesContainer from './containers/AttendeesContainer';
-import ActivitiesContainer from './containers/ActivitiesContainer';
+// import AttendeesContainer from './containers/AttendeesContainer';
+// import ActivitiesContainer from './containers/ActivitiesContainer';
 import NavBar from './components/NavBar';
 import TripsContainer from './containers/TripsContainer';
 
@@ -17,8 +17,8 @@ class App extends React.Component {
 
         {/* <h1>BACHELORETTE PLANNER</h1> */}
 
-        <AttendeesContainer />
-        <ActivitiesContainer />
+        {/* <AttendeesContainer />
+        <ActivitiesContainer /> */}
         <TripsContainer />
         
 
