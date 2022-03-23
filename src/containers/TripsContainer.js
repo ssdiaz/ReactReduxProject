@@ -1,39 +1,37 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchTrips } from '../actions/Trips/fetchTrips';
-import AttendeesContainer from '../containers/AttendeesContainer';
-import ActivitiesContainer from '../containers/ActivitiesContainer';
+
 // import { updateAttendees } from '../actions/Attendee/updateAttendees';
+import Trips from '../components/Trip/Trips';
+import Trip from '../components/Trip/Trip';
+import NavBar from '../components/NavBar'
+import {Route, Switch} from 'react-router-dom'
+
 
 class TripsContainer extends Component {
 
     componentDidMount() {
         this.props.fetchTrips() 
-        console.log(this.props, 'props?')
+        // console.log(this.props, 'props?')
     }
 
 
     render() {
+        // console.log(this.props.trips, 'props? trips arrays')
+        // console.log(this.props, 'props?')
+
         return (
             <div>
+                <NavBar />
+                <Switch>
+                    {/* <Route path='/trips/new' /> */}
+                    {/* <Route path='/trips/new' component={AccountInput}/> */}
+                    <Route path='/trips/:id' render={(routerProps) => <Trip {...routerProps} trips={this.props.trips}/>}/>
+                    <Route path='/trips' render={(routerProps) => <Trips {...routerProps} trips={this.props.trips}/>}/>
+                </Switch>
 
-                <h3>Trip Details:</h3>
-
-                {this.props.trips.map( (trip, index) => 
-                    <div>
-                        <h4>Trip {index+1}:</h4>
-                        <ul key={trip.id}>
-                            <li>Location: {trip.location}</li>
-                            <li>Start Date: {trip.start_date}</li>
-                            <li>End Date: {trip.end_date}</li>
-                            {/* <li>attendee {trip.attendees.map(att => att.name)}</li> */}
-                            <AttendeesContainer trip={trip} />
-                        </ul>
-                    </div>
-                )}
-
-                {/* <ActivitiesContainer /> */}
-
+                TRIPS CONTAINER
             </div>
         );
     }
@@ -42,7 +40,7 @@ class TripsContainer extends Component {
 const mapStateToProps = state => { 
     // console.log(state, 'state!')
     // console.log(state.tripReducer.trips.length, 'state!')
-    console.log(state.tripReducer.trips, 'state! trip')
+    // console.log(state.tripReducer.trips, 'state! trip')
     return {
         trips: state.tripReducer.trips
         // attendees: state.tripReducer.trips

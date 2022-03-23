@@ -19,7 +19,7 @@ import { tripReducer } from './reducers/tripReducer';
 
 const rootReducer = combineReducers({         //dispatch to reducers (send actions to our reducers; reducers return new version of our store)
   attendeeReducer,
-  // activityReducer, 
+  activityReducer, 
   tripReducer
 });
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

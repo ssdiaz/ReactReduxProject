@@ -13,7 +13,7 @@ class App extends React.Component {
       <div className="App">
         <h1>BACHELORETTE PLANNER</h1>
 
-        <NavBar />
+        {/* <NavBar /> */}
 
         {/* <h1>BACHELORETTE PLANNER</h1> */}
 

@@ -15,6 +15,8 @@ export function attendeeReducer(state = {attendees: []}, action) {
     // console.log(action.payload, 'action.payload in attRed');
     console.log(state, 'state in attendeeReducer (pre)')
 
+    let indx;
+
     switch (action.type) {
         case 'UPDATE_ATTENDEES':
             // console.log(state, 'state IN UPDAT_ATT') //=> NO WE'R'E SETTING STATE HERE ..............THIS IS MY ISSUE!!!!!!!!!!!!!!!!!!!!!!! why isnt htis updating
@@ -39,24 +41,29 @@ export function attendeeReducer(state = {attendees: []}, action) {
             // }
   
         case 'DELETE_ATTENDEE':
-            // console.log(state.attendees, 'delete pre state.attendees')
-
-            let attendeesList = state.attendees.map(attendee => {
-                if (attendee.id === action.payload.id) {
-                    return action.payload
-                } else {
-                    return attendee
-                }
-            })
-            // let attendeesList = state.attendees.filter(attendee => attendee.id !== action.payload.id)
-            console.log(attendeesList, 'attendeesList')
+            console.log(state.attendees, 'delete pre state.attendees')
             console.log(action.payload, 'action.payload')
 
-            return { 
-                // attendees: state.attendees.filter(attendee => attendee.id !== action.payload)
-                // attendees: state.attendees.filter(attendee => attendee.id !== action.payload.id)
-                ...state, attendees: attendeesList
-            }
+            indx = state.attendees.findIndex( attendee => attendee.id === action.payload.id)
+
+            console.log(indx) //=>3
+
+            return [...state.attendees.slice(0,indx), ...state.attendees.slice(indx +1)]
+            // let attendeesList = state.attendees.map(attendee => {
+            //     if (attendee.id === action.payload.id) {
+            //         return action.payload
+            //     } else {
+            //         return attendee
+            //     }
+            // })
+            // // let attendeesList = state.attendees.filter(attendee => attendee.id !== action.payload.id)
+            // console.log(attendeesList, 'attendeesList')
+
+            // return { 
+            //     // attendees: state.attendees.filter(attendee => attendee.id !== action.payload)
+            //     // attendees: state.attendees.filter(attendee => attendee.id !== action.payload.id)
+            //     ...state, attendees: attendeesList
+            // }
         default:
             return state;
     }

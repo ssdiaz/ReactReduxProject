@@ -1,37 +1,29 @@
 import React from 'react';
-
 import { Route, Link } from 'react-router-dom'
 
-import { connect } from 'react-redux';
-import { deleteAttendee } from '../../actions/Attendee/deleteAttendee';
-import AttendeeInput from './AttendeeInput';
-import Attendee from './Attendee';
-import { Redirect } from 'react-router-dom'
+// import { connect } from 'react-redux';
+
+// import AttendeeInput from './AttendeeInput';
+// import Attendee from './Attendee';
+// import { Redirect } from 'react-router-dom'
 
 
 const Attendees = (props) => {                
  
-    // const handleDelete = (attendee) => {
-    //     props.deleteAttendee(attendee.id) //not this.props here because it's a functinal component
-    //     // props.history.push('/attendees'); //https://stackoverflow.com/questions/44522811/how-to-redirect-to-home-page-after-submitting-redux-form
-    //     // this.setState({ state: props });
-    // }
-    
-    // console.log(props.attendees, 'props in attendees') //=> attendees array
-    // console.log(props.attendees, 'props') //=> attendees array
-    // console.log(props,'props in findAtt')
-    
+    console.log(props.attendees,'props.attendees in Attendees')    
 
     return(        
         <div>
+            <h3>Attendees</h3>
             {props.attendees && props.attendees.map(attendee => 
-                <li key={attendee.id}>
-                    <Link to={`/trips/${props.trip.id}/attendees/${attendee.name}`}  attendee={attendee} trip={attendee.trip} >{attendee.name}</Link>
-                    {/* <button onClick={() => handleDelete(attendee)}>Delete</button> */}
-                    {/* <Attendee handleDelete={props.handleDelete} key={attendee.id} attendee={attendee}  /> */}                    
-                </li>
+                 <li key={attendee.id}>
+                     <Link to={`/trips/${attendee.trip_id}/attendees/${attendee.name}`}  attendee={attendee} trip={attendee.trip_id} >{attendee.name}</Link>
+
+                     {/* <Attendee handleDelete={props.handleDelete} key={attendee.id} attendee={attendee}  />               */}
+                 </li>          
             )} 
-            <AttendeeInput trip={props.trip} />
+            {/* <h3><Link to={`/trips/${tripID}/attendees`} style={{paddingRight: '10px'}}   >Manage Attendees</Link></h3>  */}
+            {/* <AttendeeInput trip={props.trip} /> */}
         </div>
     )
 }
@@ -40,7 +32,8 @@ const Attendees = (props) => {
 
 
 // export default connect(null, {deleteAttendee})(Attendees);
-export default connect()(Attendees);
+// export default connect()(Attendees);
+export default Attendees;
 
 
 

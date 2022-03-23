@@ -12,15 +12,17 @@ import { Route, Switch, Link } from 'react-router-dom'
 import { updateAttendees } from '../actions/Attendee/updateAttendees';
 
 class AttendeesContainer extends Component {
-
+    
     componentDidMount() {
-        let attendeees = this.props.trip.attendees
+        let attendees = this.props.trip.attendees
+        // let attendeees = this.props
         // console.log(attendeees, 'attendees in mount')
-        this.props.updateAttendees(attendeees) 
+        this.props.updateAttendees(attendees) 
     }
 
     
     render() {
+        console.log(this.props.trip.attendees, 'props in attendCont sending as attendees') //=> gives you the full trip details //{this.props.trip.attendees.map(att => att.name)}
         // console.log(this.props.trip.id, 'props in attendCont') //=> gives you the full trip details //{this.props.trip.attendees.map(att => att.name)}
         
         let tripID = this.props && this.props.trip.id //=2
@@ -28,14 +30,14 @@ class AttendeesContainer extends Component {
 
         return(
             <div>
-                {/* <h2>Attendees Container</h2> */}
-                <h3><Link to={`/trips/${tripID}/attendees`} style={{paddingRight: '10px'}}  onClick={() => window.location.reload()} >Manage Attendees</Link></h3>
-
+                                
+                <Attendees attendees={this.props.trip.attendees} />   {/*  here we're sending the state/data as props to the component */}
                 {/* <AttendeeInput /> */}
+
+                
                 <Switch>
-                    {/*<Attendees attendees={this.props.trip.attendees} /> */}   {/* here we're sending the state/data as props to the component */}
-                    {/* <Route path={`/trips/${tripID}/attendees/new`} render={ (routerProps) => <AttendeeInput {...routerProps} attendees={this.props.trip.attendees}  trip={this.props.trip}   /> }  /> */}
-                    <Route path={`/trips/${tripID}/attendees/new`} component={(routerProps) => <AttendeeInput/>} trip={this.props.trip}  />
+                     {/* <Route path={`/trips/${tripID}/attendees/new`} render={ (routerProps) => <AttendeeInput {...routerProps} attendees={this.props.trip.attendees}  trip={this.props.trip}   /> }  />  */}
+                     <Route path={`/trips/${tripID}/attendees/new`} component={(routerProps) => <AttendeeInput/>} trip={this.props.trip}  />
                     <Route path={`/trips/${tripID}/attendees/:name`} render={ (routerProps) => <Attendee {...routerProps} attendees={this.props.trip.attendees}  trip={this.props.trip}   /> } />
                     <Route path={`/trips/${tripID}/attendees`} render={ (routerProps) => <Attendees {...routerProps} attendees={this.props.trip.attendees}  trip={this.props.trip} /> } />            
                 </Switch>
@@ -45,13 +47,13 @@ class AttendeesContainer extends Component {
 }
 
 const mapStateToProps = (state, props) => { //state from our Redux store
-    console.log(state, 'state in attCont')
+    // console.log(state, 'state in attCont')
     // console.log(props.trip.attendees, '?')
 
     return {
         // attendees: state.attendeeReducer.attendees
         // attendees: state.tripReducer.trips.attendees
-        // ...state,
+        ...state,
         attendees: props.trip.attendees
     }
 }
