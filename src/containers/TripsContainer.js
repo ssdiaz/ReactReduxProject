@@ -11,6 +11,17 @@ import TripInput from '../components/Trip/TripInput';
 
 class TripsContainer extends React.Component {
 
+    state = {   //local state
+        displayTripInput: false
+    }
+
+    displayTripInput = () => {
+        this.setState({
+            displayTripInput: !this.state.displayTripInput
+        })
+    }
+
+
     componentDidMount() {
         this.props.fetchTrips() 
         // console.log(this.props, 'props?')
@@ -31,7 +42,10 @@ class TripsContainer extends React.Component {
 
                 TRIPS CONTAINER
                 <Trips trips={this.props.trips} /> 
-                <TripInput />
+
+                <button onClick={this.displayTripInput}>Add Trip</button>   
+                {this.state.displayTripInput == true ? <TripInput /> :  null }  {/* to edit an attendee!! click!!!!! */}
+           
             </div>
         );
     }
