@@ -16,7 +16,7 @@ class AttendeeInput extends Component {                                         
             relationship: 'Attendee',
             lodgingBudget: null,
             eventsBudget: null,
-            trip_id: props.trip.id,
+            // trip_id: props.trip.id,
         }
     }
 

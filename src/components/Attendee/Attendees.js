@@ -3,31 +3,37 @@ import { Route, Link } from 'react-router-dom'
 
 // import { connect } from 'react-redux';
 
-// import AttendeeInput from './AttendeeInput';
+import AttendeeInput from './AttendeeInput';
 // import Attendee from './Attendee';
 // import { Redirect } from 'react-router-dom'
 
 
 const Attendees = (props) => {                
  
-    console.log(props.attendees,'props.attendees in Attendees')    
+    console.log(props.attendees,'props.attendees in Attendees')    //=> trips & attendees
 
     return(        
         <div>
             <h3>Attendees</h3>
             {props.attendees && props.attendees.map(attendee => 
                  <li key={attendee.id}>
-                     <Link to={`/trips/${attendee.trip_id}/attendees/${attendee.name}`}  attendee={attendee} trip={attendee.trip_id} >{attendee.name}</Link>
+                     <Link to={`/trips/${attendee.trip_id}/attendees/${attendee.name}`}  attendee={attendee} >{attendee.name}</Link>
 
                      {/* <Attendee handleDelete={props.handleDelete} key={attendee.id} attendee={attendee}  />               */}
                  </li>          
             )} 
-            {/* <h3><Link to={`/trips/${tripID}/attendees`} style={{paddingRight: '10px'}}   >Manage Attendees</Link></h3>  */}
+            
+            <Link to={`/trips/${props.trip.id}/attendees/new`}  style={{paddingRight: '10px'}} >Add Attendee</Link>
+
+            {/* <Route path={`/trips/${tripID}/attendees/new`} component={(routerProps) => <AttendeeInput/>} trip={this.props.trip}  /> */}
             {/* <AttendeeInput trip={props.trip} /> */}
+            {/* <AttendeeInput /> */}
         </div>
     )
 }
 //http://localhost:3000/api/v1/trips/2/attendees/68
+
+
 
 
 

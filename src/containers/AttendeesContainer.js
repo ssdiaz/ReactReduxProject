@@ -31,7 +31,7 @@ class AttendeesContainer extends Component {
         return(
             <div>
                                 
-                <Attendees attendees={this.props.trip.attendees} />   {/*  here we're sending the state/data as props to the component */}
+                <Attendees attendees={this.props.trip.attendees} trip={this.props.trip} />   {/*  here we're sending the state/data as props to the component */}
                 {/* <AttendeeInput /> */}
 
                 
