@@ -1,32 +1,48 @@
 import React from 'react'
 import {Route, Link} from 'react-router-dom'
 import AttendeesContainer from '../../containers/AttendeesContainer'
-// import Trip from './Trip'
+import Trip from './Trip'
 // import AttendeeInput from '../Attendee/AttendeeInput'
 // import ActivityInput from '../Activity/ActivityInput'
+import TripInput from './TripInput'
+import { connect } from 'react-redux'
 
-
-const Trips = (props) => {
+class Trips extends React.Component {
     
-    console.log(props.trips, 'props in trips')
+    state = {   //local state
+        displayTripInput: false
+    }
 
-    return (
-    <div>
-            <h3>Trip Details:</h3>
-            
-            {props.trips && props.trips.map( (trip, index) => 
-                <div>
+    displayTripInput = () => {
+        this.setState({
+            ...this.state,
+            displayTripInput: !this.state.displayTripInput
+        })
+    }
+    
+    // console.log(props.trips, 'props in trips')
 
-                    <ul key={trip.id}>
-                        <li>Location: {trip.location}</li>
-                        <li>Start Date: {trip.start_date}</li>
-                        <li>End Date: {trip.end_date}</li>
-                    </ul>
-                </div>
-            )} 
-    </div>
+    render() {
 
-  )
+        return (
+            <div>
+                <h3>Trip Details:</h3>
+                
+                {this.props.trips && this.props.trips.map( trip => 
+                    <div>
+                        <Trip trip={trip} />
+
+                    </div>
+                )} 
+
+                <button onClick={this.displayTripInput}>Add Trip</button>   
+                {this.state.displayTripInput == true ? <TripInput /> :  null }
+
+
+
+            </div>
+        )
+    }
 }
 
-export default Trips
+export default connect()(Trips)
