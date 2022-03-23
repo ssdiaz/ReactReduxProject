@@ -38,13 +38,13 @@ class TripsContainer extends React.Component {
 }
 
 const mapStateToProps = state => { 
-    console.log(state.trips, 'state!')
+    console.log(state.trips, 'state!!')
     // console.log(state.trips.trips, 'state.trips!')
     // console.log(state.tripReducer.trips.length, 'state!')
     // console.log(state.tripReducer.trips, 'state! trip')
     return {
-        // trips: state.tripReducer.trips
-        trips: state.trips
+        trips: state.tripReducer.trips
+        // trips: state.trips
         // attendees: state.tripReducer.trips
     }
 }

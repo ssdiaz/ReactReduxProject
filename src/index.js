@@ -17,6 +17,11 @@ import { attendeeReducer } from './reducers/attendeeReducer';         // import 
 import { activityReducer } from './reducers/activityReducer';
 import { tripReducer } from './reducers/tripReducer';
 
+// import { combineReducers, createStore } from "redux";
+// import { tripReducer } from "./tripReducer";
+// import { attendeeReducer } from ".attendeeReducer"
+// import { activityReducer } from ".activityReducer"
+
 // const rootReducer = combineReducers({         //dispatch to reducers (send actions to our reducers; reducers return new version of our store)
 //   // attendeeReducer,
 //   // activityReducer, 
@@ -29,7 +34,23 @@ import { tripReducer } from './reducers/tripReducer';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 // let store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
-const store = createStore( tripReducer,  composeEnhancers( applyMiddleware(thunk) ) );
+// const store = createStore( tripReducer,  composeEnhancers( applyMiddleware(thunk) ) );
+
+
+
+
+
+const rootReducer = combineReducers({
+  attendeeReducer,
+  activityReducer,
+  tripReducer
+})
+export default rootReducer;
+
+
+const store = createStore( rootReducer,  composeEnhancers( applyMiddleware(thunk) ) );
+
+
 
 
 ReactDOM.render(
