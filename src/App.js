@@ -15,10 +15,7 @@ class App extends React.Component {
 
         {/* <NavBar /> */}
 
-        {/* <h1>BACHELORETTE PLANNER</h1> */}
 
-        {/* <AttendeesContainer />
-        <ActivitiesContainer /> */}
         <TripsContainer />
         
 

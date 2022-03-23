@@ -5,7 +5,6 @@ export const addAttendee = (stateFormData, tripID) => { //data comes from the st
    
 
     return (dispatch) => {
-        // fetch(`http://localhost:3000/api/v1/attendees`, {
         fetch(`http://localhost:3000/api/v1/trips/${tripID}/attendees`, {
             headers: {
                 'Content-Type': 'application/json',
@@ -20,7 +19,8 @@ export const addAttendee = (stateFormData, tripID) => { //data comes from the st
                 alert(attendee.error)
             } else {
                 // alert('Attendee Added')
-                return dispatch({type: 'ADD_ATTENDEE', payload: attendee}) 
+                dispatch({type: 'ADD_ATTENDEE', payload: attendee}) 
+                // return dispatch({type: 'ADD_ATTENDEE', payload: attendee}) 
             }
         })  
     }

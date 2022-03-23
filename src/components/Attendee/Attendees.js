@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom'
 
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 
 import AttendeeInput from './AttendeeInput';
 // import Attendee from './Attendee';
@@ -9,7 +9,7 @@ import AttendeeInput from './AttendeeInput';
 
 
 // const Attendees = (props) => {      
-class Attendees extends Component {
+class Attendees extends React.Component {
 
     state = {   //local state
         displayAttendeeInput: false
@@ -29,17 +29,17 @@ class Attendees extends Component {
             <div>
                 <h3>Attendees</h3>
                 {this.props.attendees && this.props.attendees.map(attendee => 
-                    <li key={attendee.id}>
-                        <Link to={`/trips/${attendee.trip_id}/attendees/${attendee.name}`}  attendee={attendee} >{attendee.name}</Link>
+                    <li key={attendee.name}>
+                        {attendee.name}
+                        <Link to={`/trips/${attendee.trip_id}/attendees/${attendee.name}`}  attendee={attendee}   key={attendee.name}    >{attendee.name}</Link>
 
                         {/* <Attendee handleDelete={props.handleDelete} key={attendee.id} attendee={attendee}  />               */}
                     </li>          
                 )} 
                 
                 <button onClick={this.displayAttendeeInput}>Add Attendee</button>  
-                {/* <Link to={`/trips/${props.trip.id}/attendees/new`}  style={{paddingRight: '10px'}} trip={props.trip} >Add Attendee</Link> */}
 
-                {this.state.displayAttendeeInput == true ? <AttendeeInput trip={this.props.trip}/> :  null }  {/* to edit an attendee!! click!!!!! */}
+                {this.state.displayAttendeeInput == true ? <AttendeeInput trip={this.props.trip}   key={this.props.trip.id}  /> :  null }  {/* to edit an attendee!! click!!!!! */}
 
 
                 {/* <Route path={`/trips/${tripID}/attendees/new`} component={(routerProps) => <AttendeeInput/>} trip={this.props.trip}  /> */}
@@ -57,13 +57,14 @@ class Attendees extends Component {
 
 // export default connect(null, {deleteAttendee})(Attendees);
 // export default connect()(Attendees);
-export default Attendees;
+export default connect()(Attendees);
 
 
 
 
 
 
+{/* <Link to={`/trips/${props.trip.id}/attendees/new`}  style={{paddingRight: '10px'}} trip={props.trip} >Add Attendee</Link> */}
 
 
 

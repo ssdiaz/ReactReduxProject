@@ -1,5 +1,5 @@
 //container should render other comonponent, pass them data, redner data. Typically class components. 
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 // import { fetchAttendees } from '../actions/Attendee/fetchAttendees';
 
@@ -11,7 +11,7 @@ import Attendee from '../components/Attendee/Attendee';
 import { Route, Switch, Link } from 'react-router-dom'
 import { updateAttendees } from '../actions/Attendee/updateAttendees';
 
-class AttendeesContainer extends Component {
+class AttendeesContainer extends React.Component {
     
     componentDidMount() {
         let attendees = this.props.trip.attendees
@@ -19,8 +19,7 @@ class AttendeesContainer extends Component {
         // console.log(attendeees, 'attendees in mount')
         this.props.updateAttendees(attendees) 
     }
-
-    
+  
     render() {
         console.log(this.props.trip.attendees, 'props in attendCont sending as attendees') //=> gives you the full trip details //{this.props.trip.attendees.map(att => att.name)}
         // console.log(this.props.trip.id, 'props in attendCont') //=> gives you the full trip details //{this.props.trip.attendees.map(att => att.name)}
@@ -31,7 +30,7 @@ class AttendeesContainer extends Component {
         return(
             <div>
                                 
-                <Attendees attendees={this.props.trip.attendees} trip={this.props.trip} />   {/*  here we're sending the state/data as props to the component */}
+                <Attendees attendees={this.props.trip.attendees} trip={this.props.trip} key={this.props.trip.id} />   {/*  here we're sending the state/data as props to the component */}
                 {/* <AttendeeInput /> */}
 
                 
@@ -47,14 +46,15 @@ class AttendeesContainer extends Component {
 }
 
 const mapStateToProps = (state, props) => { //state from our Redux store
-    // console.log(state, 'state in attCont')
+    console.log(state.trips.trips, 'state in attCont')
     // console.log(props.trip.attendees, '?')
 
     return {
         // attendees: state.attendeeReducer.attendees
         // attendees: state.tripReducer.trips.attendees
-        ...state,
-        attendees: props.trip.attendees
+        // ...state,
+        // attendees: props.trip.attendees
+        trips: state.trips.trips
     }
 }
 

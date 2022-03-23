@@ -13,7 +13,7 @@ export function attendeeReducer(state = {attendees: []}, action) {
     // console.log(action, 'action in attRed');
     // console.log(action.attendees, 'action.attendees in attRed');
     // console.log(action.payload, 'action.payload in attRed');
-    console.log(state, 'state in attendeeReducer (pre)')
+    // console.log(state, 'state in attendeeReducer (pre)')
 
     let indx;
 
@@ -22,7 +22,8 @@ export function attendeeReducer(state = {attendees: []}, action) {
             // console.log(state, 'state IN UPDAT_ATT') //=> NO WE'R'E SETTING STATE HERE ..............THIS IS MY ISSUE!!!!!!!!!!!!!!!!!!!!!!! why isnt htis updating
             return {
                 // ...state,
-                attendees: action.payload
+                // attendees: action.payload
+                trips: [...state.trips, action.payload]
             }
 
         // case 'FETCH_ATTENDEES':
@@ -37,7 +38,23 @@ export function attendeeReducer(state = {attendees: []}, action) {
             // return {
                 // ...state, 
                 // attendees: [...state, action.payload]
-                return [...state.attendees, action.payload]
+                // return [...state.attendees, action.payload]
+
+                // let attendees = state.attendees.map(attendee => {
+                //     if (attendee.id === action.payload.id) {
+                //       return action.payload
+                //     } else {
+                //       return attendee
+                //     }
+                //   })
+                //   return {attendees: attendees}
+                //   return {...state, attendees: attendees}
+                // return {...state, attendees: [...state.attendees, action.payload]}
+                return {...state, trips: [...state.trips, action.payload]}
+
+
+
+                // return {...state, attendees: action.payload}
             // }
   
         case 'DELETE_ATTENDEE':

@@ -18,12 +18,17 @@ import { activityReducer } from './reducers/activityReducer';
 import { tripReducer } from './reducers/tripReducer';
 
 const rootReducer = combineReducers({         //dispatch to reducers (send actions to our reducers; reducers return new version of our store)
-  attendeeReducer,
-  activityReducer, 
-  tripReducer
+  // attendeeReducer,
+  // activityReducer, 
+  trips: tripReducer
 });
+// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+// const store = createStore( rootReducer,  composeEnhancers( applyMiddleware(thunk) ) );     //store: stores data globally
+
+
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore( rootReducer,  composeEnhancers( applyMiddleware(thunk) ) );     //store: stores data globally
+
+let store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
 
 
 ReactDOM.render(

@@ -1,7 +1,7 @@
 //functional components are best when you're just displaying and not doing anything with state
 //stateless named function skeleton
 
-import React, { Component } from 'react';
+import React from 'react';
 // import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { deleteAttendee } from '../../actions/Attendee/deleteAttendee';
@@ -9,7 +9,7 @@ import AttendeeInput from './AttendeeInput';
 
 // function Attendee(props) {
 // const Attendee = (props) => {
-class Attendee extends Component {
+class Attendee extends React.Component {
 
     state = {   //local state
         displayAttendeeInput: false

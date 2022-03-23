@@ -1,19 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { addAttendee } from '../../actions/Attendee/addAttendee';
 
 
-class AttendeeInput extends Component {                                         //class compoent so we can control our form; local state to control value or form data availible to redux store.
+class AttendeeInput extends React.Component {                                         //class compoent so we can control our form; local state to control value or form data availible to redux store.
         
     constructor(props) {                                                         //NOTE: you're want this in redux bc youre using the same form to create new and to edit...
-        console.log(props, 'constructor')
-
+        // console.log(props, 'constructor')
         if (props.attendee) {   //EDIT attendee
-            console.log('here?? 1')
+            // console.log('input as ATTENDEE')
             super(props)
 
             let attendee = props.attendee
-
             this.state = {   
                 name: attendee.name,
                 phone: attendee.phone,
@@ -23,12 +21,12 @@ class AttendeeInput extends Component {                                         
                 lodgingBudget: attendee.lodgingBudget,
                 eventsBudget: attendee.eventsBudget,
                 trip_id: attendee.trip_id,    // trip_id: props.trip.id,
-
+                input_type: 'edit',
             }
-        } else { //add attendee
-            console.log('here?? 2')
-            console.log(props, 'props')
 
+        } else { //add attendee
+            console.log('input as NEW')
+            // console.log(props, 'props')
             super(props)
             this.state = {   
                 name: '',
@@ -36,12 +34,12 @@ class AttendeeInput extends Component {                                         
                 status: '',
                 notes: '',
                 relationship: 'Attendee',
-                lodgingBudget: null,
-                eventsBudget: null,                
-                // trip_id: props.attendee.trip_id,    // trip_id: props.trip.id,
+                lodgingBudget: 0,
+                eventsBudget: 0,                
+                trip_id: props.trip.id,    // trip_id: props.trip.id,
+                input_type: 'add',
             }
         }
-
     }
 
     handleChange = (event) => {
@@ -57,31 +55,27 @@ class AttendeeInput extends Component {                                         
         // console.log(this.props, 'props')
 
         this.props.addAttendee(this.state, this.props.trip.id)
+
         this.setState({
             name: '',
-            phone: '',
+            phone: '5555555555',
             status: '',
             notes: '',
-            relationship: '',
-            lodgingBudget: null,
-            eventsBudget: null,
+            relationship: 'Attendee',
+            lodgingBudget: 0,
+            eventsBudget: 0,
             trip_id: this.props.trip.id,
+            input_type: 'add',
         })
         // this.props.history.push({`/trips/${this.props.trip.id}/attendees/new`}); //https://stackoverflow.com/questions/44522811/how-to-redirect-to-home-page-after-submitting-redux-form
     }
 
-    //uncontrolled comonent
-    // to make this a controlled form, add a value to the form
-    render() {
+    render() {      // to make this a controlled form, add a value to the form
         return(
             <div>
-                <h3>Attendees Input</h3>
+                <h3>{this.state.input_type === 'add' ? 'ADD NEW ATTENDEE' : 'EDIT ATTENDEE'}</h3>
 
-                <h4>Create New Attendee:</h4>
-
-                <form onSubmit={this.handleSubmit}>
-                    {/* <label htmlFor="new">Create New Attendeee</label> */}
-                        
+                <form onSubmit={this.handleSubmit}>                       
                     <label>Name: </label>
                     <input type="text" className="Name" placeholder='Name' value={this.state.name} name="name" onChange={this.handleChange} /><br/>
                     
@@ -89,11 +83,24 @@ class AttendeeInput extends Component {                                         
                     <input type="text" className="phone" placeholder='Phone Number' value={this.state.phone} name="phone" onChange={this.handleChange} /><br/>
 
                     <label>Relationship: </label>
-                    <input type="text" className="relationship" placeholder='Relationship' value={this.state.relationship} name="relationship" onChange={this.handleChange} /><br/>
-                    
+                    <select className="relationship"  value={this.state.relationship} name="relationship" onChange={this.handleChange} >
+                        <option selected value='Attende'>Attende</option>                    
+                        <option value ='Bride'>Bride</option>
+                        <option value ='Bridesmaid'>Bridesmaid</option>
+                        <option value ='Maid of Honor'>Maid of Honor</option>
+                        <option value ='Matron of Honor'>Matron of Honor</option>
+                    </select><br/>
+
                     <label>Status: </label>
-                    <input type="text" className="status" placeholder='Status' value={this.state.status} name="status" onChange={this.handleChange} /><br/>
-                    
+                    {/* <input type="text" className="status" placeholder='Status' value={this.state.status} name="status" onChange={this.handleChange} /><br/> */}
+                    <select className="status" value={this.state.status} name="status" onChange={this.handleChange} >
+                    {/* <select className="relationship"  value={this.state.relationship} name="relationship" onChange={this.handleChange} > */}
+                        <option selected value=''> </option>                    
+                        <option value ='Confirmed'>Confirmed</option>
+                        <option value ='Maybe'>Maybe</option>
+                        <option value ='Not Coming'>Not Coming</option>
+                    </select><br/>
+
                     <label>Lodging Budget: </label>
                     <input type="text" className="lodgingBudget" placeholder='Lodging Budget' value={this.state.lodgingBudget} name="lodgingBudget" onChange={this.handleChange} /><br/>
                     
