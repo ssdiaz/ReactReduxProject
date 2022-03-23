@@ -11,10 +11,9 @@ import AttendeeInput from './AttendeeInput';
 // const Attendee = (props) => {
 class Attendee extends Component {
 
-    state = {
+    state = {   //local state
         displayAttendeeInput: false
     }
-
     
     findAttendee = () => {
         // console.log(this.props.match.params.name, 'match') //=> Sam (clicked)
@@ -28,13 +27,6 @@ class Attendee extends Component {
         this.props.deleteAttendee(attendee.id, this.props.trip.id) //not this.props here because it's a functinal component
         //props.history.push('/attendees'); //https://stackoverflow.com/questions/44522811/how-to-redirect-to-home-page-after-submitting-redux-form
         // this.setState({});
-    }
-
-    handleEdit = () => {
-        let attendee = this.findAttendee()
-        return (    
-            <AttendeeInput attendee={attendee}/> 
-         )
     }
 
     displayAttendeeInput = () => {

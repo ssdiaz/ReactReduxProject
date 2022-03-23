@@ -6,18 +6,42 @@ import { addAttendee } from '../../actions/Attendee/addAttendee';
 class AttendeeInput extends Component {                                         //class compoent so we can control our form; local state to control value or form data availible to redux store.
         
     constructor(props) {                                                         //NOTE: you're want this in redux bc youre using the same form to create new and to edit...
-        // console.log(props, 'constructor')    
-        super(props)
-        this.state = {   
-            name: '',
-            phone: '5555555555',
-            status: '',
-            notes: '',
-            relationship: 'Attendee',
-            lodgingBudget: null,
-            eventsBudget: null,
-            // trip_id: props.trip.id,
+        console.log(props, 'constructor')
+
+        if (props.attendee) {   //EDIT attendee
+            console.log('here?? 1')
+            super(props)
+
+            let attendee = props.attendee
+
+            this.state = {   
+                name: attendee.name,
+                phone: attendee.phone,
+                status: attendee.status,
+                notes: attendee.notes,
+                relationship: attendee.relationship,
+                lodgingBudget: attendee.lodgingBudget,
+                eventsBudget: attendee.eventsBudget,
+                trip_id: attendee.trip_id,    // trip_id: props.trip.id,
+
+            }
+        } else { //add attendee
+            console.log('here?? 2')
+            console.log(props, 'props')
+
+            super(props)
+            this.state = {   
+                name: '',
+                phone: '5555555555',
+                status: '',
+                notes: '',
+                relationship: 'Attendee',
+                lodgingBudget: null,
+                eventsBudget: null,                
+                // trip_id: props.attendee.trip_id,    // trip_id: props.trip.id,
+            }
         }
+
     }
 
     handleChange = (event) => {

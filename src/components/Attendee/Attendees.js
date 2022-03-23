@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom'
 
 // import { connect } from 'react-redux';
@@ -8,28 +8,46 @@ import AttendeeInput from './AttendeeInput';
 // import { Redirect } from 'react-router-dom'
 
 
-const Attendees = (props) => {                
+// const Attendees = (props) => {      
+class Attendees extends Component {
+
+    state = {   //local state
+        displayAttendeeInput: false
+    }
+
+    displayAttendeeInput = () => {
+        this.setState({
+            displayAttendeeInput: !this.state.displayAttendeeInput
+        })
+    }
  
-    console.log(props.attendees,'props.attendees in Attendees')    //=> trips & attendees
+    // console.log(props,'props in Attendees')    //=> trips & attendees
 
-    return(        
-        <div>
-            <h3>Attendees</h3>
-            {props.attendees && props.attendees.map(attendee => 
-                 <li key={attendee.id}>
-                     <Link to={`/trips/${attendee.trip_id}/attendees/${attendee.name}`}  attendee={attendee} >{attendee.name}</Link>
+    render() {
+        return(   
+    
+            <div>
+                <h3>Attendees</h3>
+                {this.props.attendees && this.props.attendees.map(attendee => 
+                    <li key={attendee.id}>
+                        <Link to={`/trips/${attendee.trip_id}/attendees/${attendee.name}`}  attendee={attendee} >{attendee.name}</Link>
 
-                     {/* <Attendee handleDelete={props.handleDelete} key={attendee.id} attendee={attendee}  />               */}
-                 </li>          
-            )} 
-            
-            <Link to={`/trips/${props.trip.id}/attendees/new`}  style={{paddingRight: '10px'}} >Add Attendee</Link>
+                        {/* <Attendee handleDelete={props.handleDelete} key={attendee.id} attendee={attendee}  />               */}
+                    </li>          
+                )} 
+                
+                <button onClick={this.displayAttendeeInput}>Add Attendee</button>  
+                {/* <Link to={`/trips/${props.trip.id}/attendees/new`}  style={{paddingRight: '10px'}} trip={props.trip} >Add Attendee</Link> */}
 
-            {/* <Route path={`/trips/${tripID}/attendees/new`} component={(routerProps) => <AttendeeInput/>} trip={this.props.trip}  /> */}
-            {/* <AttendeeInput trip={props.trip} /> */}
-            {/* <AttendeeInput /> */}
-        </div>
-    )
+                {this.state.displayAttendeeInput == true ? <AttendeeInput trip={this.props.trip}/> :  null }  {/* to edit an attendee!! click!!!!! */}
+
+
+                {/* <Route path={`/trips/${tripID}/attendees/new`} component={(routerProps) => <AttendeeInput/>} trip={this.props.trip}  /> */}
+                {/* <AttendeeInput trip={props.trip} /> */}
+                {/* <AttendeeInput /> */}
+            </div>
+        )
+    }
 }
 //http://localhost:3000/api/v1/trips/2/attendees/68
 
