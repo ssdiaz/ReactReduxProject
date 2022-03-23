@@ -19,7 +19,7 @@ export const addAttendee = (stateFormData, tripID) => { //data comes from the st
             if (attendee.error){
                 alert(attendee.error)
             } else {
-                alert('Attendee Added')
+                // alert('Attendee Added')
                 return dispatch({type: 'ADD_ATTENDEE', payload: attendee}) 
             }
         })  

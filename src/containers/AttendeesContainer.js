@@ -1,36 +1,35 @@
 //container should render other comonponent, pass them data, redner data. Typically class components. 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchAttendees } from '../actions/Attendee/fetchAttendees';
+// import { fetchAttendees } from '../actions/Attendee/fetchAttendees';
+
 
 import Attendees from '../components/Attendee/Attendees';
 import AttendeeInput from '../components/Attendee/AttendeeInput';
 import Attendee from '../components/Attendee/Attendee';
 
 import { Route, Switch, Link } from 'react-router-dom'
-
+import { updateAttendees } from '../actions/Attendee/updateAttendees';
 
 class AttendeesContainer extends Component {
 
-    // when this component mounts, we have to make that connection to the backend; use compnentDidMounts to make connection to backend anytime the component refreshes/changes
-    // when you refreash, redux/react will not hold the states, so you lose your data if you don't call the below
-    // componentDidMount() {
-    //     this.props.fetchAttendees() //returns the attendees array
-    //     console.log(trip, 'props attCont')
-    // }
-
+    componentDidMount() {
+        let attendeees = this.props.trip.attendees
+        // console.log(attendeees, 'attendees in mount')
+        this.props.updateAttendees(attendeees) 
+    }
 
     
     render() {
         // console.log(this.props.trip.id, 'props in attendCont') //=> gives you the full trip details //{this.props.trip.attendees.map(att => att.name)}
-
+        
         let tripID = this.props && this.props.trip.id //=2
 
 
         return(
             <div>
                 {/* <h2>Attendees Container</h2> */}
-                <h3><Link to={`/trips/${tripID}/attendees`} style={{paddingRight: '10px'}} >Manage Attendees</Link></h3>
+                <h3><Link to={`/trips/${tripID}/attendees`} style={{paddingRight: '10px'}}  onClick={() => window.location.reload()} >Manage Attendees</Link></h3>
 
                 {/* <AttendeeInput /> */}
                 <Switch>
@@ -45,16 +44,23 @@ class AttendeesContainer extends Component {
     }
 }
 
-// const mapStateToProps = state => { //state from our Redux store
-//     console.log(state.tripReducer.trips, 'state')
-//     return {
-//         // attendees: state.attendeeReducer.attendees
-//         // attendees: state.tripReducer.trips.attendees
-//         // attendees: state.tripReducer.trips.attendees
-//     }
-// }
+const mapStateToProps = (state, props) => { //state from our Redux store
+    console.log(state, 'state in attCont')
+    // console.log(props.trip.attendees, '?')
 
-export default AttendeesContainer;
+    return {
+        // attendees: state.attendeeReducer.attendees
+        // attendees: state.tripReducer.trips.attendees
+        // ...state,
+        attendees: props.trip.attendees
+    }
+}
+
+
+export default connect(mapStateToProps, {updateAttendees})(AttendeesContainer);
+
+// export default connect(mapStateToProps)(AttendeesContainer);
+// export default connect(mapStateToProps, {updateAttendees})(AttendeesContainer);
 
 
 

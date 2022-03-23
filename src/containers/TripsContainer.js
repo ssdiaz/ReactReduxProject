@@ -3,12 +3,13 @@ import { connect } from 'react-redux';
 import { fetchTrips } from '../actions/Trips/fetchTrips';
 import AttendeesContainer from '../containers/AttendeesContainer';
 import ActivitiesContainer from '../containers/ActivitiesContainer';
+// import { updateAttendees } from '../actions/Attendee/updateAttendees';
 
 class TripsContainer extends Component {
 
     componentDidMount() {
         this.props.fetchTrips() 
-        // console.log(this.props, 'props?')
+        console.log(this.props, 'props?')
     }
 
 
@@ -41,8 +42,10 @@ class TripsContainer extends Component {
 const mapStateToProps = state => { 
     // console.log(state, 'state!')
     // console.log(state.tripReducer.trips.length, 'state!')
+    console.log(state.tripReducer.trips, 'state! trip')
     return {
         trips: state.tripReducer.trips
+        // attendees: state.tripReducer.trips
     }
 }
 

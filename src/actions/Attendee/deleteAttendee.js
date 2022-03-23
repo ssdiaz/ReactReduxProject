@@ -7,10 +7,9 @@ export const deleteAttendee = (attenddeeID, tripID) => {
         })
         .then(response => response.json())
         .then(attendee => {
-            // console.log(attendee, 'delete')
-            alert('Attendee Deleted')
+            console.log(attendee, 'delete')
+            // alert('Attendee Deleted')
             return dispatch({type: 'DELETE_ATTENDEE', payload: attendee})
-        }
-        ) 
+        }) 
     }
 }

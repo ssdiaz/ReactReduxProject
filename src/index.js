@@ -18,7 +18,7 @@ import { activityReducer } from './reducers/activityReducer';
 import { tripReducer } from './reducers/tripReducer';
 
 const rootReducer = combineReducers({         //dispatch to reducers (send actions to our reducers; reducers return new version of our store)
-  // attendeeReducer,
+  attendeeReducer,
   // activityReducer, 
   tripReducer
 });

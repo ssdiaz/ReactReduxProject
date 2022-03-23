@@ -10,29 +10,52 @@ export function attendeeReducer(state = {attendees: []}, action) {
     // console.log(state.attendeees, "-> state.attendeees")
     // console.log(state, "-> state")
 
-    // console.log(action);
+    // console.log(action, 'action in attRed');
+    // console.log(action.attendees, 'action.attendees in attRed');
+    // console.log(action.payload, 'action.payload in attRed');
+    console.log(state, 'state in attendeeReducer (pre)')
+
     switch (action.type) {
-        case 'FETCH_ATTENDEES':
-            // return [state.attendees: action.payload]
-            // return action.payload 
-            return {attendees: action.payload} //OG
+        case 'UPDATE_ATTENDEES':
+            // console.log(state, 'state IN UPDAT_ATT') //=> NO WE'R'E SETTING STATE HERE ..............THIS IS MY ISSUE!!!!!!!!!!!!!!!!!!!!!!! why isnt htis updating
+            return {
+                // ...state,
+                attendees: action.payload
+            }
+
+        // case 'FETCH_ATTENDEES':
+        //     // return [state.attendees: action.payload]
+        //     // return action.payload 
+        //     return {attendees: action.payload} //OG
 
         case 'ADD_ATTENDEE':
             // return [...state, action.attendees];
-            return {...state, attendees: [...state.attendees, action.payload]}
+            console.log(state.attendees, 'state in addAtt')
+            console.log(action.payload, 'action payload')
+            // return {
+                // ...state, 
+                // attendees: [...state, action.payload]
+                return [...state.attendees, action.payload]
+            // }
   
         case 'DELETE_ATTENDEE':
-            // let attendeesList = state.attendees.map(attendee => {
-            //     if (attendee.id === action.payload.id) {
-            //         return action.payload
-            //     } else {
-            //         return attendee
-            //     }
-            // })
-            // console.log(attendeesList, 'attendeesList')
-            // return {...state, attendees: attendeesList}
+            // console.log(state.attendees, 'delete pre state.attendees')
+
+            let attendeesList = state.attendees.map(attendee => {
+                if (attendee.id === action.payload.id) {
+                    return action.payload
+                } else {
+                    return attendee
+                }
+            })
+            // let attendeesList = state.attendees.filter(attendee => attendee.id !== action.payload.id)
+            console.log(attendeesList, 'attendeesList')
+            console.log(action.payload, 'action.payload')
+
             return { 
-                attendees: state.attendees.filter(attendee => attendee.id !== action.payload)
+                // attendees: state.attendees.filter(attendee => attendee.id !== action.payload)
+                // attendees: state.attendees.filter(attendee => attendee.id !== action.payload.id)
+                ...state, attendees: attendeesList
             }
         default:
             return state;
