@@ -1,9 +1,12 @@
 //App.js => the root component of the react app
 
-import React from 'react';
 // import AttendeesContainer from './containers/AttendeesContainer';
 // import ActivitiesContainer from './containers/ActivitiesContainer';
+
 import NavBar from './components/NavBar';
+
+
+import React from 'react';
 import TripsContainer from './containers/TripsContainer';
 
 class App extends React.Component {
@@ -11,15 +14,12 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1>BACHELORETTE PLANNER</h1>
 
         {/* <NavBar /> */}
 
-
+        <h1>BACHELORETTE PLANNER</h1>
         <TripsContainer />
         
-
-
       </div>
     );
   }

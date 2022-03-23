@@ -7,9 +7,9 @@ export function tripReducer(state = {trips:[]}, action) {
         case 'FETCH_TRIPS':
             return {trips: action.payload}
 
-
-
-
+        case 'ADD_TRIP':
+            // return [...state, action.attendees];
+            return {...state, trips: [...state.trips, action.payload]}
 
 
         // case 'ADD_ATTENDEE':
@@ -33,8 +33,6 @@ export function tripReducer(state = {trips:[]}, action) {
             //     }
             //     })
             //     return {...state, attendees: attendees}
-
-
 
 
 
