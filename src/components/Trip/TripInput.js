@@ -31,7 +31,7 @@ class TripInput extends Component {
         //use an action creator to send the user's inputs from the form to the backend database
         event.preventDefault() //so we don't lose our form data before the re-render
 
-        console.log(this.props, 'this.props?')
+        // console.log(this.props, 'this.props?')
         this.props.addTrip(this.state)
         this.setState({   
             location: '',

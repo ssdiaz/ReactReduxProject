@@ -1,7 +1,7 @@
 // import React from 'react';
 
 export function tripReducer(state = {trips:[]}, action) {
-    console.log(state, 'trip state in reducer')
+    // console.log(state, 'trip state in reducer')
 
     switch (action.type) {
         case 'FETCH_TRIPS':
@@ -11,28 +11,37 @@ export function tripReducer(state = {trips:[]}, action) {
             // return [...state, action.attendees];
             return {...state, trips: [...state.trips, action.payload]}
 
+        case 'ADD_ATTENDEE':
+            console.log(state, 'state in addAtt')
+            // console.log(action.payload, 'action payload')
+            // console.log(...state.attendees, action.payload, '...')
 
-        // case 'ADD_ATTENDEE':
+                // let attendees = state.attendees.map(attendee => {
+                //     if (attendee.id === action.payload.id) {
+                //       return action.payload
+                //     } else {
+                //       return attendee
+                //     }
+                //   })
+                //   return {attendees: attendees}
+                //   return {...state, attendees: attendees}
+                // return {...state, attendees: [...state.attendees, action.payload]}
 
-        //     let trips = state.trips.map(trip => {
-        //         if (trip.id === action.payload.id) {
-        //           return action.payload
-        //         } else {
-        //           return trip
-        //         }
-        //       })
-        //       return {...state, trips: trips}
+   
+             let tripsNew = state.trips.map(trip => {
+                if (trip.id === action.payload.id) {
+                    return action.payload
+                } else {
+                    return trip
+                }
+                })
+            return {...state, trips: tripsNew }
 
 
 
-            // let attendees = state.attendees.map(attendee => {
-            //     if (attendee.id === action.payload.id) {
-            //         return action.payload
-            //     } else {
-            //         return attendee
-            //     }
-            //     })
-            //     return {...state, attendees: attendees}
+
+
+
 
 
 

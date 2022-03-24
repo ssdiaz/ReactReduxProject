@@ -19,11 +19,11 @@ export function attendeeReducer(state = {attendees: []}, action) {
 
     switch (action.type) {
         case 'UPDATE_ATTENDEES':
-            // console.log(state, 'state IN UPDAT_ATT') //=> NO WE'R'E SETTING STATE HERE ..............THIS IS MY ISSUE!!!!!!!!!!!!!!!!!!!!!!! why isnt htis updating
+            // console.log(state, 'state IN UPDAT_ATT') 
             return {
-                // ...state,
-                // attendees: action.payload
-                trips: [...state.trips, action.payload]
+                ...state,
+                attendees: action.payload
+                // trips: [...state.trips, action.payload]
             }
 
         // case 'FETCH_ATTENDEES':
@@ -31,26 +31,45 @@ export function attendeeReducer(state = {attendees: []}, action) {
         //     // return action.payload 
         //     return {attendees: action.payload} //OG
 
-        case 'ADD_ATTENDEE':
-            // return [...state, action.attendees];
-            console.log(state.attendees, 'state in addAtt')
-            console.log(action.payload, 'action payload')
-            // return {
-                // ...state, 
-                // attendees: [...state, action.payload]
-                // return [...state.attendees, action.payload]
+        // case 'ADD_ATTENDEE':
+        //     console.log(state, 'state in addAtt')
+        //     // console.log(action.payload, 'action payload')
+        //     console.log(...state.attendees, action.payload, '...')
 
-                // let attendees = state.attendees.map(attendee => {
-                //     if (attendee.id === action.payload.id) {
-                //       return action.payload
+        //         // let attendees = state.attendees.map(attendee => {
+        //         //     if (attendee.id === action.payload.id) {
+        //         //       return action.payload
+        //         //     } else {
+        //         //       return attendee
+        //         //     }
+        //         //   })
+        //         //   return {attendees: attendees}
+        //         //   return {...state, attendees: attendees}
+        //         return {...state, attendees: [...state.attendees, action.payload]}
+
+
+                // let trips = state.trips.map( trip => {
+                //     if (trip.id == action.payload.id) {
+                //         return action.payload
                 //     } else {
-                //       return attendee
+                //         return trip
                 //     }
-                //   })
-                //   return {attendees: attendees}
-                //   return {...state, attendees: attendees}
-                // return {...state, attendees: [...state.attendees, action.payload]}
-                return {...state, trips: [...state.trips, action.payload]}
+                // })
+                // return {...state, trips: trips}
+                // return {...state, trips: [...state.trips, action.payload]}
+
+
+
+
+
+                // case 'ADD_TRIP':
+                //     return {...state, trips: [...state.trips, action.payload]}
+        
+        
+
+
+
+
 
 
 

@@ -1,7 +1,7 @@
 // import React from 'react';
 
 export function fetchTrips(props) {
-    console.log(props, 'fetch props')
+    // console.log(props, 'fetch props')
     // console.log(dispatch, 'dispatch props')
 
     return (dispatch) => {
@@ -10,7 +10,7 @@ export function fetchTrips(props) {
         })
         .then(response => response.json())
         .then(trips => { 
-            console.log(trips, 'trips')
+            // console.log(trips, 'trips')
             dispatch({         
                 type: 'FETCH_TRIPS', 
                 payload: trips 

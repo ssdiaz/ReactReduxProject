@@ -25,7 +25,7 @@ class AttendeeInput extends React.Component {                                   
             }
 
         } else { //add attendee
-            console.log('input as NEW')
+            // console.log('input as NEW')
             // console.log(props, 'props')
             super(props)
             this.state = {   
@@ -54,6 +54,7 @@ class AttendeeInput extends React.Component {                                   
         // console.log(this.state, 'state')
         // console.log(this.props, 'props')
 
+        // this.props.addAttendee(this.state, this.props.trip.id)
         this.props.addAttendee(this.state, this.props.trip.id)
 
         this.setState({
@@ -84,7 +85,7 @@ class AttendeeInput extends React.Component {                                   
 
                     <label>Relationship: </label>
                     <select className="relationship"  value={this.state.relationship} name="relationship" onChange={this.handleChange} >
-                        <option selected value='Attende'>Attende</option>                    
+                        <option defaultValue value='Attende'>Attende</option>                    
                         <option value ='Bride'>Bride</option>
                         <option value ='Bridesmaid'>Bridesmaid</option>
                         <option value ='Maid of Honor'>Maid of Honor</option>
@@ -95,7 +96,7 @@ class AttendeeInput extends React.Component {                                   
                     {/* <input type="text" className="status" placeholder='Status' value={this.state.status} name="status" onChange={this.handleChange} /><br/> */}
                     <select className="status" value={this.state.status} name="status" onChange={this.handleChange} >
                     {/* <select className="relationship"  value={this.state.relationship} name="relationship" onChange={this.handleChange} > */}
-                        <option selected value=''> </option>                    
+                        <option defaultValue value=''> </option>                    
                         <option value ='Confirmed'>Confirmed</option>
                         <option value ='Maybe'>Maybe</option>
                         <option value ='Not Coming'>Not Coming</option>
@@ -118,20 +119,3 @@ class AttendeeInput extends React.Component {                                   
 }
 
 export default connect(null, {addAttendee})(AttendeeInput);
-
-
-// const mapStateToProps = state => { 
-//     // console.log(state, 'state! map here')
-//     console.log(state.tripReducer.trips, 'state!')
-//     return {
-//         trips: state.tripReducer.trips
-//     }
-// }
-
-
-
-
-// export default connect(null)(AttendeeInput);
-// export default connect(mapStateToProps, {addAttendee})(AttendeeInput);
-
-

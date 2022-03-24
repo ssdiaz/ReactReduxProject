@@ -16,18 +16,20 @@ class Attendees extends React.Component {
     }
 
     displayAttendeeInput = () => {
+        console.log(this.state,'props in Attendees')    //=> trips & attendees
+
         this.setState({
             displayAttendeeInput: !this.state.displayAttendeeInput
         })
     }
  
-    // console.log(props,'props in Attendees')    //=> trips & attendees
-
+    
     render() {
         return(   
     
             <div>
-                <h3>Attendees</h3>
+                <h3>Attendees:</h3>
+
                 {this.props.attendees && this.props.attendees.map(attendee => 
                     <li key={attendee.name}>
                         {attendee.name}
@@ -39,7 +41,7 @@ class Attendees extends React.Component {
                 
                 <button onClick={this.displayAttendeeInput}>Add Attendee</button>  
 
-                {this.state.displayAttendeeInput == true ? <AttendeeInput trip={this.props.trip}   key={this.props.trip.id}  /> :  null }  {/* to edit an attendee!! click!!!!! */}
+                {this.state.displayAttendeeInput == true ? <AttendeeInput trip={this.props.trip} key={this.props.trip.id}  /> :  null }  {/* to edit an attendee!! click!!!!! */}
 
 
                 {/* <Route path={`/trips/${tripID}/attendees/new`} component={(routerProps) => <AttendeeInput/>} trip={this.props.trip}  /> */}
@@ -49,15 +51,15 @@ class Attendees extends React.Component {
         )
     }
 }
-//http://localhost:3000/api/v1/trips/2/attendees/68
-
-
-
 
 
 // export default connect(null, {deleteAttendee})(Attendees);
 // export default connect()(Attendees);
-export default connect()(Attendees);
+export default Attendees;
+
+
+
+
 
 
 

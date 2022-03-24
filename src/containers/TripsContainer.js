@@ -26,8 +26,8 @@ class TripsContainer extends React.Component {
             <div>
                 <NavBar />
                 <Switch>
-                    <Route path='/trips/:id' render={(routerProps) => <Trip {...routerProps} trips={this.props.trips}/>}/>
-                    <Route path='/trips' render={(routerProps) => <Trips {...routerProps} trips={this.props.trips}/>}/>
+                    <Route path='/trips/:id' render={(routerProps) => <Trip {...routerProps} trips={this.props && this.props.trips}/>}/>
+                    <Route path='/trips' render={(routerProps) => <Trips {...routerProps} trips={this.props && this.props.trips}/>}/>
                 </Switch>
                     {/* <Route path='/trips/new' /> */}
                     {/* <Route path='/trips/new' component={AccountInput}/> */}
@@ -44,7 +44,7 @@ class TripsContainer extends React.Component {
 }
 
 const mapStateToProps = state => { 
-    console.log(state.trips, 'state!!')
+    // console.log(state.trips, 'state!!')
     // console.log(state.trips.trips, 'state.trips!')
     // console.log(state.tripReducer.trips.length, 'state!')
     // console.log(state.tripReducer.trips, 'state! trip')

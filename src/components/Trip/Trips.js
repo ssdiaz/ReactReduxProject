@@ -27,16 +27,14 @@ class Trips extends React.Component {
         
         return (
             <div>
-                <h3>Trip Details:</h3>
+                <h3>Trips</h3>
                 
-                {this.props.trips && this.props.trips.map( (trip, index) => 
+                {this.props.trips && this.props.trips.map( trip => 
                     // <Trip trip={trip} key={index} />
 
                     <li key={trip.id}>
-                    <Link to={`/trips/${trip.id}`} trips={trip} >{trip.location}</Link>
-                  </li>
-
-
+                        <Link to={`/trips/${trip.id}`} trips={trip && trip} >{trip.location}</Link>
+                    </li>
                 )} 
 
                 <button onClick={this.displayTripInput}>Add Trip</button>   
