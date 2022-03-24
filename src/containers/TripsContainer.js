@@ -21,7 +21,7 @@ class TripsContainer extends React.Component {
 
 
     render() {
-        console.log(this.props, 'props?')
+        // console.log(this.props, 'props?')
         return (
             <div>
                 <NavBar />

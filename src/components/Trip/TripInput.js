@@ -33,6 +33,13 @@ class TripInput extends Component {
 
         console.log(this.props, 'this.props?')
         this.props.addTrip(this.state)
+        this.setState({   
+            location: '',
+            start_date: '',
+            end_date: '',
+            bride_id: '',
+            attendees: ''
+        })
     }
 
     //uncontrolled comonent
