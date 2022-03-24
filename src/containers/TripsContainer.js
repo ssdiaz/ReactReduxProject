@@ -8,6 +8,7 @@ import Trips from '../components/Trip/Trips';
 import Trip from '../components/Trip/Trip';
 import NavBar from '../components/NavBar'
 import TripInput from '../components/Trip/TripInput';
+import { updateAttendees } from '../actions/Attendee/updateAttendees';
 
 class TripsContainer extends React.Component {
 
@@ -16,16 +17,33 @@ class TripsContainer extends React.Component {
 
     componentDidMount() {
         this.props.fetchTrips() 
+        this.props.updateAttendees()
         // console.log(this.props, 'props?')
     }
 
 
-    render() {
+    checkIfTripExists() {
         // console.log(this.props, 'props?')
+
+        // if (this.props.trips.find( trip => trip.id !== undefined)) {
+    
+        // } else {
+    
+        // }
+    }
+
+
+    render() {
         return (
             <div>
+
+            {/* {this.checkIfTripExists()} */}
+
                 <NavBar />
                 <Switch>
+
+
+
                     <Route path='/trips/:id' render={(routerProps) => <Trip {...routerProps} trips={this.props && this.props.trips}/>}/>
                     <Route path='/trips' render={(routerProps) => <Trips {...routerProps} trips={this.props && this.props.trips}/>}/>
                 </Switch>
@@ -44,16 +62,20 @@ class TripsContainer extends React.Component {
 }
 
 const mapStateToProps = state => { 
-    // console.log(state.trips, 'state!!')
+    console.log(state, 'state!!')
     // console.log(state.trips.trips, 'state.trips!')
     // console.log(state.tripReducer.trips.length, 'state!')
     // console.log(state.tripReducer.trips, 'state! trip')
+
+    let attendeesArray = state.tripReducer.trips.map(trip => trip.attendees)
+
     return {
-        trips: state.tripReducer.trips
+        trips: state.tripReducer.trips,
+
         // trips: state.trips
-        // attendees: state.tripReducer.trips
+        attendees: state.tripReducer.trips.map(trip => trip.attendees)
     }
 }
 
 
-export default connect(mapStateToProps, {fetchTrips})(TripsContainer);
+export default connect(mapStateToProps, {fetchTrips, updateAttendees})(TripsContainer);

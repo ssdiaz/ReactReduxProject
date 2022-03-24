@@ -1,48 +1,38 @@
 // import React from 'react';
 
 export function tripReducer(state = {trips:[]}, action) {
-    // console.log(state, 'trip state in reducer')
+    console.log(state, 'state in tripReducer')
+    console.log(action.payload, 'action payload in tripReducer')
+
+
+    let tripsNew = state.trips.map(trip => { //returning the (a copy of) new array with the correct trip(id) and associated attendees from payload in that
+       if (trip.id === action.payload.id) {
+           return action.payload
+       } else {
+           return trip
+       }
+    })
+
+
+
 
     switch (action.type) {
         case 'FETCH_TRIPS':
             return {trips: action.payload}
 
         case 'ADD_TRIP':
-            // return [...state, action.attendees];
             return {...state, trips: [...state.trips, action.payload]}
 
-        case 'ADD_ATTENDEE':
-            console.log(state, 'state in addAtt')
-            // console.log(action.payload, 'action payload')
-            // console.log(...state.attendees, action.payload, '...')
-
-                // let attendees = state.attendees.map(attendee => {
-                //     if (attendee.id === action.payload.id) {
-                //       return action.payload
-                //     } else {
-                //       return attendee
-                //     }
-                //   })
-                //   return {attendees: attendees}
-                //   return {...state, attendees: attendees}
-                // return {...state, attendees: [...state.attendees, action.payload]}
-
-   
-             let tripsNew = state.trips.map(trip => {
-                if (trip.id === action.payload.id) {
-                    return action.payload
-                } else {
-                    return trip
-                }
-                })
+        case 'ADD_ATTENDEE':  
             return {...state, trips: tripsNew }
 
+        case 'DELETE_TRIP':
 
+            // let trip = state.trips.find( trip => trip.id === action.payload.id)
 
+            let tripsNew = state.trips.filter( trip => trip.id !== action.payload.id)
 
-
-
-
+            return {...state, trips: tripsNew }
 
 
 

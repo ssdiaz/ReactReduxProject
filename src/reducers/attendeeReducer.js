@@ -2,7 +2,7 @@
 // a reducer is really just a function (25 mins Part 4)
 // default state is really only used the first time, previosutState is used after
 
-export function attendeeReducer(state = {attendees: []}, action) {
+export function attendeeReducer(state = {trips:[], attendees: []}, action) {
 // export default function attendeeReducer(state = {attendees: []}, action) {
     // console.log(state, "-> state in attendeeReducer")
     // console.log(action, "-> action in attendeeReducer")
@@ -17,14 +17,44 @@ export function attendeeReducer(state = {attendees: []}, action) {
 
     let indx;
 
+        // console.log(state, 'state IN attendeeREDUCER') 
+
     switch (action.type) {
-        case 'UPDATE_ATTENDEES':
-            // console.log(state, 'state IN UPDAT_ATT') 
-            return {
-                ...state,
-                attendees: action.payload
-                // trips: [...state.trips, action.payload]
-            }
+        // case 'UPDATE_ATTENDEES':
+
+
+        //     //  let tripsNew = state.trips.map(trip => {
+        //     //     if (trip.id === action.payload.id) {
+        //     //         return action.payload
+        //     //     } else {
+        //     //         return trip
+        //     //     }
+        //     // })
+
+        //     let trip = state.trips.filter( trip =>
+        //         trip.id == action.payload.id
+        //     )
+        //     console.log(trip, 'trip!')
+
+        //     let attendeesList = trip.attendees
+        //     console.log(attendeesList, 'attendees')
+
+        //     // return [
+        //     //     ...state, {                     
+        //     //         trips: tripsNew,
+        //     //         attendees: attendeesList
+        //     //     } 
+        //     // ]
+        //     return state
+
+
+
+
+            // return {
+            //     ...state,
+            //     attendees: action.payload
+            //     // trips: [...state.trips, action.payload]
+            // }
 
         // case 'FETCH_ATTENDEES':
         //     // return [state.attendees: action.payload]
@@ -32,44 +62,31 @@ export function attendeeReducer(state = {attendees: []}, action) {
         //     return {attendees: action.payload} //OG
 
         // case 'ADD_ATTENDEE':
-        //     console.log(state, 'state in addAtt')
-        //     // console.log(action.payload, 'action payload')
-        //     console.log(...state.attendees, action.payload, '...')
+        //     console.log(state, 'state in addAtt') //=. returns ATTENDEE
+        //     console.log(action.payload, 'payload retruns:') //=> reutrns TRIP
+  
+        //      let tripsNew = state.trips.map(trip => {
+        //         if (trip.id === action.payload.id) {
+        //             return action.payload
+        //         } else {
+        //             return trip
+        //         }
+        //     })
 
-        //         // let attendees = state.attendees.map(attendee => {
-        //         //     if (attendee.id === action.payload.id) {
-        //         //       return action.payload
-        //         //     } else {
-        //         //       return attendee
-        //         //     }
-        //         //   })
-        //         //   return {attendees: attendees}
-        //         //   return {...state, attendees: attendees}
-        //         return {...state, attendees: [...state.attendees, action.payload]}
+        //     let trip = state.trips.filter( trip =>
+        //         trip.id == action.payload.id
+        //     )
 
+        //     let attendeesList = trip.attendees
+        //     console.log(attendeesList, 'attendees')
 
-                // let trips = state.trips.map( trip => {
-                //     if (trip.id == action.payload.id) {
-                //         return action.payload
-                //     } else {
-                //         return trip
-                //     }
-                // })
-                // return {...state, trips: trips}
-                // return {...state, trips: [...state.trips, action.payload]}
-
-
-
-
-
-                // case 'ADD_TRIP':
-                //     return {...state, trips: [...state.trips, action.payload]}
-        
-        
-
-
-
-
+        //     return [
+        //         ...state, {                     
+        //             trips: tripsNew,
+        //             attendees: attendeesList
+        //         } 
+        //     ]
+            // return {...state, trips: tripsNew , attendees: }
 
 
 

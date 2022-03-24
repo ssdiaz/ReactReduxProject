@@ -46,7 +46,7 @@ class AttendeesContainer extends React.Component {
 }
 
 const mapStateToProps = (state, props) => { //state from our Redux store
-    // console.log(state, 'state in attCont')
+    console.log(state, 'state in attCont')
     // console.log(props.trip.attendees, '?')
 
     return {

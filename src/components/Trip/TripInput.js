@@ -7,18 +7,16 @@ import { addTrip } from '../../actions/Trips/addTrip';
 class TripInput extends Component {
 
     //NOTE: you're gonna wanna keep this in redux bc youre using the same form to create new and to edit...
-    // constructor(props) {
-        // super(props)
-        state = {   
+    constructor(props) {
+        super(props)
+        this.state = {   
             location: '',
             start_date: '',
             end_date: '',
             bride_id: '',
             attendees: ''
         }
-    // }
-
-
+    }
 
     handleChange = event => {
         // debugger        
