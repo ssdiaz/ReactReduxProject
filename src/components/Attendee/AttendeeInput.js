@@ -48,26 +48,14 @@ class AttendeeInput extends React.Component {                                   
     }
     
     handleSubmit = (event) => {  //use an action creator to send the user's inputs from the form to the backend database
-       
-        // console.log(this.props, 'props') //=> attendee only in props
-        // console.log(this.state, 'state') //=> attendee only in props        
-        // this.props.addAttendee(this.state, this.props.trip.id)
-
-        let tripID;
-                
-        event.preventDefault() //so we don't lose our form data before the re-render
+        event.preventDefault() 
+        
+        let tripID;                
         
         if (this.state.input_type === 'add'){   // 'ADD NEW ATTENDEE'
-            // this.props.addAttendee(this.state, this.props.trip.id)
-            tripID = this.props.trip.id
-            console.log(tripID)
-
-            
+            tripID = this.props.trip.id            
             this.props.addAttendee(this.state, this.props) //=> trip only in props
-            // this.props.history.push(`/trips/${tripID}`)
-            
-            this.props.history.push(`/trips/${tripID}`)
-            
+
             this.setState({
                 name: '',
                 phone: '5555555555',
@@ -81,17 +69,12 @@ class AttendeeInput extends React.Component {                                   
             })
 
         } else if (this.state.input_type === 'edit') {  // 'EDIT ATTENDEE'          
-            // console.log(this.props, 'props') 
             tripID = this.props.attendee.trip_id
-
             this.props.updateAttendee(this.state, this.props) //=> attendee only in props
-
-            // this.props.history.push(`/trips/${tripID}`)
-            this.props.history.push(`/trips/${this.props.attendee.trip_id}/attendees`)
         }
 
+        this.props.history.push(`/trips/${tripID}`)
 
-        // this.props.history.push({`/trips/${this.props.trip.id}/attendees/new`}); //https://stackoverflow.com/questions/44522811/how-to-redirect-to-home-page-after-submitting-redux-form
     }
 
     render() {      // to make this a controlled form, add a value to the form

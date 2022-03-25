@@ -1,19 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import AttendeesContainer from '../../containers/AttendeesContainer'
 import { deleteTrip } from '../../actions/Trips/deleteTrip'
 import { render } from '@testing-library/react'
 import { Route } from 'react-router-dom'
+import AttendeesContainer from '../../containers/AttendeesContainer'
+import ActivitiesContainer from '../../containers/ActivitiesContainer'
 
 class Trip extends React.Component {
 // const Trip = (props) => {
-    
-    // console.log(props, 'props Trip')   // console.log(props.match.params.id, 'match here') //=>2
-   
-    // let trip = this.props.trips.find( trip => trip.id == this.props.match.params.id)// console.log(trip, 'let trip in Trip')
-
-
-
 
     handleDelete = () => {
         let trip = this.props.trips.find( trip => trip.id == this.props.match.params.id)
@@ -34,6 +28,7 @@ class Trip extends React.Component {
                     <li>Start Date: {trip.start_date}</li>
                     <li>End Date: {trip.end_date}</li>
                     <AttendeesContainer trip={trip} />
+                    <ActivitiesContainer trip={trip} />
                 </ul>
                 
                 <button onClick={() => this.handleDelete()}>Delete Trip</button>  

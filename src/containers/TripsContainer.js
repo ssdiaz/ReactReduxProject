@@ -11,9 +11,6 @@ import TripInput from '../components/Trip/TripInput';
 
 class TripsContainer extends React.Component {
 
-
-
-
     componentDidMount() {
         this.props.fetchTrips() 
         // this.props.updateAttendee()
@@ -23,11 +20,8 @@ class TripsContainer extends React.Component {
 
     checkIfTripExists() {
         // console.log(this.props, 'props?')
-
         // if (this.props.trips.find( trip => trip.id !== undefined)) {
-    
-        // } else {
-    
+        // } else {    
         // }
     }
 
@@ -35,36 +29,24 @@ class TripsContainer extends React.Component {
     render() {
         return (
             <div>
-
             {/* {this.checkIfTripExists()} */}
 
                 <NavBar />
+
                 <Switch>
-
-
-
                     <Route path='/trips/:id' render={(routerProps) => <Trip {...routerProps} trips={this.props && this.props.trips}/>}/>
                     <Route path='/trips' render={(routerProps) => <Trips {...routerProps} trips={this.props && this.props.trips}/>}/>
                 </Switch>
                     {/* <Route path='/trips/new' /> */}
                     {/* <Route path='/trips/new' component={AccountInput}/> */}
 
-
-
                 {/* <Trips trips={this.props.trips} />  */}
-
-
-               
             </div>
         );
     }
 }
 
 const mapStateToProps = state => { 
-    // console.log(state, 'state!!')
-    // console.log(state.trips.trips, 'state.trips!')
-    // console.log(state.tripReducer.trips.length, 'state!')
-    // console.log(state.tripReducer.trips, 'state! trip')
 
     let attendeesArray = state.tripReducer.trips.map(trip => trip.attendees)
 

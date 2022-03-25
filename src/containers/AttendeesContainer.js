@@ -1,23 +1,21 @@
 //container should render other comonponent, pass them data, redner data. Typically class components. 
 import React from 'react';
 import { connect } from 'react-redux';
-// import { fetchAttendees } from '../actions/Attendee/fetchAttendees';
-
+import { Route, Switch, Link } from 'react-router-dom'
 
 import Attendees from '../components/Attendee/Attendees';
 import AttendeeInput from '../components/Attendee/AttendeeInput';
 import Attendee from '../components/Attendee/Attendee';
-
-import { Route, Switch, Link } from 'react-router-dom'
 // import { updateAttendee } from '../actions/Attendee/updateAttendee';
+
 
 class AttendeesContainer extends React.Component {
     
-    componentDidMount() {
-        let attendeees = this.props.trip.attendees
-        // console.log(this.props.trip.attendees, 'attCon props')
-        // this.props.updateAttendee(attendeees) //only passing in 'trip' as props so that's why we only see trip in attendeesReducer. Would need to map state to props maybe to use it as trips.
-      }
+    // componentDidMount() {
+    //     let attendeees = this.props.trip.attendees
+    //     // console.log(this.props.trip.attendees, 'attCon props')
+    //     // this.props.updateAttendee(attendeees) //only passing in 'trip' as props so that's why we only see trip in attendeesReducer. Would need to map state to props maybe to use it as trips.
+    //   }
     
     render() {
         // console.log(this.props.trip.attendees, 'props in attendCont sending as attendees') //=> gives you the full trip details //{this.props.trip.attendees.map(att => att.name)}
@@ -26,18 +24,15 @@ class AttendeesContainer extends React.Component {
         let tripID = this.props && this.props.trip.id //=2
         // console.log(this.props, 'props in mount')
         
-        let attendees = this.props.trip.attendees
+        // let attendees = this.props.trip.attendees
 
         return(
-            <div>
-                attendees container - delete this maybe            
-                <Attendees attendees={this.props && this.props.trip.attendees} trip={this.props && this.props.trip} key={this.props && this.props.trip.id} />    here we're sending the state/data as props to the component
-                {/* <AttendeeInput /> */}
-
-                
+            <div>     
+                <Attendees attendees={this.props && this.props.trip.attendees} trip={this.props && this.props.trip} key={this.props && this.props.trip.id} /> 
+               
                  <Switch>
-                    <Route path={`/trips/${tripID}/attendees/new`} component={(routerProps) => <AttendeeInput   {...routerProps} attendees={this.props.trip.attendees}  trip={this.props.trip}  />} trip={this.props.trip}  />
-                    <Route path={`/trips/${tripID}/attendees/:name`} render={ (routerProps) => <Attendee {...routerProps} attendees={this.props.trip.attendees}  trip={this.props.trip}   /> } />
+                    <Route path={`/trips/${tripID}/attendees/new`} component={(routerProps) => <AttendeeInput   {...routerProps} attendees={this.props.trip.attendees}  trip={this.props.trip}  /> } />
+                    <Route path={`/trips/${tripID}/attendees/:name`} render={ (routerProps) => <Attendee {...routerProps} attendees={this.props.trip.attendees}  trip={this.props.trip}  /> } />   
                     <Route path={`/trips/${tripID}/attendees`} render={ (routerProps) => <Attendees {...routerProps} attendees={this.props.trip.attendees}  trip={this.props.trip}  /> } />            
                  </Switch> 
             </div>
@@ -54,12 +49,11 @@ const mapStateToProps = (state, props) => { //state from our Redux store
         // attendees: state.tripReducer.trips.attendees
         ...state,
         attendees: props.trip.attendees
-        // trips: state.trips
     }
 }
 
 
-export default connect(mapStateToProps, {})(AttendeesContainer);
+export default connect(mapStateToProps)(AttendeesContainer);
 
 // export default connect(mapStateToProps)(AttendeesContainer);
 // export default connect(mapStateToProps, {updateAttendees})(AttendeesContainer);

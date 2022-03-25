@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import AttendeeInput from './AttendeeInput';
-import { Route } from 'react-router-dom';
 
 
 class Attendees extends React.Component {
@@ -36,7 +35,7 @@ class Attendees extends React.Component {
         return(   
     
             <div>
-                <h3>Attendees:</h3>
+                <h3>Attendees</h3>
 
                 {this.props.attendees && this.props.attendees.map(attendee => 
                     <li key={attendee.name}>
