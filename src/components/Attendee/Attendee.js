@@ -53,8 +53,10 @@ class Attendee extends React.Component {
                     <li>Lodging Budget: {attendee.lodgingBudget} </li>
                     <li>Events Budget: {attendee.eventsBudget}</li> 
 
+                    {/* <button onClick={() =>this.displayAttendeeInput}>Edit</button>     */}
                     <button onClick={this.displayAttendeeInput}>Edit</button>    
                     
+                    {/* <button onClick={() => this.handleDelete(attendee)}>Delete</button> */}
                     <button onClick={() => this.handleDelete(attendee)}>Delete</button>
                 </ul>
             </div>
