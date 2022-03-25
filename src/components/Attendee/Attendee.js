@@ -59,8 +59,6 @@ class Attendee extends React.Component {
 
     render() { 
         let attendee = this.findAttendee()
-        console.log(this.state.displayAttendeeInput, 'input here!')
-        console.log(this.state, 'state here!')
 
         return (
             <div>

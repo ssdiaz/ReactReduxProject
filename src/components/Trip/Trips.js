@@ -29,10 +29,10 @@ class Trips extends React.Component {
             <div>
                 <h3>Trips</h3>
                 
-                {this.props.trips && this.props.trips.map( trip => 
+                {this.props.trips && this.props.trips.map( (trip, index) => 
                     // <Trip trip={trip} key={index} />
 
-                    <li key={trip.id}>
+                    <li key={index}>
                         <Link to={`/trips/${trip.id}`} trips={trip && trip} >{trip.location}</Link>
                     </li>
                 )} 

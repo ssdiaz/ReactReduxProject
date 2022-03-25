@@ -32,8 +32,7 @@ class Attendees extends React.Component {
 
                 {this.props.attendees && this.props.attendees.map(attendee => 
                     <li key={attendee.name}>
-                        {attendee.name}
-                        <Link to={`/trips/${attendee.trip_id}/attendees/${attendee.name}`}  attendee={attendee}   key={attendee.name}    >{attendee.name}</Link>
+                        <Link to={`/trips/${attendee.trip_id}/attendees/${attendee.name}`} attendee={attendee} key={attendee.name} >{attendee.name}</Link>
 
                         {/* <Attendee handleDelete={props.handleDelete} key={attendee.id} attendee={attendee}  />               */}
                     </li>          

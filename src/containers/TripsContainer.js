@@ -3,12 +3,11 @@ import { connect } from 'react-redux';
 import {Route, Switch} from 'react-router-dom'
 import { fetchTrips } from '../actions/Trips/fetchTrips';
 
-// import { updateAttendees } from '../actions/Attendee/updateAttendees';
 import Trips from '../components/Trip/Trips';
 import Trip from '../components/Trip/Trip';
 import NavBar from '../components/NavBar'
 import TripInput from '../components/Trip/TripInput';
-import { updateAttendees } from '../actions/Attendee/updateAttendees';
+// import { updateAttendee } from '../actions/Attendee/updateAttendee';
 
 class TripsContainer extends React.Component {
 
@@ -17,7 +16,7 @@ class TripsContainer extends React.Component {
 
     componentDidMount() {
         this.props.fetchTrips() 
-        this.props.updateAttendees()
+        // this.props.updateAttendee()
         // console.log(this.props, 'props?')
     }
 
@@ -62,7 +61,7 @@ class TripsContainer extends React.Component {
 }
 
 const mapStateToProps = state => { 
-    console.log(state, 'state!!')
+    // console.log(state, 'state!!')
     // console.log(state.trips.trips, 'state.trips!')
     // console.log(state.tripReducer.trips.length, 'state!')
     // console.log(state.tripReducer.trips, 'state! trip')
@@ -78,4 +77,4 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps, {fetchTrips, updateAttendees})(TripsContainer);
+export default connect(mapStateToProps, {fetchTrips})(TripsContainer);

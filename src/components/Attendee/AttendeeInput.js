@@ -1,14 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { addAttendee } from '../../actions/Attendee/addAttendee';
-
+import { updateAttendee } from '../../actions/Attendee/updateAttendee';
 
 class AttendeeInput extends React.Component {                                         //class compoent so we can control our form; local state to control value or form data availible to redux store.
         
     constructor(props) {                                                         //NOTE: you're want this in redux bc youre using the same form to create new and to edit...
         // console.log(props, 'constructor')
         if (props.attendee) {   //EDIT attendee
-            // console.log('input as ATTENDEE')
             super(props)
 
             let attendee = props.attendee
@@ -25,7 +24,6 @@ class AttendeeInput extends React.Component {                                   
             }
 
         } else { //add attendee
-            // console.log('input as NEW')
             // console.log(props, 'props')
             super(props)
             this.state = {   
@@ -52,10 +50,26 @@ class AttendeeInput extends React.Component {                                   
         //use an action creator to send the user's inputs from the form to the backend database
         event.preventDefault() //so we don't lose our form data before the re-render
         // console.log(this.state, 'state')
-        // console.log(this.props, 'props')
 
+        console.log(this.props, 'props') //=> attendee only in props
+        console.log(this.state, 'state') //=> attendee only in props
+        
         // this.props.addAttendee(this.state, this.props.trip.id)
-        this.props.addAttendee(this.state, this.props.trip.id)
+        
+        
+        
+        if (this.state.input_type === 'add'){
+            // this.props.addAttendee(this.state, this.props.trip.id)
+            this.props.addAttendee(this.state, this.props) //=> trip only in props
+            // 'ADD NEW ATTENDEE'
+        } else {
+            // 'EDIT ATTENDEE'
+            // console.log('IN EDIT')
+            
+            // console.log(this.props, 'props') 
+            this.props.updateAttendee(this.state, this.props) //=> attendee only in props
+        }
+
 
         this.setState({
             name: '',
@@ -111,11 +125,11 @@ class AttendeeInput extends React.Component {                                   
                     <label>Notes: </label>
                     <textarea type="text" className="notes" placeholder='Notes' value={this.state.notes} name="notes" onChange={this.handleChange} /><br/>
              
-                    <button type="submit">Create New Attendee</button>
+                    <button type="submit">Submit</button>
                 </form>
             </div>
         )
     }
 }
 
-export default connect(null, {addAttendee})(AttendeeInput);
+export default connect(null, {addAttendee, updateAttendee})(AttendeeInput);

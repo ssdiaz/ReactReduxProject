@@ -25,7 +25,8 @@ class Trip extends React.Component {
 
     render() {
 
-        let trip = this.props.trips.find( trip => trip.id == this.props.match.params.id)
+        let trip = this.props.trips.find( (trip) => trip.id == this.props.match.params.id)
+        
         return (
             <div>   
                 <ul key={trip.id}>
