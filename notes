@@ -41,3 +41,11 @@ NOTE:
 
 GREAT blog for clicking and unclicking components
 https://betterprogramming.pub/rendering-components-in-onclick-events-in-react-bc0d7b54e1cd
+
+used to render component and route ChannelMergerNode
+https://www.codegrepper.com/code-examples/javascript/onclick+change+route+react
+
+for withRouter in AttendeeInput - to use this.props.histpory(push)
+https://codesource.io/how-to-use-this-props-history-push-on-your-react-project/
+    - "you can only use this.props.history.push() function inside the component page that already listed on your project route."
+    - "or use withRouter() HOC if the component is not avaible in the route list...."

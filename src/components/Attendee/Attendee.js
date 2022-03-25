@@ -23,10 +23,14 @@ class Attendee extends React.Component {
     };
       
     handleDelete = () => {
+
         let attendee = this.findAttendee()
+        // console.log(attendee, 'attendee var here')
+
         this.props.deleteAttendee(attendee.id, this.props.trip.id) //not this.props here because it's a functinal component
         //props.history.push('/attendees'); //https://stackoverflow.com/questions/44522811/how-to-redirect-to-home-page-after-submitting-redux-form
         // this.setState({});
+        this.props.history.push(`/trips/${this.props.trip.id}`)
     }
 
     displayAttendeeInput = () => {
@@ -34,7 +38,6 @@ class Attendee extends React.Component {
             displayAttendeeInput: !this.state.displayAttendeeInput
         })
     }
-
     
     attendeeDetails = () => {
         let attendee = this.findAttendee()
@@ -50,7 +53,8 @@ class Attendee extends React.Component {
                     <li>Lodging Budget: {attendee.lodgingBudget} </li>
                     <li>Events Budget: {attendee.eventsBudget}</li> 
 
-                    <button onClick={this.displayAttendeeInput}>Edit</button>                    
+                    <button onClick={this.displayAttendeeInput}>Edit</button>    
+                    
                     <button onClick={() => this.handleDelete(attendee)}>Delete</button>
                 </ul>
             </div>
@@ -63,7 +67,8 @@ class Attendee extends React.Component {
         return (
             <div>
                 {/* <h4> {this.attendeeDetails() }</h4>  // this accounts for if account doesnt exitst/undefined - just shows null */}
-                <h4>{attendee ? this.attendeeDetails() : 'Attendee - Please refresh'}</h4>   {/* when you change the URL, you are rendering - losing your props so losing the params :id/your redux store clears, which is why the first time you visit via the URL bar is undefined. When you go through the link you have the params.  */}
+                {/* <h4>{attendee ? this.attendeeDetails() : 'Attendee - Please refresh'}</h4>     */}
+                <h4>{attendee ? this.attendeeDetails() : null }</h4>   {/* when you change the URL, you are rendering - losing your props so losing the params :id/your redux store clears, which is why the first time you visit via the URL bar is undefined. When you go through the link you have the params.  */}
             
                 {this.state.displayAttendeeInput == true ? <AttendeeInput attendee={attendee}/> :  null }  {/* to edit an attendee!! click!!!!! */}
             

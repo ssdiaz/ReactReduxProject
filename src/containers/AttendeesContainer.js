@@ -36,9 +36,9 @@ class AttendeesContainer extends React.Component {
 
                 
                  <Switch>
-                    <Route path={`/trips/${tripID}/attendees/new`} component={(routerProps) => <AttendeeInput   {...routerProps} attendees={this.props.trip.attendees}  trip={this.props.trip}    />} trip={this.props.trip}  />
+                    <Route path={`/trips/${tripID}/attendees/new`} component={(routerProps) => <AttendeeInput   {...routerProps} attendees={this.props.trip.attendees}  trip={this.props.trip}  />} trip={this.props.trip}  />
                     <Route path={`/trips/${tripID}/attendees/:name`} render={ (routerProps) => <Attendee {...routerProps} attendees={this.props.trip.attendees}  trip={this.props.trip}   /> } />
-                    <Route path={`/trips/${tripID}/attendees`} render={ (routerProps) => <Attendees {...routerProps} attendees={this.props.trip.attendees}  trip={this.props.trip} /> } />            
+                    <Route path={`/trips/${tripID}/attendees`} render={ (routerProps) => <Attendees {...routerProps} attendees={this.props.trip.attendees}  trip={this.props.trip}  /> } />            
                  </Switch> 
             </div>
         )

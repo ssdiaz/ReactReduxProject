@@ -50,7 +50,7 @@ class TripsContainer extends React.Component {
                     {/* <Route path='/trips/new' component={AccountInput}/> */}
 
 
-                TRIPS CONTAINER - this can be delete to keep this clean
+
                 {/* <Trips trips={this.props.trips} />  */}
 
 

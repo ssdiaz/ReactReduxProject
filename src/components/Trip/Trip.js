@@ -17,7 +17,7 @@ class Trip extends React.Component {
 
     handleDelete = () => {
         let trip = this.props.trips.find( trip => trip.id == this.props.match.params.id)
-        console.log(trip, 'trip in delete')
+        // console.log(trip, 'trip in delete')
         this.props.deleteTrip(trip.id) //not this.props here because it's a functinal component
         
         this.props.history.push('/trips')

@@ -93,15 +93,19 @@ export function attendeeReducer(state = {trips:[], attendees: []}, action) {
                 // return {...state, attendees: action.payload}
             // }
   
-        case 'DELETE_ATTENDEE':
-            console.log(state.attendees, 'delete pre state.attendees')
-            console.log(action.payload, 'action.payload')
+        // case 'DELETE_ATTENDEE':
+        //     console.log(state.attendees, 'delete pre state.attendees')
+        //     console.log(action.payload, 'action.payload')
 
-            indx = state.attendees.findIndex( attendee => attendee.id === action.payload.id)
+        //     indx = state.attendees.findIndex( attendee => attendee.id === action.payload.id)
 
-            console.log(indx) //=>3
+        //     console.log(indx) //=>3
 
-            return [...state.attendees.slice(0,indx), ...state.attendees.slice(indx +1)]
+        //     return [...state.attendees.slice(0,indx), ...state.attendees.slice(indx +1)]
+
+
+
+
             // let attendeesList = state.attendees.map(attendee => {
             //     if (attendee.id === action.payload.id) {
             //         return action.payload

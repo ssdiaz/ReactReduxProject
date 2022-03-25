@@ -1,12 +1,13 @@
 
 export const updateAttendee = (stateFormData, props) => {  
 
-    console.log(props, 'props hERE')
+    // console.log(props, 'props hERE')
+
     let tripID = props.attendee.trip_id
     let attendeeID = props.attendee.id
 
 
-    console.log(stateFormData, 'state in addAtt')
+    // console.log(stateFormData, 'state in addAtt')
     
     return (dispatch) => {
         fetch(`http://localhost:3000/api/v1/trips/${tripID}/attendees/${attendeeID}`, {
