@@ -2,7 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import TripInput from './TripInput'
 
-class Trips extends React.Component {    
+class Trips extends React.Component {  
+      
     state = {
         displayTripInput: false
     }
@@ -14,7 +15,8 @@ class Trips extends React.Component {
         })
     }
    
-    render() {        
+    render() {      
+        // console.log(this.props,'props')
         return (
             <div>
                 <h3>Trips</h3>              
@@ -24,8 +26,12 @@ class Trips extends React.Component {
                     </li>
                 )} 
 
-                <button onClick={() => this.displayTripInput()}>Add Trip</button>   
+                <button onClick={() => this.displayTripInput()}>Add Trip</button>                    
                 {this.state.displayTripInput == true ? <TripInput /> :  null }
+                
+                {/* <Link to='/trips/new'  component={TripInput} replace >
+                    <button> Add Trip </button>
+                </Link> */}
             </div>
         )
     }

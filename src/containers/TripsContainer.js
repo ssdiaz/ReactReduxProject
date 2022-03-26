@@ -11,22 +11,31 @@ import TripInput from '../components/Trip/TripInput';
 
 class TripsContainer extends React.Component {
 
+    // state = {}
+
+    // displayTripInput = () => {
+    //     this.setState({
+    //         displayTripInput: !this.state.displayTripInput
+    //     })           
+    // }
+    
+    // if (this.state.displayTripInput === false) {
+    //     this.render(
+    //         <button onClick={() => this.displayTripInput()}>Add Trip</button>  
+    //     )
+    // }
+
     componentDidMount() {
         this.props.fetchTrips() 
-        // this.props.updateAttendee()
-        // console.log(this.props, 'props?')
+
+        // this.setState({
+        //     ...this.state,
+        //     displayTripInput: false
+        // })
     }
-
-
-    checkIfTripExists() {
-        // console.log(this.props, 'props?')
-        // if (this.props.trips.find( trip => trip.id !== undefined)) {
-        // } else {    
-        // }
-    }
-
 
     render() {
+        // console.log(this.state,'state')
         return (
             <div>
             {/* {this.checkIfTripExists()} */}
@@ -34,13 +43,21 @@ class TripsContainer extends React.Component {
                 <NavBar />
 
                 <Switch>
-                    <Route path='/trips/:id' render={(routerProps) => <Trip {...routerProps} trips={this.props && this.props.trips}/>}/>
-                    <Route path='/trips' render={(routerProps) => <Trips {...routerProps} trips={this.props && this.props.trips}/>}/>
+                    <Route path='/trips/:id' render={(routerProps) => <Trip {...routerProps} trips={this.props && this.props.trips} />}/>
+                    <Route path='/trips/new' render={(routerProps) => <TripInput {...routerProps} trips={this.props && this.props.trips}    />}/>
+                    <Route path='/trips' render={(routerProps) => <Trips {...routerProps} trips={this.props && this.props.trips}  />}/>
+                    {/* <Route path='/trips' render={(routerProps) => <Trips {...routerProps} trips={this.props && this.props.trips}  displayTripInput={this.state.displayTripInput}  />}/> */}
+                
                 </Switch>
                     {/* <Route path='/trips/new' /> */}
                     {/* <Route path='/trips/new' component={AccountInput}/> */}
 
                 {/* <Trips trips={this.props.trips} />  */}
+
+            {/* <button onClick={() => this.displayTripInput()}>Add Trip</button>   */}
+
+            {/* {this.state.displayTripInput === false ? <button onClick={() => this.displayTripInput()}>Add Trip</button>  : <button onClick={() => this.displayTripInput()}>clear</button>} */}
+
             </div>
         );
     }

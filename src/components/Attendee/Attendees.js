@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import AttendeeInput from './AttendeeInput';
-
+import { deleteAttendee } from '../../actions/Attendee/deleteAttendee';
+import { connect } from 'react-redux';
 
 class Attendees extends React.Component {
 
@@ -9,29 +10,27 @@ class Attendees extends React.Component {
         displayAttendeeInput: false
     }
 
-    displayAttendeeInput = () => {
-        // console.log(this.state,'props in Attendees')    //=> trips & attendees
+    displayAttendeeInput = (attendee) => {
         this.setState({
-            displayAttendeeInput: !this.state.displayAttendeeInput
+            displayAttendeeInput: !this.state.displayAttendeeInput,
+            attendee: attendee,
         })
     } 
 
-    // renderAttendeesInput = () => {
-        
-    //     if (this.state.displayAttendeeInput == true) {
-    //         console.log('true!')
-    //         // this.props.history.push(`/trips/${this.props.trip.id}/attendees/new`)
-    //         return(
-    //             <div>
-                    
-    //                 <AttendeeInput trip={this.props.trip} key={this.props.trip.id}   />
 
-    //             </div>
-    //         )
-    //     } 
-    // }
+    handleDelete = (attendee) => {
+        // let attendee = this.props.attendees.find(attendee => attendee.name == this.props.match.params.name) //I switched this to name instead of id
+        // // console.log(attendee, 'attendee var here')
+
+        this.props.deleteAttendee(attendee.id, this.props.trip.id) //not this.props here because it's a functinal component
+        // //props.history.push('/attendees'); //https://stackoverflow.com/questions/44522811/how-to-redirect-to-home-page-after-submitting-redux-form
+        // // this.setState({});
+        // this.props.history.push(`/trips/${this.props.trip.id}`)
+    }
+
     
     render() {
+        // console.log(this.state, 'attendee var here')
         return(   
     
             <div>
@@ -40,14 +39,17 @@ class Attendees extends React.Component {
                 {this.props.attendees && this.props.attendees.map(attendee => 
                     <li key={attendee.name}>
                         <Link to={`/trips/${attendee.trip_id}/attendees/${attendee.name}`} attendee={attendee} key={attendee.name} >{attendee.name}</Link>
+                        <button onClick={() => this.displayAttendeeInput(attendee)}>Edit</button>    
+                        <button onClick={() => this.handleDelete(attendee)}>Delete</button>
+                        
                     </li>          
                 )} 
                 
-                <button onClick={this.displayAttendeeInput} >Add Attendee</button>  
-                {this.state.displayAttendeeInput == true ? <AttendeeInput trip={this.props.trip} key={this.props.trip.id}   /> :  null }  
+                <button onClick={this.displayAttendeeInput}>Add Attendee</button>  
+                {this.state.displayAttendeeInput == true ? <AttendeeInput trip={this.props.trip} key={this.props.trip.id} attendee={this.state.attendee}  /> :  null }  
 
-{/*                
-               <Route render={( {history}) => (    
+               
+              {/*  <Route render={( {history}) => (    
                    <button onClick={() => { history.push(`/trips/${this.props.trip.id}/attendees/new`)  ; this.displayAttendeeInput()    }}                >
                    Click Me!
                    </button>
@@ -68,7 +70,7 @@ class Attendees extends React.Component {
     }
 }
 
-export default Attendees;
+export default connect(null, {deleteAttendee})(Attendees);
 
 
 

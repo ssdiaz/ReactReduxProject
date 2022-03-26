@@ -6,8 +6,9 @@ import { updateAttendee } from '../../actions/Attendee/updateAttendee';
 
 
 class AttendeeInput extends React.Component {                                         //class compoent so we can control our form; local state to control value or form data availible to redux store.
-        
-    constructor(props) {                                                         //NOTE: you're want this in redux bc youre using the same form to create new and to edit...
+            
+    constructor(props) {          //NOTE: you're want this in redux bc youre using the same form to create new and to edit...
+      
         if (props.attendee) {   //EDIT attendee
             super(props)
 
@@ -49,7 +50,7 @@ class AttendeeInput extends React.Component {                                   
     
     handleSubmit = (event) => {  //use an action creator to send the user's inputs from the form to the backend database
         event.preventDefault() 
-        
+
         let tripID;                
         
         if (this.state.input_type === 'add'){   // 'ADD NEW ATTENDEE'
@@ -78,9 +79,12 @@ class AttendeeInput extends React.Component {                                   
     }
 
     render() {      // to make this a controlled form, add a value to the form
+        // console.log(this.state, 'state')
+        // console.log(this.props, 'props')
+
         return(
             <div>
-                <h3>{this.state.input_type === 'add' ? 'ADD NEW ATTENDEE' : 'EDIT ATTENDEE'}</h3>
+                <h3>{this.state.input_type === 'edit' ? 'EDIT ATTENDEE' : 'ADD ATTENDEE'}</h3>
 
                 <form onSubmit={this.handleSubmit}>                       
                     <label>Name: </label>
