@@ -23,7 +23,7 @@ class TripInput extends Component {
                 bride_id: trip.bride_id,
                 attendees:trip.attendees,
             }
-            
+            //
         } else {
             super(props)
             this.state = {   
