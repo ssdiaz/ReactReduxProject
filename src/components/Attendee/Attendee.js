@@ -6,6 +6,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { deleteAttendee } from '../../actions/Attendee/deleteAttendee';
 import AttendeeInput from './AttendeeInput';
+import AttendeeDetail from './AttendeeDetails';
 
 // function Attendee(props) {
 // const Attendee = (props) => {
@@ -41,24 +42,27 @@ class Attendee extends React.Component {
     
     attendeeDetails = () => {
         let attendee = this.findAttendee()
+        console.log(this.props, 'idk')
 
         return(
             <div>
-                <h4>Name: {attendee.name}</h4>
+                {/* <h4>Name: {attendee.name}</h4>
                 <ul>
                     <li>Phone: {attendee.phone}</li>
                     <li>Status: {attendee.status}</li> 
                     <li>Relationship: {attendee.relationship}</li> 
                     <li>Notes: {attendee.notes} </li>
                     <li>Lodging Budget: {attendee.lodgingBudget} </li>
-                    <li>Events Budget: {attendee.eventsBudget}</li> 
+                    <li>Events Budget: {attendee.eventsBudget}</li>  */}
 
-                    {/* <button onClick={() =>this.displayAttendeeInput}>Edit</button>     */}
-                    <button onClick={this.displayAttendeeInput}>Edit</button>    
-                    
-                    {/* <button onClick={() => this.handleDelete(attendee)}>Delete</button> */}
-                    <button onClick={() => this.handleDelete(attendee)}>Delete</button>
-                </ul>
+                <AttendeeDetail attendee={attendee} />
+
+                {/* <button onClick={() =>this.displayAttendeeInput}>Edit</button>     */}
+                <button onClick={this.displayAttendeeInput}>Edit</button>    
+                
+                {/* <button onClick={() => this.handleDelete(attendee)}>Delete</button> */}
+                <button onClick={() => this.handleDelete(attendee)}>Delete</button>
+                {/* </ul> */}
             </div>
         )
     }

@@ -9,13 +9,11 @@ const Activities = (props) => {
 
 
 
-    const handleDelete = (activity) => {
-        // console.log(props)
-        // console.log(activity)
+    const handleDelete = (activityDeleted) => {
+        
+        let activity = props.activities.find(activity => activity.id === activityDeleted.id) 
 
-        // let activity = props.activites.find(activity => activity.id == activityDeleted) 
-
-        props.deleteActivity(activity.id, activity.trip_id) //not this.props here because it's a functinal component
+        props.deleteActivity(activity.id, activity.trip_id) 
 
         // props.history.push(`/trips/${activity.trip_id}`)
     }
@@ -33,7 +31,12 @@ const Activities = (props) => {
 
                 <Activity activity={activity} />    
 
-                <button onClick={() => handleDelete(activity)} >Delete</button>                
+                <button onClick={() => handleDelete(activity)} >Delete</button> 
+                
+                
+                {/* <button onClick={() => handleDelete(activity)} >Delete</button>  */}
+
+
             </li>
            )}
 
