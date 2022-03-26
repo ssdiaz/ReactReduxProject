@@ -1,5 +1,5 @@
-
 const ActivityDetails = (props) => {
+    
     let activity = props.activity
 
     return(

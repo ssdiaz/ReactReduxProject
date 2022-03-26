@@ -1,13 +1,11 @@
-
-
 export const deleteAttendee = (attenddeeID, tripID) => {
-    return dispatch => {
+    return (dispatch) => {
         return fetch(`http://localhost:3000/api/v1/trips/${tripID}/attendees/${attenddeeID}`, {
-            method: 'DELETE' //body contains data if adding stuff; here you're just deleting so dont need. youll need it for an update as well.
+            method: 'DELETE'
         })
         .then(response => response.json())
         .then(attendee => {
-            // alert('Attendee Deleted')
+            alert('Attendee Deleted')
             return dispatch({type: 'DELETE_ATTENDEE', payload: attendee})
         }) 
     }

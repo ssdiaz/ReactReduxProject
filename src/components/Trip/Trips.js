@@ -1,9 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import TripInput from './TripInput'
+import { connect } from 'react-redux'
 
 class Trips extends React.Component {    
     state = {
+        ...this.state,
         displayTripInput: false
     }
     
@@ -15,7 +17,6 @@ class Trips extends React.Component {
     }
    
     render() {  
-   
         return (
             <div>
                 <h3>Trips</h3>              
@@ -25,11 +26,18 @@ class Trips extends React.Component {
                     </li>
                 )} 
 
-                <button onClick={() => this.displayTripInput()}>Add Trip</button>   
+                <button onClick={ () => this.displayTripInput()} >Add Trip</button>   
                 {this.state.displayTripInput == true ? <TripInput /> :  null }
             </div>
         )
     }
 }
 
-export default Trips
+
+const mapStateToProps = state => { 
+    return {
+        trips: state.trips,
+    }
+}
+
+export default connect(mapStateToProps)(Trips);

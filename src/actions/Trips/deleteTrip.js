@@ -5,19 +5,8 @@ export const deleteTrip = (tripID) => {
         })
         .then(response => response.json())
         .then(trip => {
-            console.log(trip, 'delete')
-
-            if (trip.error){
-                alert(trip.error)
-            } else {
-                // alert('Attendee Added')
-                return dispatch({type: 'DELETE_TRIP', payload: trip})
-            }
-
-
-
-            // alert('Trip Deleted')
-            // return dispatch({type: 'DELETE_TRIP', payload: trip})
+            alert('Trip Deleted')
+            return dispatch({type: 'DELETE_TRIP', payload: trip})
         })
     }
 }

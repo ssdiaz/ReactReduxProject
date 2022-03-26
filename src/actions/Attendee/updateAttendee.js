@@ -1,4 +1,3 @@
-
 export const updateAttendee = (stateFormData, props) => { 
 
     let tripID = props.attendee.trip_id
@@ -13,23 +12,13 @@ export const updateAttendee = (stateFormData, props) => {
             method: 'PATCH',
             body: JSON.stringify(stateFormData)
         })
-        .then(response => response.json()) //response here is the return value of the fetch request
-        // .then(attendee => {                
-        //     if (attendee.error){
-        //         alert(attendee.error)
-        //     } else {
-        //         // alert('Attendee Added')
-        //         dispatch({type: 'ADD_ATTENDEE', payload: attendee}) 
-        //     }
-        // })  
-        // .then(trip => {                
-        //     if (trip.error){
-        //         alert(trip.error)
-        //     } else {
-        //         // alert('Attendee Added')
-        //         dispatch({type: 'ADD_ATTENDEE', payload: trip}) 
-        //     }
-        // })  
-        .then(trip => dispatch({type: 'UPDATE_ATTENDEE', payload: trip}) )
+        .then(response => response.json())
+        .then(trip => {                
+            if (trip.error){
+                alert(trip.error)
+            } else{
+             dispatch({type: 'UPDATE_ATTENDEE', payload: trip})
+            }
+        })  
     }
 }

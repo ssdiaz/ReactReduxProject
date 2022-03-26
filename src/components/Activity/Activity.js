@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 import { connect } from 'react-redux';
 import { deleteActivity } from '../../actions/Activity/deleteActivity';
@@ -19,42 +17,23 @@ class Activity extends React.Component {
         })
     }
 
-    findActivity = () => {
-
-        return this.props.attendees.find(attendee => attendee.name == this.props.match.params.name) //I switched this to name instead of id
-     };
-       
-
-
-    handleDelete = () => {   
-        // console.log(this.props)
-
-        // let activity = this.props.activities.find(activity => activity.id === this.props.match.params.id)
-        let activity = this.props.activity
-
+    handleDelete = (activity) => {   
         this.props.deleteActivity(activity.id, activity.trip_id) 
     }
-
-    
-    
+   
     render () {
         let activity = this.props.activity
 
         return(
             <div>
                 <ActivityDetails activity={activity} />
-
                 <button onClick={ this.displayActivityInput }>Edit</button> 
-
-                <button onClick={ () => this.handleDelete() }>Delete</button>
-
-
-
+                <button onClick={ () => this.handleDelete(activity) }>Delete</button>
+                
                 {this.state.displayActivityInput === true ? <ActivityInput activity={activity} /> :  null }
             </div>
         )
     }
 }
 
-// export default Activity
 export default connect(null, {deleteActivity})(Activity);

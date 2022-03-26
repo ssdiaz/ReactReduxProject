@@ -20,15 +20,12 @@ class Activities extends React.Component {
             <div>
                 <h3>Activities</h3>
 
-                {this.props.activities && this.props.activities.map((activity, index) => 
-                    <li key={activity.index}>
-                        <Activity activity={activity} />    
-                    </li>
+                {this.props.activities && this.props.activities.map(activity => 
+                    <Activity activity={activity} />    
                 )}
 
                 <button onClick={this.displayActivityInput}>Add Activity</button>          
                 {this.state.displayActivityInput === true ? <ActivityInput trip={this.props.trip} key={this.props.trip.id}   /> :  null }  
-
             </div>
         )
     }

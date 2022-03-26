@@ -5,12 +5,12 @@ import { addAttendee } from '../../actions/Attendee/addAttendee';
 import { updateAttendee } from '../../actions/Attendee/updateAttendee';
 
 
-class AttendeeInput extends React.Component {                                         //class compoent so we can control our form; local state to control value or form data availible to redux store.
+class AttendeeInput extends React.Component { 
         
-    constructor(props) {                                                         //NOTE: you're want this in redux bc youre using the same form to create new and to edit...
+    constructor(props) {
         super(props)
         
-        if (props.attendee) {   //EDIT attendee
+        if (props.attendee) {   
             let attendee = props.attendee
 
             this.state = {   
@@ -24,8 +24,7 @@ class AttendeeInput extends React.Component {                                   
                 trip_id: attendee.trip_id,
                 input_type: 'edit',
             }
-
-        } else {        //ADD attendee
+        } else {   
             this.state = {   
                 name: '',
                 phone: '5555555555',
@@ -41,20 +40,19 @@ class AttendeeInput extends React.Component {                                   
     }
 
     handleChange = (event) => {
-        this.setState({                                  //setState is asynchrounus - won't clear out state until rest of function has ran
+        this.setState({
             [event.target.name]: event.target.value
         })
     }
     
-    handleSubmit = (event) => {  //use an action creator to send the user's inputs from the form to the backend database
+    handleSubmit = (event) => {
         event.preventDefault() 
         
         let tripID;  
         
-        if (this.state.input_type === 'add'){   // 'ADD NEW ATTENDEE'
-            tripID = this.props.trip.id            
-            this.props.addAttendee(this.state, this.props) //=> trip only in props
-
+        if (this.state.input_type === 'add') {
+            tripID = this.props.trip.id       
+            this.props.addAttendee(this.state, this.props)
             this.setState({
                 name: '',
                 phone: '5555555555',
@@ -67,16 +65,15 @@ class AttendeeInput extends React.Component {                                   
                 input_type: 'add',
             })
 
-        } else if (this.state.input_type === 'edit') {  // 'EDIT ATTENDEE'          
+        } else if (this.state.input_type === 'edit') {         
             tripID = this.props.attendee.trip_id
-            this.props.updateAttendee(this.state, this.props) //=> attendee only in props
+            this.props.updateAttendee(this.state, this.props)
         }
 
         this.props.history.push(`/trips/${tripID}`)
-
     }
 
-    render() {      // to make this a controlled form, add a value to the form
+    render() {
         return(
             <div>
                 <h3>{this.state.input_type === 'add' ? 'ADD ATTENDEE' : 'EDIT ATTENDEE'}</h3>
@@ -122,36 +119,3 @@ class AttendeeInput extends React.Component {                                   
 }
 
 export default connect(null, {addAttendee, updateAttendee})(withRouter(AttendeeInput));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        // this.setState({
-        //     name: 'is it htis?',
-        //     phone: '5555555555',
-        //     status: '',
-        //     notes: '',
-        //     relationship: 'Attendee',
-        //     lodgingBudget: 0,
-        //     eventsBudget: 0,
-        //     trip_id: tripID,
-        //     input_type: 'add',
-        // })

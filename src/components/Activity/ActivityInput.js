@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { addActivity } from '../../actions/Activity/addActivity';
 import { updateActivity } from '../../actions/Activity/updateActivity';
+
 
 class ActivityInput extends Component {
  
     constructor(props) {
-
-        console.log(props,'props in constructor')
-
         super(props)
 
         if (props.activity) {
@@ -60,7 +58,6 @@ class ActivityInput extends Component {
         if (this.state.input_type === 'add') {
             tripID = this.props.trip.id
             this.props.addActivity(this.state, this.props)
-
             this.setState({
                 name: '',
                 description: '',
@@ -76,7 +73,6 @@ class ActivityInput extends Component {
             })
 
         } else if (this.state.input_type === 'edit') {
-            console.log(this.props)
             tripID = this.props.activity.trip_id
             this.props.updateActivity(this.state, this.props)
         }
@@ -94,7 +90,6 @@ class ActivityInput extends Component {
                     <input type="text" className="name" placeholder='name' value={this.state.name} name="name" onChange={this.handleChange} /><br/>
                     
                     <label>Priority: </label>
-                    {/* <input type="text" className="priority" placeholder=' ' value={this.state.priority} name="priority" onChange={this.handleChange} /><br/> */}
                     <select placeholder=' ' value={this.state.priority} name="priority" onChange={this.handleChange}>
                         <option> </option>
                         <option>HIGH</option>
@@ -109,12 +104,10 @@ class ActivityInput extends Component {
                     <input type="text" className="description" placeholder='description' value={this.state.description} name="description" onChange={this.handleChange} /><br/>
 
                     <label>Mandatory: </label>
-                    {/* <input type="text" className="mandatory" placeholder='mandatory' value={this.state.mandatory} name="mandatory" onChange={this.handleChange} /><br/> */}
                     <select value={this.state.mandatory} name="mandatory" onChange={this.handleChange}>
                         <option>TRUE</option>
                         <option>FALSE</option>
                     </select><br/>
-                    
 
                     <label>Comments: </label>
                     <textarea type="text" className="comment" value={this.state.comment} name="comment" onChange={this.handleChange} /><br/>

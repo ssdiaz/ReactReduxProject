@@ -1,5 +1,4 @@
-
-const TripDeails = (props) => {
+const TripDetails = (props) => {
     let trip = props.trip
 
     return(
@@ -11,4 +10,4 @@ const TripDeails = (props) => {
     )
 }
 
-export default TripDeails;
+export default TripDetails;

@@ -1,11 +1,8 @@
-
-
-
 export const addActivity = (formStateData, props) => {
 
     let tripID = props.trip.id
 
-    return (dispatch) => { //this is to use dispatch to send to our reducer
+    return (dispatch) => { 
         fetch(`http://localhost:3000/api/v1/trips/${tripID}/activities`, {
             headers: {
                 'Content-Type': 'application/json',
@@ -14,18 +11,13 @@ export const addActivity = (formStateData, props) => {
             method: 'POST',
             body: JSON.stringify(formStateData)
         })
-        .then(response => response.json()) //response here is the return value of the fetch request
-        
-        .then(activity => {                
-            if (activity.error){
-                alert(activity.error)
+        .then(response => response.json()) 
+        .then(trip => {                
+            if (trip.error){
+                alert(trip.error)
             } else {
-                // alert('Attendee Added')
-                dispatch({type: 'ADD_ACTIVITY', payload: activity})
+                dispatch({type: 'ADD_ACTIVITY', payload: trip})
             }
         })  
-
-        
-        // .then(activity => dispatch({type: 'ADD_ACTIVITY', payload: activity}) )
     }
 }

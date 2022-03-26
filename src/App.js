@@ -1,5 +1,3 @@
-//App.js => the root component of the react app
-
 import React from 'react';
 import { Switch,  Route } from "react-router-dom";
 import NavBar from './components/NavBar';
