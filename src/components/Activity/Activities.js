@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import ActivityInput from './ActivityInput';
 import { deleteActivity } from '../../actions/Activity/deleteActivity';
 import { connect } from 'react-redux';
+import Activity from './Activity';
 
 const Activities = (props) => {
 
@@ -28,13 +29,11 @@ const Activities = (props) => {
 
            {props.activities && props.activities.map(activity => 
             <li key={activity.id}>
-                <Link to={`activities/${activity.id}`}>{activity.name}</Link>
-                <button onClick={() => handleDelete(activity)} >Delete</button>
-                
-                {/* <button onClick={handleDelete} >Delete</button> */}
+                {/* <Link to={`/trips/${activity.trip_id}/activities/${activity.id}`}  activity={activity}  >{activity.name}</Link> */}
 
+                <Activity activity={activity} />    
 
-
+                <button onClick={() => handleDelete(activity)} >Delete</button>                
             </li>
            )}
 

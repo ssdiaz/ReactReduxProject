@@ -1,8 +1,9 @@
 // import React from 'react';
 
 export function tripReducer(state = {trips:[]}, action) {
-    // console.log(state, 'state in tripReducer')
-    // console.log(action.payload, 'action payload in tripReducer')
+    console.log(state, 'state in tripReducer')
+    console.log(action.payload, 'action payload in tripReducer')
+    console.log(action, 'action in tripReducer')
     
     switch (action.type) {
         case 'FETCH_TRIPS':
@@ -18,6 +19,7 @@ export function tripReducer(state = {trips:[]}, action) {
         case 'ADD_ATTENDEE':
         case 'ADD_ACTIVITY':  
         case 'UPDATE_ATTENDEE':  
+        case 'UPDATE_ACTIVITY':
         case 'UPDATE_TRIP':
             let tripsUpdated = state.trips.map(trip => {          //returning the (a copy of) new array with the correct trip(id) and associated attendees from payload in that
                 if (trip.id === action.payload.id) {
@@ -44,10 +46,9 @@ export function tripReducer(state = {trips:[]}, action) {
             })                       
             return {...state, trips: newTripList}
 
-        case 'DELETE_ACTIVITY':
+        case 'DELETE_ACTIVITY':           
             let tripToChange2 = state.trips.find(trip => trip.id == action.payload.trip_id) //=> returns trip 13 so you can get attendees
-            let newActivities = tripToChange2.activities.filter( activity => activity.id !== action.payload.id ) //=> returns attendees list w/o deleted attendee
-            
+            let newActivities = tripToChange2.activities.filter( activity => activity.id !== action.payload.id ) //=> returns attendees list w/o deleted attendee            
             let UpdatedTripList = state.trips.map(trip => {    
                 if (trip.id === action.payload.trip_id) {
                     trip.activities = newActivities
