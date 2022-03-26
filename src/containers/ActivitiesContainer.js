@@ -8,13 +8,7 @@ import Activities from '../components/Activity/Activities';
 import Activity from '../components/Activity/Activity';
 
 
-
-
 class ActivitiesContainer extends Component {
-
-    // componentDidMount() {
-    //     this.props.fetchActivities() 
-    // }
 
     render() { 
         // console.log(this.props, 'props  this.props.activities') //=> tip (one)
@@ -37,7 +31,7 @@ class ActivitiesContainer extends Component {
 }
 
 const mapStateToProps = (state, props) => {
-    console.log(state, 'activ containers state - mapStateToProps')
+    // console.log(state, 'activ containers state - mapStateToProps')
 
     return {
         ...state,

@@ -1,9 +1,9 @@
 
 
-export const addAttendee = (stateFormData, props) => { //data comes from the state of the form
+export const addAttendee = (formStateData, props) => { //data comes from the state of the form
 
-   console.log(stateFormData, 'state in addAtt')
-   console.log(props, 'state in props')
+//    console.log(formStateData, 'state in addAtt')
+//    console.log(props, 'state in props')
 
     let tripID = props.trip.id
 
@@ -14,7 +14,7 @@ export const addAttendee = (stateFormData, props) => { //data comes from the sta
                 'Accept': 'application/json'
             } ,    
             method: 'POST',
-            body: JSON.stringify(stateFormData)
+            body: JSON.stringify(formStateData)
         })
         .then(response => response.json()) //response here is the return value of the fetch request
         // .then(attendee => {                
@@ -22,18 +22,20 @@ export const addAttendee = (stateFormData, props) => { //data comes from the sta
         //         alert(attendee.error)
         //     } else {
         //         // alert('Attendee Added')
-        //         dispatch({type: 'ADD_ATTENDEE', payload: attendee}) 
-        //     }
-        // })  
-        // .then(trip => {                
-        //     if (trip.error){
-        //         alert(trip.error)
-        //     } else {
-        //         // alert('Attendee Added')
         //         dispatch({type: 'ADD_ATTENDEE', payload: trip}) 
         //     }
         // })  
-        .then(trip => dispatch({type: 'ADD_ATTENDEE', payload: trip}) )
+        .then(trip => {                
+            if (trip.error){
+                alert(trip.error)
+            } else {
+                // alert('Attendee Added')
+                dispatch({type: 'ADD_ATTENDEE', payload: trip}) 
+            }
+        })  
+
+        // console.log('added act')
+        // .then(trip => dispatch({type: 'ADD_ATTENDEE', payload: trip}) )
     }
 }
 
