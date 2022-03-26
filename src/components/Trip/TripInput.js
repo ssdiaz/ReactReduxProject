@@ -6,15 +6,33 @@ import { addTrip } from '../../actions/Trips/addTrip';
 //class compoent so we can control our form; local state to control value or form data availible to redux store.
 class TripInput extends Component {
 
+
     //NOTE: you're gonna wanna keep this in redux bc youre using the same form to create new and to edit...
     constructor(props) {
-        super(props)
-        this.state = {   
-            location: '',
-            start_date: '',
-            end_date: '',
-            bride_id: '',
-            attendees: ''
+        console.log(props, 'props')
+        
+        if (props.trip){
+            super(props)
+
+            let trip = props.trip
+
+            this.state = {   
+                location: trip.location,
+                start_date: trip.start_date,
+                end_date: trip.end_date,
+                bride_id: trip.bride_id,
+                attendees:trip.attendees,
+            }
+            
+        } else {
+            super(props)
+            this.state = {   
+                location: '',
+                start_date: '',
+                end_date: '',
+                bride_id: '',
+                attendees: ''
+            }
         }
     }
 
@@ -47,9 +65,7 @@ class TripInput extends Component {
             <div>
                 <h3>Trip Input</h3>
 
-                <form onSubmit={this.handleSubmit}>
-                    <h4>Create New Trip:</h4>
-                        
+                <form onSubmit={this.handleSubmit}>                       
                     <label>Location: </label>
                     <input type="text" className="Name" value={this.state.location} name="location" onChange={this.handleChange} /><br/>
                     

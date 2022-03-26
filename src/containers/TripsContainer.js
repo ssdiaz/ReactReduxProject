@@ -52,8 +52,6 @@ const mapStateToProps = state => {
 
     return {
         trips: state.tripReducer.trips,
-
-        // trips: state.trips
         attendees: state.tripReducer.trips.map(trip => trip.attendees)
     }
 }

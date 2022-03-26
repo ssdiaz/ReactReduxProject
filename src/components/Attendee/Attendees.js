@@ -46,6 +46,7 @@ class Attendees extends React.Component {
                 <button onClick={this.displayAttendeeInput} >Add Attendee</button>  
                 {this.state.displayAttendeeInput == true ? <AttendeeInput trip={this.props.trip} key={this.props.trip.id}   /> :  null }  
 
+
 {/*                
                <Route render={( {history}) => (    
                    <button onClick={() => { history.push(`/trips/${this.props.trip.id}/attendees/new`)  ; this.displayAttendeeInput()    }}                >

@@ -5,9 +5,20 @@ import { render } from '@testing-library/react'
 import { Route } from 'react-router-dom'
 import AttendeesContainer from '../../containers/AttendeesContainer'
 import ActivitiesContainer from '../../containers/ActivitiesContainer'
+import TripInput from './TripInput'
 
 class Trip extends React.Component {
 // const Trip = (props) => {
+
+    state = {   
+        displayTripInput: false
+    }
+
+    displayTripInput = () => {
+        this.setState({
+            displayTripInput: !this.state.displayTripInput
+        })
+    }
 
     handleDelete = () => {
         let trip = this.props.trips.find( trip => trip.id == this.props.match.params.id)
@@ -31,7 +42,10 @@ class Trip extends React.Component {
                     <ActivitiesContainer trip={trip} />
                 </ul>
                 
+                <button onClick={this.displayTripInput}>Edit</button>  
                 <button onClick={() => this.handleDelete()}>Delete Trip</button>  
+
+                {this.state.displayTripInput == true ? <TripInput trip={trip}/> :  null } 
             </div>
         )
     }
