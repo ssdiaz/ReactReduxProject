@@ -82,7 +82,6 @@ class ActivityInput extends Component {
         }
 
         this.props.history.push(`/trips/${tripID}`)
-
     }
 
     render() {

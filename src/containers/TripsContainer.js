@@ -13,46 +13,35 @@ class TripsContainer extends React.Component {
 
     componentDidMount() {
         this.props.fetchTrips() 
-        // this.props.updateAttendee()
-        // console.log(this.props, 'props?')
-    }
-
-
-    checkIfTripExists() {
-        // console.log(this.props, 'props?')
-        // if (this.props.trips.find( trip => trip.id !== undefined)) {
-        // } else {    
-        // }
     }
 
 
     render() {
         return (
             <div>
-            {/* {this.checkIfTripExists()} */}
-
                 <NavBar />
 
                 <Switch>
-                    <Route path='/trips/:id' render={(routerProps) => <Trip {...routerProps} trips={this.props && this.props.trips}/>}/>
-                    <Route path='/trips' render={(routerProps) => <Trips {...routerProps} trips={this.props && this.props.trips}/>}/>
+                    <Route path='/trips/:id' render={(routerProps) => <Trip {...routerProps} trips={this.props.trips}/>}/>
+                    <Route path='/trips' render={(routerProps) => <Trips {...routerProps} trips={this.props.trips}/>}/>
                 </Switch>
+                    {/* <Route path='/trips/new' component={TripInput}/> */}
                     {/* <Route path='/trips/new' /> */}
-                    {/* <Route path='/trips/new' component={AccountInput}/> */}
-
-                {/* <Trips trips={this.props.trips} />  */}
             </div>
         );
     }
 }
 
 const mapStateToProps = state => { 
-
-    let attendeesArray = state.tripReducer.trips.map(trip => trip.attendees)
+    console.log(state)
+    // let attendeesArray = state.tripReducer.trips.map(trip => trip.attendees)
+    let attendeesArray = state.trips.map(trip => trip.attendees)
 
     return {
-        trips: state.tripReducer.trips,
-        attendees: state.tripReducer.trips.map(trip => trip.attendees)
+        trips: state.trips,
+        attendees: state.trips.map(trip => trip.attendees)
+        // trips: state.tripReducer.trips,
+        // attendees: state.tripReducer.trips.map(trip => trip.attendees)
     }
 }
 

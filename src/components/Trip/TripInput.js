@@ -11,7 +11,7 @@ class TripInput extends Component {
 
     //NOTE: you're gonna wanna keep this in redux bc youre using the same form to create new and to edit...
     constructor(props) {
-        console.log(props, 'props')
+        // console.log(props, 'props')
         
         if (props.trip){
             super(props)

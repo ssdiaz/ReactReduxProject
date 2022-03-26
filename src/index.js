@@ -7,51 +7,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { createStore, applyMiddleware, compose, combineReducers } from 'redux'; 
+import { createStore, applyMiddleware, compose } from 'redux'; 
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';           // set up our store & app connected to store // to connect to our store
 import { BrowserRouter as Router } from 'react-router-dom'; //to use Router in App // import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import App from './App';
-import { attendeeReducer } from './reducers/attendeeReducer';         // import our Reducers    // import rootReducer from "./reducers"
-import { activityReducer } from './reducers/activityReducer';
 import { tripReducer } from './reducers/tripReducer';
-
-// import { combineReducers, createStore } from "redux";
-// import { tripReducer } from "./tripReducer";
-// import { attendeeReducer } from ".attendeeReducer"
-// import { activityReducer } from ".activityReducer"
-
-// const rootReducer = combineReducers({         //dispatch to reducers (send actions to our reducers; reducers return new version of our store)
-//   // attendeeReducer,
-//   // activityReducer, 
-//   trips: tripReducer
-// });
-// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-// const store = createStore( rootReducer,  composeEnhancers( applyMiddleware(thunk) ) );     //store: stores data globally
 
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
-// let store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
-// const store = createStore( tripReducer,  composeEnhancers( applyMiddleware(thunk) ) );
-
-
-
-
-
-const rootReducer = combineReducers({
-  attendeeReducer,
-  activityReducer,
-  tripReducer
-})
-export default rootReducer;
-
-
-const store = createStore( rootReducer,  composeEnhancers( applyMiddleware(thunk) ) );
-
-
-
+const store = createStore( tripReducer,  composeEnhancers( applyMiddleware(thunk) ) );
 
 ReactDOM.render(
   <Provider store={store}>   {/* //pass {store} in as a prop // provider - allows the store to be global to our components in App  // we can connect (to the store) any component that is a child/grandchild of the provider - but to get the data updated, you need to connect that specific component */}
@@ -62,6 +28,7 @@ ReactDOM.render(
   ,
   document.getElementById('root')
 );
+
 
 
 
