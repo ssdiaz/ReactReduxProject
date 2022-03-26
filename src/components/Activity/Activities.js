@@ -1,49 +1,37 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
-import ActivityInput from './ActivityInput';
-import { deleteActivity } from '../../actions/Activity/deleteActivity';
-import { connect } from 'react-redux';
 import Activity from './Activity';
-
-const Activities = (props) => {
-
+import ActivityInput from './ActivityInput';
 
 
-    const handleDelete = (activityDeleted) => {
-        
-        let activity = props.activities.find(activity => activity.id === activityDeleted.id) 
+class Activities extends React.Component {
 
-        props.deleteActivity(activity.id, activity.trip_id) 
-
-        // props.history.push(`/trips/${activity.trip_id}`)
+    state = { 
+        displayActivityInput: false
     }
 
+    displayActivityInput = () => {
+        this.setState({
+            displayActivityInput: !this.state.displayActivityInput
+        })
+    } 
 
+    render() { 
+        return(
+            <div>
+                <h3>Activities</h3>
 
-    
-    return(
-        <div>
-           <h3>Activities</h3>
+                {this.props.activities && this.props.activities.map((activity, index) => 
+                    <li key={activity.index}>
+                        <Activity activity={activity} />    
+                    </li>
+                )}
 
-           {props.activities && props.activities.map(activity => 
-            <li key={activity.id}>
-                {/* <Link to={`/trips/${activity.trip_id}/activities/${activity.id}`}  activity={activity}  >{activity.name}</Link> */}
+                <button onClick={this.displayActivityInput}>Add Activity</button>          
+                {this.state.displayActivityInput === true ? <ActivityInput trip={this.props.trip} key={this.props.trip.id}   /> :  null }  
 
-                <Activity activity={activity} />    
-
-                <button onClick={() => handleDelete(activity)} >Delete</button> 
-                
-                
-                {/* <button onClick={() => handleDelete(activity)} >Delete</button>  */}
-
-
-            </li>
-           )}
-
-           <ActivityInput trip={props.trip} />
-        </div>
-    )
-
+            </div>
+        )
+    }
 }
 
-export default connect(null, {deleteActivity})(Activities);
+export default Activities;

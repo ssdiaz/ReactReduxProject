@@ -1,64 +1,94 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addActivity } from '../../actions/Activity/addActivity';
+import { updateActivity } from '../../actions/Activity/updateActivity';
 
-//class to keep track of inputs in the (local) state ---- use as redux????
 class ActivityInput extends Component {
  
     constructor(props) {
 
-        
+        console.log(props,'props in constructor')
+
         super(props)
 
-        console.log(props, 'props here')
+        if (props.activity) {
+            let activity = props.activity
 
-        this.state = {   
-            name: '',
-            description: '',
-            cost: 0,
-            mandatory: true,
-            priority: '',
-            includeInTotal: true,
-            comment: '',
-            day: '',
-            time: '',
-            trip_id: this.props.trip.id
+            this.state = {   
+                name: activity.name,
+                description: activity.description,
+                cost:activity.cost,
+                mandatory: activity.mandatory,
+                priority: activity.priority,
+                includeInTotal: activity.includeInTotal,
+                comment: activity.comment,
+                day: activity.day,
+                time: activity.time,
+                trip_id: activity.trip_id,
+                input_type: 'edit',
+            }
+        } else {
+            this.state = {   
+                name: '',
+                description: '',
+                cost: 0,
+                mandatory: true,
+                priority: '',
+                includeInTotal: true,
+                comment: '',
+                day: '',
+                time: '',
+                trip_id: props.trip.id,
+                input_type: 'add',
+            }
         }
-
     }
 
 
     handleChange = (event) => {
-        this.setState({ //setState is asynchrounus - won't clear out state until rest of function has ran
+        this.setState({ 
             [event.target.name]: event.target.value
         })
     }
 
     handleSubmit = (event) => {
         event.preventDefault()
-        console.log('hitting here')
 
-        this.props.addActivity(this.state, this.state.trip_id)
+        let tripID;
 
-        this.setState({   
-            name: '',
-            description: '',
-            cost: 0,
-            mandatory: true,
-            priority: '',
-            includeInTotal: true,
-            comment: '',
-            day: '',
-            time: '',
-            // trip_id: null,
-            trip_id: this.props.trip.id
-        })
+        if (this.state.input_type === 'add') {
+            tripID = this.props.trip.id
+            this.props.addActivity(this.state, this.props)
+
+            this.setState({
+                name: '',
+                description: '',
+                cost: 0,
+                mandatory: true,
+                priority: '',
+                includeInTotal: true,
+                comment: '',
+                day: '',
+                time: '',
+                trip_id: tripID,
+                input_type: 'add',
+            })
+
+        } else if (this.state.input_type === 'edit') {
+            console.log(this.props)
+            tripID = this.props.activity.trip_id
+            this.props.updateActivity(this.state, this.props)
+        }
+
+        this.props.history.push(`/trips/${tripID}`)
+
     }
 
     render() {
         return (
             <div>
-                <h3>Activity Input</h3>
+                <h3>{this.state.input_type === 'add' ? 'ADD ACTIVITY' : 'EDIT ACTIVITY'}</h3>
 
                 <form onSubmit={this.handleSubmit}>
                     <label>Name: </label>
@@ -103,4 +133,4 @@ class ActivityInput extends Component {
     }
 }
 
-export default connect(null, {addActivity})(ActivityInput);
+export default connect(null, {addActivity, updateActivity})(withRouter(ActivityInput));

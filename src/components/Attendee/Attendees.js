@@ -10,30 +10,13 @@ class Attendees extends React.Component {
     }
 
     displayAttendeeInput = () => {
-        // console.log(this.state,'props in Attendees')    //=> trips & attendees
         this.setState({
             displayAttendeeInput: !this.state.displayAttendeeInput
         })
     } 
 
-    // renderAttendeesInput = () => {
-        
-    //     if (this.state.displayAttendeeInput == true) {
-    //         console.log('true!')
-    //         // this.props.history.push(`/trips/${this.props.trip.id}/attendees/new`)
-    //         return(
-    //             <div>
-                    
-    //                 <AttendeeInput trip={this.props.trip} key={this.props.trip.id}   />
-
-    //             </div>
-    //         )
-    //     } 
-    // }
-    
     render() {
-        return(   
-    
+        return(    
             <div>
                 <h3>Attendees</h3>
 
@@ -43,27 +26,8 @@ class Attendees extends React.Component {
                     </li>          
                 )} 
                 
-                <button onClick={this.displayAttendeeInput} >Add Attendee</button>  
+                <button onClick={this.displayAttendeeInput}>Add Attendee</button>  
                 {this.state.displayAttendeeInput == true ? <AttendeeInput trip={this.props.trip} key={this.props.trip.id}   /> :  null }  
-
-
-{/*                
-               <Route render={( {history}) => (    
-                   <button onClick={() => { history.push(`/trips/${this.props.trip.id}/attendees/new`)  ; this.displayAttendeeInput()    }}                >
-                   Click Me!
-                   </button>
-                )} /> */}
-                {/* <button onClick={() => { history.push(`/trips/${this.props.trip.id}/attendees/new`)      }}   > */}
-
-                {/* {this.renderAttendeesInput()} */}
-                
-
-
-
-
-                {/* <Route path={`/trips/${this.props.trip.id}/attendees/new`} component={(routerProps) => <AttendeeInput/>} trip={this.props.trip}  /> */}
-                {/* <AttendeeInput trip={props.trip} /> */}
-                {/* <AttendeeInput /> */}
             </div>
         )
     }

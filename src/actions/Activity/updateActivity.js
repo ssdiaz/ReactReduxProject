@@ -1,11 +1,12 @@
 
-export const updateAttendee = (stateFormData, props) => { 
+export const updateActivity = (stateFormData, props) => {
 
-    let tripID = props.attendee.trip_id
-    let attendeeID = props.attendee.id
-    
+    let tripID = props.activity.trip_id
+    let activityID = props.activity.id
+
+
     return (dispatch) => {
-        fetch(`http://localhost:3000/api/v1/trips/${tripID}/attendees/${attendeeID}`, {
+        fetch(`http://localhost:3000/api/v1/trips/${tripID}/activities/${activityID}`, {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
@@ -30,6 +31,8 @@ export const updateAttendee = (stateFormData, props) => {
         //         dispatch({type: 'ADD_ATTENDEE', payload: trip}) 
         //     }
         // })  
-        .then(trip => dispatch({type: 'UPDATE_ATTENDEE', payload: trip}) )
+        .then(trip => dispatch({type: 'UPDATE_ACTIVITY', payload: trip}) )
     }
+
+
 }

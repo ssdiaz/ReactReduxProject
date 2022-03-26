@@ -1,9 +1,9 @@
 
 
 
-export const addActivity = (formStateData, tripID) => {
+export const addActivity = (formStateData, props) => {
 
-    console.log('hittiner here')
+    let tripID = props.trip.id
 
     return (dispatch) => { //this is to use dispatch to send to our reducer
         fetch(`http://localhost:3000/api/v1/trips/${tripID}/activities`, {
