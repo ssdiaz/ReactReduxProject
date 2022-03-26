@@ -1,22 +1,23 @@
-export const addAttendee = (formStateData, props) => { 
+export const updateActivity = (stateFormData, props) => {
 
-    let tripID = props.trip.id
+    let tripID = props.activity.trip_id
+    let activityID = props.activity.id
 
     return (dispatch) => {
-        fetch(`http://localhost:3000/api/v1/trips/${tripID}/attendees`, {
+        fetch(`http://localhost:3000/api/v1/trips/${tripID}/activities/${activityID}`, {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             } ,    
-            method: 'POST',
-            body: JSON.stringify(formStateData)
+            method: 'PATCH',
+            body: JSON.stringify(stateFormData)
         })
         .then(response => response.json())
         .then(trip => {                
             if (trip.error){
                 alert(trip.error)
             } else {
-                dispatch({type: 'ADD_ATTENDEE', payload: trip}) 
+                dispatch({type: 'UPDATE_ACTIVITY', payload: trip})
             }
         })  
     }

@@ -1,69 +1,112 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { addActivity } from '../../actions/Activity/addActivity';
+import { updateActivity } from '../../actions/Activity/updateActivity';
 
-//class to keep track of inputs in the (local) state ---- use as redux????
+
 class ActivityInput extends Component {
-    state = {   
-        name: "",
-        description: "",
-        cost: 0,
-        mandatory: null,
-        priority: " ",
-        includeInTotal: true,
-        comment: "",
-        day: "",
-        time: "",
-        trip_id: null
+ 
+    constructor(props) {
+        super(props)
+
+        if (props.activity) {
+            let activity = props.activity
+
+            this.state = {   
+                name: activity.name,
+                description: activity.description,
+                cost:activity.cost,
+                mandatory: activity.mandatory,
+                priority: activity.priority,
+                includeInTotal: activity.includeInTotal,
+                comment: activity.comment,
+                day: activity.day,
+                time: activity.time,
+                trip_id: activity.trip_id,
+                input_type: 'edit',
+            }
+        } else {
+            this.state = {   
+                name: '',
+                description: '',
+                cost: 0,
+                mandatory: true,
+                priority: '',
+                includeInTotal: true,
+                comment: '',
+                day: '',
+                time: '',
+                trip_id: props.trip.id,
+                input_type: 'add',
+            }
+        }
     }
 
-    handleChange = event => {
-        this.setState({ //setState is asynchrounus - won't clear out state until rest of function has ran
+
+    handleChange = (event) => {
+        this.setState({ 
             [event.target.name]: event.target.value
         })
     }
 
     handleSubmit = (event) => {
         event.preventDefault()
-        this.props.addActivity(this.state)
-        this.setState = {   
-            name: "",
-            description: "",
-            cost: 0,
-            mandatory: null,
-            priority: " ",
-            includeInTotal: true,
-            comment: "",
-            day: "",
-            time: "",
-            trip_id: null,
+
+        let tripID;
+
+        if (this.state.input_type === 'add') {
+            tripID = this.props.trip.id
+            this.props.addActivity(this.state, this.props)
+            this.setState({
+                name: '',
+                description: '',
+                cost: 0,
+                mandatory: true,
+                priority: '',
+                includeInTotal: true,
+                comment: '',
+                day: '',
+                time: '',
+                trip_id: tripID,
+                input_type: 'add',
+            })
+
+        } else if (this.state.input_type === 'edit') {
+            tripID = this.props.activity.trip_id
+            this.props.updateActivity(this.state, this.props)
         }
+
+        this.props.history.push(`/trips/${tripID}`)
     }
 
     render() {
         return (
             <div>
-                <h3>Activity Input</h3>
+                <h3>{this.state.input_type === 'add' ? 'ADD ACTIVITY' : 'EDIT ACTIVITY'}</h3>
+
                 <form onSubmit={this.handleSubmit}>
                     <label>Name: </label>
                     <input type="text" className="name" placeholder='name' value={this.state.name} name="name" onChange={this.handleChange} /><br/>
                     
-                    <label>Description: </label>
-                    <input type="text" className="description" placeholder='description' value={this.state.description} name="description" onChange={this.handleChange} /><br/>
-
-                    <label>Cost: </label>
-                    <input type="text" className="cost" placeholder='cost' value={this.state.cost} name="cost" onChange={this.handleChange} /><br/>
-                    
-                    <label>Mandatory: </label>
-                    <input type="text" className="mandatory" placeholder='mandatory' value={this.state.mandatory} name="mandatory" onChange={this.handleChange} /><br/>
-                    
                     <label>Priority: </label>
-                    {/* <input type="text" className="priority" placeholder=' ' value={this.state.priority} name="priority" onChange={this.handleChange} /><br/> */}
                     <select placeholder=' ' value={this.state.priority} name="priority" onChange={this.handleChange}>
                         <option> </option>
                         <option>HIGH</option>
                         <option>MEDIUM</option>
                         <option>LOW</option>
+                    </select><br/>
+                    
+                    <label>Cost: </label>
+                    <input type="text" className="cost" placeholder='cost' value={this.state.cost} name="cost" onChange={this.handleChange} /><br/>
+                    
+                    <label>Description: </label>
+                    <input type="text" className="description" placeholder='description' value={this.state.description} name="description" onChange={this.handleChange} /><br/>
+
+                    <label>Mandatory: </label>
+                    <select value={this.state.mandatory} name="mandatory" onChange={this.handleChange}>
+                        <option>TRUE</option>
+                        <option>FALSE</option>
                     </select><br/>
 
                     <label>Comments: </label>
@@ -75,11 +118,11 @@ class ActivityInput extends Component {
                     <label>Time: </label>
                     <input type="text" className="time" placeholder='time' value={this.state.time} name="time" onChange={this.handleChange} /><br/>
                
-                    <button type="submit">Create New Activity</button>
+                    <button type="submit">Submit</button>
                 </form>
             </div>
         );
     }
 }
 
-export default connect(null, {addActivity})(ActivityInput);
+export default connect(null, {addActivity, updateActivity})(withRouter(ActivityInput));

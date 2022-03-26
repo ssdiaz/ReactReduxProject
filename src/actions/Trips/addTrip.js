@@ -1,9 +1,6 @@
-export const addActivity = (formStateData, props) => {
-
-    let tripID = props.trip.id
-
-    return (dispatch) => { 
-        fetch(`http://localhost:3000/api/v1/trips/${tripID}/activities`, {
+export const addTrip = (formStateData) => { 
+    return (dispatch) => {
+        fetch('http://localhost:3000/api/v1/trips', {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
@@ -11,12 +8,12 @@ export const addActivity = (formStateData, props) => {
             method: 'POST',
             body: JSON.stringify(formStateData)
         })
-        .then(response => response.json()) 
+        .then(response => response.json())
         .then(trip => {                
             if (trip.error){
                 alert(trip.error)
             } else {
-                dispatch({type: 'ADD_ACTIVITY', payload: trip})
+                dispatch({type: 'ADD_TRIP', payload: trip})
             }
         })  
     }
