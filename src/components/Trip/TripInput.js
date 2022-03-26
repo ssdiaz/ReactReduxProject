@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // import { addAttendee } from '../actions/addAttendee';
+import { withRouter } from 'react-router-dom';
 import { addTrip } from '../../actions/Trips/addTrip';
+import { updateTrip } from '../../actions/Trips/updateTrip';
 
 //class compoent so we can control our form; local state to control value or form data availible to redux store.
 class TripInput extends Component {
@@ -22,6 +24,7 @@ class TripInput extends Component {
                 end_date: trip.end_date,
                 bride_id: trip.bride_id,
                 attendees:trip.attendees,
+                input_type: 'edit',
             }
             //
         } else {
@@ -31,7 +34,8 @@ class TripInput extends Component {
                 start_date: '',
                 end_date: '',
                 bride_id: '',
-                attendees: ''
+                attendees: '',
+                input_type: 'add',
             }
         }
     }
@@ -47,15 +51,29 @@ class TripInput extends Component {
         //use an action creator to send the user's inputs from the form to the backend database
         event.preventDefault() //so we don't lose our form data before the re-render
 
-        // console.log(this.props, 'this.props?')
-        this.props.addTrip(this.state)
-        this.setState({   
-            location: '',
-            start_date: '',
-            end_date: '',
-            bride_id: '',
-            attendees: ''
-        })
+
+
+        // let tripID = this.props.id            
+        
+        if (this.state.input_type === 'add'){   // 'ADD NEW ATTENDEE'
+            this.props.addTrip(this.state)
+            this.setState({   
+                location: '',
+                start_date: '',
+                end_date: '',
+                bride_id: '',
+                attendees: ''
+            })
+        } else if (this.state.input_type === 'edit') {  // 'EDIT ATTENDEE'          
+            console.log(this.props, 'props')
+            console.log(this.state, 'state')
+
+            this.props.updateTrip(this.state, this.props) //=> attendee only in props
+
+            this.props.history.push(`/trips`)
+
+        }
+
     }
 
     //uncontrolled comonent
@@ -63,7 +81,7 @@ class TripInput extends Component {
     render() {
         return(
             <div>
-                <h3>Trip Input</h3>
+                <h3>Trip Form</h3>
 
                 <form onSubmit={this.handleSubmit}>                       
                     <label>Location: </label>
@@ -78,7 +96,7 @@ class TripInput extends Component {
                     <label>Bride ID: </label>
                     <input type="text" className="status" value={this.state.bride_id} name="bride_id" onChange={this.handleChange} /><br/>
                     
-                    <button type="submit">Create New Trip</button>
+                    <button type="submit">Submit</button>
                 </form>
 
             </div>
@@ -91,4 +109,4 @@ class TripInput extends Component {
 
 // export default connect(null)(TripInput);
 
-export default connect(null, {addTrip})(TripInput);
+export default connect(null, {addTrip, updateTrip})(withRouter(TripInput));

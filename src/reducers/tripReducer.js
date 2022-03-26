@@ -11,6 +11,7 @@ export function tripReducer(state = {trips:[]}, action) {
             return {trips: action.payload} //maybe here we set atendees and then that goes ot ther reduver..? idkl then ists liek ALL attendees instead of just attendees from partucualt trup
 
         case 'ADD_TRIP':
+        case  'UPDATE_TRIP':
             return {...state, trips: [...state.trips, action.payload]}
         
         case 'DELETE_TRIP':
