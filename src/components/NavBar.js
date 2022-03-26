@@ -14,6 +14,7 @@ import Attendees from './Attendee/Attendees';
 import AttendeeInput from './Attendee/AttendeeInput';
 import Activities from './Activity/Activities';
 import ActivityInput from './Activity/ActivityInput';
+import TripsContainer from '../containers/TripsContainer';
 
 import Trips from './Trip/Trips';
 
@@ -23,10 +24,19 @@ const NavBar = () => {
     <div>
         {/* <Link to='/' style={{paddingRight: '10px'}} component={Home} /> */}
 
-        {/* <Link to='/' style={{paddingRight: '10px'}} >Home</Link> */}
+        <Link to='/' style={{paddingRight: '10px'}} >Home</Link>
 
 
         <Link to='/trips' style={{paddingRight: '10px'}}>Trips</Link> 
+
+
+
+
+        
+
+
+
+
         
         {/* <Link to='/attendees' style={{paddingRight: '10px'}} >Attendees</Link>
         <Link to='/attendees/new' style={{paddingRight: '10px'}} > Add Attendees</Link>

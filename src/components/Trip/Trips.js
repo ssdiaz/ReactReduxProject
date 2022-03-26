@@ -14,7 +14,8 @@ class Trips extends React.Component {
         })
     }
    
-    render() {        
+    render() {  
+   
         return (
             <div>
                 <h3>Trips</h3>              

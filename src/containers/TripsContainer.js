@@ -19,7 +19,7 @@ class TripsContainer extends React.Component {
     render() {
         return (
             <div>
-                <NavBar />
+                {/* <NavBar /> */}
 
                 <Switch>
                     <Route path='/trips/:id' render={(routerProps) => <Trip {...routerProps} trips={this.props.trips}/>}/>

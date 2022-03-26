@@ -10,9 +10,13 @@ const Home = () => {
 
   return (
     <div>
-        <p>This is your home page</p>
+        <p>Welcome to the Bachelorette Planner!</p>
         
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>Click <Link to="/trips">Trips</Link> to get started</p>      
+
+        <p>Use this site to help you plan your next Bachelorette! Create a Trip and add guests attending and activities to see your trip in one snapshot dashboard!</p>
+
+
     </div>
   )
 }

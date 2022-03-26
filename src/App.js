@@ -4,22 +4,35 @@
 // import ActivitiesContainer from './containers/ActivitiesContainer';
 
 import NavBar from './components/NavBar';
+import Home from './components/Home'
 
 
 import React from 'react';
 import TripsContainer from './containers/TripsContainer';
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+  Link, 
+  HashRouter, NavLink
+} from "react-router-dom";
+
+import Trip from './components/Trip/Trip';
 
 class App extends React.Component {
-
   render() {
     return (
       <div className="App">
 
-        {/* <NavBar /> */}
-
         <h1>BACHELORETTE PLANNER</h1>
+        <NavBar />
         <TripsContainer />
-        
+
+        <Switch>           
+          <Route exact path="/trips" ></Route>
+          <Route exact path="/"  component={Home}></Route>
+        </Switch>
+
       </div>
     );
   }
@@ -27,11 +40,6 @@ class App extends React.Component {
 
 export default App;
 
-//NOTE - APP is not currently connected to our Redux store!
-// export default connect(null, {fetchAttendees})(App);
-  // this connect is automatically calling dispatch for us on the return value of fetchAccounts.
-  // thunk allows us to call dispatch inside the action creator to allow it to wait for the action dispatch to finish before we dispatch anything to our reducer
-  
 
 
 
