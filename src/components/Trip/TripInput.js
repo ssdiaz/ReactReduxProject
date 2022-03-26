@@ -62,7 +62,8 @@ class TripInput extends Component {
                 start_date: '',
                 end_date: '',
                 bride_id: '',
-                attendees: ''
+                attendees: '',
+                input_type: 'add',
             })
         } else if (this.state.input_type === 'edit') {  // 'EDIT ATTENDEE'          
             console.log(this.props, 'props')
@@ -71,7 +72,6 @@ class TripInput extends Component {
             this.props.updateTrip(this.state, this.props) //=> attendee only in props
 
             this.props.history.push(`/trips`)
-
         }
 
     }
