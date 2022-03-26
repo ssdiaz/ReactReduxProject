@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import { connect } from 'react-redux'
 import { Route, Switch, Link } from 'react-router-dom'
@@ -8,7 +8,7 @@ import Activities from '../components/Activity/Activities';
 import Activity from '../components/Activity/Activity';
 
 
-class ActivitiesContainer extends Component {
+class ActivitiesContainer extends React.Component {
 
     render() { 
         // console.log(this.props, 'props  this.props.activities') //=> tip (one)
@@ -31,7 +31,6 @@ class ActivitiesContainer extends Component {
 }
 
 const mapStateToProps = (state, props) => {
-    // console.log(state, 'activ containers state - mapStateToProps')
 
     return {
         ...state,

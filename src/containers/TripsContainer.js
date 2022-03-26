@@ -1,13 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {Route, Switch} from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import { fetchTrips } from '../actions/Trips/fetchTrips';
-
 import Trips from '../components/Trip/Trips';
 import Trip from '../components/Trip/Trip';
-import NavBar from '../components/NavBar'
-import TripInput from '../components/Trip/TripInput';
-// import { updateAttendee } from '../actions/Attendee/updateAttendee';
 
 class TripsContainer extends React.Component {
 
@@ -15,12 +11,9 @@ class TripsContainer extends React.Component {
         this.props.fetchTrips() 
     }
 
-
     render() {
         return (
             <div>
-                {/* <NavBar /> */}
-
                 <Switch>
                     <Route path='/trips/:id' render={(routerProps) => <Trip {...routerProps} trips={this.props.trips}/>}/>
                     <Route path='/trips' render={(routerProps) => <Trips {...routerProps} trips={this.props.trips}/>}/>
