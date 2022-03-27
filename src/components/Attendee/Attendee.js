@@ -26,12 +26,14 @@ class Attendee extends React.Component {
         let attendee = this.props.attendees.find(attendee => attendee.name == this.props.match.params.name)
 
         return (
-            <div>
+            <div className="card w-50">
+                <div className="card-body">
                 <AttendeeDetail attendee={attendee} />
-                <button onClick={ this.displayAttendeeInput }>Edit</button>                    
-                <button onClick={ () => this.handleDelete(attendee) }>Delete</button>
+                <button className="btn btn-outline-secondary" onClick={ this.displayAttendeeInput }>Edit</button>                    
+                <button className="btn btn-outline-danger" onClick={ () => this.handleDelete(attendee) }>Delete</button>
 
-                {this.state.displayAttendeeInput == true ? <AttendeeInput attendee={attendee} /> :  null }            
+                {this.state.displayAttendeeInput == true ? <AttendeeInput attendee={attendee} /> :  null } 
+                </div>           
             </div> 
         );
     }

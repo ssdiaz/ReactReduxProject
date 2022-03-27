@@ -3,25 +3,24 @@ import { Switch,  Route } from "react-router-dom";
 import NavBar from './components/NavBar';
 import TripsContainer from './containers/TripsContainer';
 import Home from './components/Home'
+import Container from 'react-bootstrap/Container';
 
 
 class App extends React.Component {
   render() {
     return (
-      <div className="App">
+         <Container className="p-5 mb-4 bg-light rounded-3">
+          <h1>BACHELORETTE PLANNER</h1>
 
-        <h1>BACHELORETTE PLANNER</h1>
+          <NavBar />
 
-        <NavBar />
+          <TripsContainer />
 
-        <TripsContainer />
-
-        <Switch>           
-          <Route exact path="/trips" ></Route>
-          <Route exact path="/"  component={Home}></Route>
-        </Switch>
-
-      </div>
+          <Switch>           
+            <Route exact path="/trips" ></Route>
+            <Route exact path="/" component={Home}></Route>
+          </Switch>
+        </Container>
     );
   }
 }

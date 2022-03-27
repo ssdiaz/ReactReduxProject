@@ -75,44 +75,67 @@ class AttendeeInput extends React.Component {
 
     render() {
         return(
-            <div>
-                <h3>{this.state.input_type === 'add' ? 'ADD ATTENDEE' : 'EDIT ATTENDEE'}</h3>
+            <div className="card w-75">
+                <div className="card-body">
+                    <h3>{this.state.input_type === 'add' ? 'ADD ATTENDEE' : 'EDIT ATTENDEE'}</h3>
 
-                <form onSubmit={this.handleSubmit}>                       
-                    <label>Name: </label>
-                    <input type="text" className="Name" placeholder='Name' value={this.state.name} name="name" onChange={this.handleChange} /><br/>
-                    
-                    <label>Phone Number: </label>
-                    <input type="text" className="phone" placeholder='Phone Number' value={this.state.phone} name="phone" onChange={this.handleChange} /><br/>
+                    <form onSubmit={this.handleSubmit}>                       
+                        
+                        <div className="form-group">
+                            <label>Name: </label>
+                            <input type="text" className="form-control" placeholder='Name' value={this.state.name} name="name" onChange={this.handleChange} /><br/>
+                        </div>
+                            
+                        <div className="form-group">
+                            <label>Phone Number: </label>
+                            <input type="text" className="form-control" placeholder='Phone Number' value={this.state.phone} name="phone" onChange={this.handleChange} /><br/>
+                        </div>
+                            
 
-                    <label>Relationship: </label>
-                    <select className="relationship"  value={this.state.relationship} name="relationship" onChange={this.handleChange} >
-                        <option defaultValue value='Attende'>Attende</option>                    
-                        <option value ='Bride'>Bride</option>
-                        <option value ='Bridesmaid'>Bridesmaid</option>
-                        <option value ='Maid of Honor'>Maid of Honor</option>
-                        <option value ='Matron of Honor'>Matron of Honor</option>
-                    </select><br/>
+                        <div className="form-group row">    
+                            <div className="form-group col-md-6">  
+                                <label>Relationship: </label>
+                                <select className="form-control"  value={this.state.relationship} name="relationship" onChange={this.handleChange} >
+                                    <option defaultValue value='Attende'>Attende</option>                    
+                                    <option value ='Bride'>Bride</option>
+                                    <option value ='Bridesmaid'>Bridesmaid</option>
+                                    <option value ='Maid of Honor'>Maid of Honor</option>
+                                    <option value ='Matron of Honor'>Matron of Honor</option>
+                                </select><br/>
+                            </div>
+                                
+                            <div className="form-group col-md-6">   
+                                <label>Status: </label>
+                                <select className="form-control" value={this.state.status} name="status" onChange={this.handleChange} >
+                                    <option defaultValue value=''> </option>                    
+                                    <option value ='Confirmed'>Confirmed</option>
+                                    <option value ='Maybe'>Maybe</option>
+                                    <option value ='Not Coming'>Not Coming</option>
+                                </select><br/>
+                            </div>
+                        </div>   
 
-                    <label>Status: </label>
-                    <select className="status" value={this.state.status} name="status" onChange={this.handleChange} >
-                        <option defaultValue value=''> </option>                    
-                        <option value ='Confirmed'>Confirmed</option>
-                        <option value ='Maybe'>Maybe</option>
-                        <option value ='Not Coming'>Not Coming</option>
-                    </select><br/>
+                        <div className="form-group row">
+                            <div className="form-group col-md-6">   
+                                <label>Lodging Budget: </label>
+                                <input type="text" className="form-control" placeholder='Lodging Budget' value={this.state.lodgingBudget} name="lodgingBudget" onChange={this.handleChange} /><br/>
+                            </div>
+                                
+                            <div className="form-group col-md-6">   
+                                <label>Events Budget: </label>
+                                <input type="text" className="form-control" placeholder='Events Budget' value={this.state.eventsBudget} name="eventsBudget" onChange={this.handleChange} /><br/>
+                            </div>
+                        </div>
 
-                    <label>Lodging Budget: </label>
-                    <input type="text" className="lodgingBudget" placeholder='Lodging Budget' value={this.state.lodgingBudget} name="lodgingBudget" onChange={this.handleChange} /><br/>
-                    
-                    <label>Events Budget: </label>
-                    <input type="text" className="eventsBudget" placeholder='Events Budget' value={this.state.eventsBudget} name="eventsBudget" onChange={this.handleChange} /><br/>
-                    
-                    <label>Notes: </label>
-                    <textarea type="text" className="notes" placeholder='Notes' value={this.state.notes} name="notes" onChange={this.handleChange} /><br/>
-             
-                    <button type="submit">Submit</button>
-                </form>
+
+                        <div className="form-group">    
+                            <label>Notes: </label>
+                            <textarea type="text" className="form-control" placeholder='Notes' value={this.state.notes} name="notes" onChange={this.handleChange} /><br/>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
             </div>
         )
     }

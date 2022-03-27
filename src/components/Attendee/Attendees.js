@@ -27,7 +27,7 @@ class Attendees extends React.Component {
                     </li>          
                 )} 
                 
-                <button onClick={this.displayAttendeeInput}>Add Attendee</button>  
+                <button class="btn btn-primary btn-lg" onClick={this.displayAttendeeInput}>Add Attendee</button>  
                 {this.state.displayAttendeeInput == true ? <AttendeeInput trip={this.props.trip} key={this.props.trip.id}   /> :  null }  
             </div>
         )

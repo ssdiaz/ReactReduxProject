@@ -82,44 +82,68 @@ class ActivityInput extends Component {
 
     render() {
         return (
-            <div>
-                <h3>{this.state.input_type === 'add' ? 'ADD ACTIVITY' : 'EDIT ACTIVITY'}</h3>
+            <div className="card w-75">
+                <div className="card-body">
+                    <h3>{this.state.input_type === 'add' ? 'ADD ACTIVITY' : 'EDIT ACTIVITY'}</h3>
 
-                <form onSubmit={this.handleSubmit}>
-                    <label>Name: </label>
-                    <input type="text" className="name" placeholder='name' value={this.state.name} name="name" onChange={this.handleChange} /><br/>
-                    
-                    <label>Priority: </label>
-                    <select placeholder=' ' value={this.state.priority} name="priority" onChange={this.handleChange}>
-                        <option> </option>
-                        <option>HIGH</option>
-                        <option>MEDIUM</option>
-                        <option>LOW</option>
-                    </select><br/>
-                    
-                    <label>Cost: </label>
-                    <input type="text" className="cost" placeholder='cost' value={this.state.cost} name="cost" onChange={this.handleChange} /><br/>
-                    
-                    <label>Description: </label>
-                    <input type="text" className="description" placeholder='description' value={this.state.description} name="description" onChange={this.handleChange} /><br/>
+                    <form onSubmit={this.handleSubmit}>
 
-                    <label>Mandatory: </label>
-                    <select value={this.state.mandatory} name="mandatory" onChange={this.handleChange}>
-                        <option>TRUE</option>
-                        <option>FALSE</option>
-                    </select><br/>
+                        <div className="form-group">
+                            <label > Activity </label>
+                            <input type="text" className="form-control" placeholder='Name' value={this.state.name} name="name" onChange={this.handleChange} /><br/>
+                        </div>
 
-                    <label>Comments: </label>
-                    <textarea type="text" className="comment" value={this.state.comment} name="comment" onChange={this.handleChange} /><br/>
 
-                    <label>Day: </label>
-                    <input type="text" className="day" placeholder='day' value={this.state.day} name="day" onChange={this.handleChange} /><br/>
-                    
-                    <label>Time: </label>
-                    <input type="text" className="time" placeholder='time' value={this.state.time} name="time" onChange={this.handleChange} /><br/>
-               
-                    <button type="submit">Submit</button>
-                </form>
+                        <div className="form-group row">
+                            <div className="form-group col-md-4">
+                                <label> Priority </label>
+                                <select className="form-control" value={this.state.priority} name="priority" onChange={this.handleChange}>
+                                    <option selected> </option>
+                                    <option> HIGH </option>
+                                    <option> MEDIUM </option>
+                                    <option> LOW </option>
+                                </select><br/>
+                            </div>
+
+                            <div className="form-group col-md-4">
+                                <label> Cost </label>
+                                <input type="text" className="form-control" value={this.state.cost} name="cost" onChange={this.handleChange} /><br/>
+                            </div>
+
+                            <div className="col-sm-2">
+                                <label> Mandatory </label>
+                                <div className="col-sm-4">
+                                    <div className="form-check">
+                                        <input type="checkbox" className="form-check-input" value={this.state.mandatory} name="mandatory" id={true} onChange={this.handleChange} />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div className="form-group">
+                            <label> Description </label>
+                            <input type="text" className="form-control" placeholder='Description' value={this.state.description} name="description" onChange={this.handleChange} /><br/>
+                        </div>
+
+                        <div className="form-group">
+                            <label> Day </label>
+                            <input type="text" className="form-control" placeholder='Day' value={this.state.day} name="day" onChange={this.handleChange} /><br/>
+                        </div>
+
+                        <div className="form-group">
+                            <label> Time </label>
+                            <input type="text" className="form-control" placeholder='Time' value={this.state.time} name="time" onChange={this.handleChange} /><br/>
+                        </div>
+
+                        <div className="form-group">
+                            <label> Comments </label>
+                            <textarea type="text" className="form-control" value={this.state.comment} name="comment" onChange={this.handleChange} /><br/>
+                        </div>
+
+                        <button type="submit" className="btn btn-primary">Submit</button>
+                    </form>
+                </div>
             </div>
         );
     }

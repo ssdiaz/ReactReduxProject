@@ -24,7 +24,7 @@ class Activities extends React.Component {
                     <Activity activity={activity} />    
                 )}
 
-                <button onClick={this.displayActivityInput}>Add Activity</button>          
+                <button class="btn btn-primary btn-lg" onClick={this.displayActivityInput}>Add Activity</button>          
                 {this.state.displayActivityInput === true ? <ActivityInput trip={this.props.trip} key={this.props.trip.id}   /> :  null }  
             </div>
         )

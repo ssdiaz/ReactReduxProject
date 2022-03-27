@@ -25,12 +25,14 @@ class Activity extends React.Component {
         let activity = this.props.activity
 
         return(
-            <div>
-                <ActivityDetails activity={activity} />
-                <button onClick={ this.displayActivityInput }>Edit</button> 
-                <button onClick={ () => this.handleDelete(activity) }>Delete</button>
-                
-                {this.state.displayActivityInput === true ? <ActivityInput activity={activity} /> :  null }
+            <div className="card w-50">
+                <div className="card-body">
+                    <ActivityDetails activity={activity} />
+                    <button className="btn btn-outline-secondary" onClick={ this.displayActivityInput }>Edit</button> 
+                    <button className="btn btn-outline-danger" onClick={ () => this.handleDelete(activity) }>Delete</button>
+                    
+                    {this.state.displayActivityInput === true ? <ActivityInput activity={activity} /> :  null }
+                </div>
             </div>
         )
     }

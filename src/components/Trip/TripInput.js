@@ -77,7 +77,7 @@ class TripInput extends Component {
                     <label>Bride ID: </label>
                     <input type="text" className="status" value={this.state.bride_id} name="bride_id" onChange={this.handleChange} /><br/>
                      */}
-                    <button type="submit">Submit</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
         )

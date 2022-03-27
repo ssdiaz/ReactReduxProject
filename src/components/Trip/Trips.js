@@ -18,15 +18,15 @@ class Trips extends React.Component {
    
     render() {  
         return (
-            <div>
+            <div class="container">
                 <h3>Trips</h3>              
                 {this.props.trips && this.props.trips.map( (trip, index) => 
                     <li key={index}>
-                        <Link to={`/trips/${trip.id}`} >{trip.location}</Link>
+                        <Link to={`/trips/${trip.id}`} class="btn btn-info" >{trip.location}</Link>
                     </li>
                 )} 
 
-                <button onClick={ () => this.displayTripInput()} >Add Trip</button>   
+                <button class="btn btn-primary btn-lg" onClick={ () => this.displayTripInput()} >Add Trip</button>   
                 {this.state.displayTripInput == true ? <TripInput /> :  null }
             </div>
         )
