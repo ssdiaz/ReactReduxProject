@@ -5,6 +5,8 @@ import { fetchTrips } from '../actions/Trips/fetchTrips';
 import Trips from '../components/Trip/Trips';
 import Trip from '../components/Trip/Trip';
 
+import TripInput from '../components/Trip/TripInput';
+
 class TripsContainer extends React.Component {
 
     componentDidMount() {
@@ -14,12 +16,13 @@ class TripsContainer extends React.Component {
     render() {
         return (
             <div>
+                
                 <Switch>
+                    <Route path='/trips/new' render={ (routerProps) => <TripInput {...routerProps} trips={this.props.trips} /> } />
                     <Route path='/trips/:id' render={ (routerProps) => <Trip {...routerProps} trips={this.props.trips} /> } />
                     <Route path='/trips' render={ (routerProps) => <Trips {...routerProps} trips={this.props.trips} /> } />
                 </Switch>
-                    {/* <Route path='/trips/new' component={TripInput}/> */}
-                    {/* <Route path='/trips/new' /> */}
+
             </div>
         );
     }
@@ -27,15 +30,7 @@ class TripsContainer extends React.Component {
 
 const mapStateToProps = state => { 
 
-    return {
-        // trips:  [
-        //     state.trips,
-        //     {
-        //         attendees: state.trips.map(trip => trip.attendees),
-        //         activities: state.trips.map(trip => trip.activities)
-        //     }
-        // ]       
-                
+    return { 
         trips: state.trips,
     }
 }
