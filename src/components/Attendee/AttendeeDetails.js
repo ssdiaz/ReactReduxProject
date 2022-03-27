@@ -15,7 +15,7 @@ const AttendeeDetail = (props) => {
                     <li>Events Budget: {attendee.eventsBudget}</li> 
                 </ul>
             </div>
-        </div>
+       </div>
     )
 }
 

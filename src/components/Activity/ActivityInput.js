@@ -82,7 +82,7 @@ class ActivityInput extends Component {
 
     render() {
         return (
-            <div className="card w-75">
+            <div className="card w-100">
                 <div className="card-body">
                     <h3>{this.state.input_type === 'add' ? 'ADD ACTIVITY' : 'EDIT ACTIVITY'}</h3>
 

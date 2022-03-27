@@ -18,17 +18,24 @@ class Activities extends React.Component {
     render() { 
         return(
             <div>
-                <h3>Activities</h3>
+                <div className="row">
+                    <h3 className="card-title">Activities</h3>
 
-                {this.props.activities && this.props.activities.map(activity => 
-                    <Activity activity={activity} />    
-                )}
+                    {this.props.activities && this.props.activities.map(activity => 
+                        <Activity activity={activity} />    
+                    )}
 
-                <button class="btn btn-primary btn-lg" onClick={this.displayActivityInput}>Add Activity</button>          
-                {this.state.displayActivityInput === true ? <ActivityInput trip={this.props.trip} key={this.props.trip.id}   /> :  null }  
+                </div>
+                
+                <button className="btn btn-primary btn-lg" onClick={this.displayActivityInput}>Add Activity</button>          
+                {this.state.displayActivityInput === true ? <ActivityInput trip={this.props.trip} key={this.props.trip.id} /> :  null }  
             </div>
         )
     }
 }
 
 export default Activities;
+
+
+
+

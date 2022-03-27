@@ -82,30 +82,30 @@ class AttendeeInput extends React.Component {
                     <form onSubmit={this.handleSubmit}>                       
                         
                         <div className="form-group">
-                            <label>Name: </label>
+                            <label> Name </label>
                             <input type="text" className="form-control" placeholder='Name' value={this.state.name} name="name" onChange={this.handleChange} /><br/>
                         </div>
                             
                         <div className="form-group">
-                            <label>Phone Number: </label>
+                            <label> Phone Number </label>
                             <input type="text" className="form-control" placeholder='Phone Number' value={this.state.phone} name="phone" onChange={this.handleChange} /><br/>
                         </div>
                             
 
                         <div className="form-group row">    
                             <div className="form-group col-md-6">  
-                                <label>Relationship: </label>
+                                <label> Relationship </label>
                                 <select className="form-control"  value={this.state.relationship} name="relationship" onChange={this.handleChange} >
-                                    <option defaultValue value='Attende'>Attende</option>                    
-                                    <option value ='Bride'>Bride</option>
-                                    <option value ='Bridesmaid'>Bridesmaid</option>
-                                    <option value ='Maid of Honor'>Maid of Honor</option>
-                                    <option value ='Matron of Honor'>Matron of Honor</option>
+                                    <option defaultValue value='Attende'>Attendee</option>                    
+                                    <option value ='Bride'> Bride </option>
+                                    <option value ='Bridesmaid'> Bridesmaid </option>
+                                    <option value ='Maid of Honor'> Maid of Honor </option>
+                                    <option value ='Matron of Honor'> Matron of Honor </option>
                                 </select><br/>
                             </div>
                                 
                             <div className="form-group col-md-6">   
-                                <label>Status: </label>
+                                <label> Status </label>
                                 <select className="form-control" value={this.state.status} name="status" onChange={this.handleChange} >
                                     <option defaultValue value=''> </option>                    
                                     <option value ='Confirmed'>Confirmed</option>
@@ -117,19 +117,19 @@ class AttendeeInput extends React.Component {
 
                         <div className="form-group row">
                             <div className="form-group col-md-6">   
-                                <label>Lodging Budget: </label>
+                                <label> Lodging Budget </label>
                                 <input type="text" className="form-control" placeholder='Lodging Budget' value={this.state.lodgingBudget} name="lodgingBudget" onChange={this.handleChange} /><br/>
                             </div>
                                 
                             <div className="form-group col-md-6">   
-                                <label>Events Budget: </label>
+                                <label> Events Budget </label>
                                 <input type="text" className="form-control" placeholder='Events Budget' value={this.state.eventsBudget} name="eventsBudget" onChange={this.handleChange} /><br/>
                             </div>
                         </div>
 
 
                         <div className="form-group">    
-                            <label>Notes: </label>
+                            <label> Notes </label>
                             <textarea type="text" className="form-control" placeholder='Notes' value={this.state.notes} name="notes" onChange={this.handleChange} /><br/>
                         </div>
                         

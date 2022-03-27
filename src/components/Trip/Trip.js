@@ -32,8 +32,8 @@ class Trip extends React.Component {
                 <AttendeesContainer trip={trip} />
                 <ActivitiesContainer trip={trip} />
                 
-                <button class="btn btn-secondary" onClick={ this.displayTripInput }>Edit</button>  
-                <button class="btn btn-danger" onClick={ () => this.handleDelete(trip) }>Delete Trip</button>  
+                <button className="btn btn-secondary" onClick={ this.displayTripInput }>Edit</button>  
+                <button className="btn btn-danger" onClick={ () => this.handleDelete(trip) }>Delete Trip</button>  
 
                 {this.state.displayTripInput == true ? <TripInput trip={trip} />  :  null } 
             </div>

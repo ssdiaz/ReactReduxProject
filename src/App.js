@@ -10,8 +10,7 @@ class App extends React.Component {
   render() {
     return (
          <Container className="p-5 mb-4 bg-light rounded-3">
-          <h1>BACHELORETTE PLANNER</h1>
-
+           
           <NavBar />
 
           <TripsContainer />
