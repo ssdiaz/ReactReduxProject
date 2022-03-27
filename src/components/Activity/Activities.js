@@ -19,12 +19,11 @@ class Activities extends React.Component {
         return(
             <div>
                 <div className="row">
-                    <h3 className="card-title">Activities</h3>
+                    <h3>Activities</h3>
 
                     {this.props.activities && this.props.activities.map(activity => 
                         <Activity activity={activity} />    
                     )}
-
                 </div>
                 
                 <button className="btn btn-primary btn-lg" onClick={this.displayActivityInput}>Add Activity</button>          
@@ -35,7 +34,3 @@ class Activities extends React.Component {
 }
 
 export default Activities;
-
-
-
-
