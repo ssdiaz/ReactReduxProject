@@ -9,7 +9,7 @@ const Home = () => {
         <h1 className="display-5">Welcome to the Bachelorette Planner!</h1>
 
         <p className="lead">
-            Use this site to help you plan your next Bachelorette! Create a Trip and add guests attending and activities to see your trip in one snapshot dashboard.
+            Use this site to help plan your next Bachelorette! Create a trip and add invited guests and activities to see your trip in one snapshot dashboard.
         </p>
 
         <hr className="my-4"></hr>

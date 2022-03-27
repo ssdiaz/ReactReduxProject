@@ -29,13 +29,12 @@ class Trip extends React.Component {
         return (
             <div>
                 <TripDetails trip={trip} />
-                <AttendeesContainer trip={trip} />
-                <ActivitiesContainer trip={trip} />
-                
-                <button className="btn btn-secondary" onClick={ this.displayTripInput }>Edit</button>  
-                <button className="btn btn-danger" onClick={ () => this.handleDelete(trip) }>Delete Trip</button>  
-
                 {this.state.displayTripInput == true ? <TripInput trip={trip} />  :  null } 
+                <button className="btn btn-secondary" onClick={ this.displayTripInput }>Edit</button>  
+                <button className="btn btn-danger" onClick={ () => this.handleDelete(trip) }>Delete Trip</button> 
+
+                <AttendeesContainer trip={trip} />
+                <ActivitiesContainer trip={trip} /> 
             </div>
         )
     }

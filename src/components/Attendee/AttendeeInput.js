@@ -75,22 +75,23 @@ class AttendeeInput extends React.Component {
 
     render() {
         return(
-            <div className="card w-75">
+            <div className="alert alert-info" >
                 <div className="card-body">
                     <h3>{this.state.input_type === 'add' ? 'ADD ATTENDEE' : 'EDIT ATTENDEE'}</h3>
 
                     <form onSubmit={this.handleSubmit}>                       
                         
-                        <div className="form-group">
-                            <label> Name </label>
-                            <input type="text" className="form-control" placeholder='Name' value={this.state.name} name="name" onChange={this.handleChange} /><br/>
+                        <div className="form-group row">  
+                            <div className="form-group col-md-6">
+                                <label> Name </label>
+                                <input type="text" className="form-control" placeholder='Name' value={this.state.name} name="name" onChange={this.handleChange} /><br/>
+                            </div>
+                                
+                            <div className="form-group col-md-6">
+                                <label> Phone Number </label>
+                                <input type="text" className="form-control" placeholder='Phone Number' value={this.state.phone} name="phone" onChange={this.handleChange} /><br/>
+                            </div>
                         </div>
-                            
-                        <div className="form-group">
-                            <label> Phone Number </label>
-                            <input type="text" className="form-control" placeholder='Phone Number' value={this.state.phone} name="phone" onChange={this.handleChange} /><br/>
-                        </div>
-                            
 
                         <div className="form-group row">    
                             <div className="form-group col-md-6">  

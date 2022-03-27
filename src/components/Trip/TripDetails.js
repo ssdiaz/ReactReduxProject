@@ -3,8 +3,9 @@ const TripDetails = (props) => {
 
     return(
             <div className="card text-white bg-info mb-3">
-                <ul key={trip.id}>
-                    Location: {trip.location}
+                <ul className="text-center" key={trip.id}>
+                    <h4>Location:</h4> 
+                    <h2>{trip.location}</h2>
                     {/* <li>Start Date: {trip.start_date}</li> */}
                     {/* <li>End Date: {trip.end_date}</li> */}
                 </ul>
@@ -13,8 +14,3 @@ const TripDetails = (props) => {
 }
 
 export default TripDetails;
-
-
-
-
-

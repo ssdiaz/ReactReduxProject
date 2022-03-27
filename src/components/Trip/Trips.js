@@ -19,16 +19,16 @@ class Trips extends React.Component {
     render() {  
         return (
             <div>
-                <div class="card">
+                <div className="card">
                     <h3>Trips</h3>              
                     {this.props.trips && this.props.trips.map( (trip, index) => 
-                        <div class="card-body">
-                            <Link to={`/trips/${trip.id}`} class="btn btn-info" >{trip.location}</Link>
+                        <div className="card-body">
+                            <Link to={`/trips/${trip.id}`} className="btn btn-info" >{trip.location}</Link>
                         </div>
                     )} 
                 </div>
                     
-                <button class="btn btn-primary btn-lg" onClick={ () => this.displayTripInput()} >Add Trip</button>   
+                <button className="btn btn-primary btn-lg" onClick={ () => this.displayTripInput()} >Add Trip</button>   
                 {this.state.displayTripInput == true ? <TripInput /> :  null }
                 
             </div>
