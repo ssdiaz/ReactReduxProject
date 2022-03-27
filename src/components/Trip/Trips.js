@@ -20,8 +20,8 @@ class Trips extends React.Component {
     render() {  
         return (
             <div>
+                <h3>Trips</h3>              
                 <div className="card">
-                    <h3>Trips</h3>              
                     {this.props.trips && this.props.trips.map( (trip, index) => 
                         <div className="card-body" key={index}>
                             <Link to={`/trips/${trip.id}`} className="btn btn-info" >{trip.location}</Link>
@@ -30,7 +30,6 @@ class Trips extends React.Component {
                 </div>
                     
                 <button className="btn btn-primary btn-lg" onClick={ () => this.displayTripInput()} >Add Trip</button>   
-                {/* {this.state.displayTripInput == true ? <TripInput /> :  null } */}
                 {this.state.displayTripInput === true ?  <Redirect to='/trips/new' render={ <TripInput /> } /> :  null }
             </div>
         )
