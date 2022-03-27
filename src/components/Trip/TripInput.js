@@ -52,11 +52,11 @@ class TripInput extends Component {
                 attendees: '',
                 input_type: 'add',
             })
+            this.props.history.push(`/trips`)
         } else if (this.state.input_type === 'edit') {        
             this.props.updateTrip(this.state, this.props)
+            this.props.history.push(`/trips/${this.props.trip.id}`)
         }
-        
-        this.props.history.push(`/trips`)
     }
 
     render() {

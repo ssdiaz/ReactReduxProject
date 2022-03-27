@@ -31,7 +31,7 @@ class Trips extends React.Component {
                     
                 <button className="btn btn-primary btn-lg" onClick={ () => this.displayTripInput()} >Add Trip</button>   
                 {/* {this.state.displayTripInput == true ? <TripInput /> :  null } */}
-                {this.state.displayTripInput == true ?  <Redirect to='/trips/new' render={ <TripInput /> } /> :  null }
+                {this.state.displayTripInput === true ?  <Redirect to='/trips/new' render={ <TripInput /> } /> :  null }
             </div>
         )
     }

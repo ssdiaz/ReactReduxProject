@@ -29,7 +29,7 @@ class Trip extends React.Component {
         return (
             <div>
                 <TripDetails trip={trip} />
-                {this.state.displayTripInput == true ? <TripInput trip={trip} />  :  null } 
+                {this.state.displayTripInput === true ? <TripInput trip={trip} />  :  null } 
                 <button className="btn btn-secondary" onClick={ this.displayTripInput }>Edit</button>  
                 <button className="btn btn-danger" onClick={ () => this.handleDelete(trip) }>Delete Trip</button> 
 
