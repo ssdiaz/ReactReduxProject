@@ -9,17 +9,10 @@ import Container from 'react-bootstrap/Container';
 class App extends React.Component {
   render() {
     return (
-         <Container className="p-5 mb-4 bg-light rounded-3">
-           
-          <NavBar />
-
-          <TripsContainer />
-
-          <Switch>           
-            <Route exact path="/trips" ></Route>
-            <Route exact path="/" component={Home}></Route>
-          </Switch>
-        </Container>
+      <Container className="p-5 mb-4 bg-light rounded-3">
+        <NavBar />
+        <TripsContainer />
+      </Container>
     );
   }
 }
