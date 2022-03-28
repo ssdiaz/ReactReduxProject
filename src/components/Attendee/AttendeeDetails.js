@@ -1,5 +1,5 @@
 const AttendeeDetail = (props) => {
-    
+
     let attendee = props.attendee
 
     return(

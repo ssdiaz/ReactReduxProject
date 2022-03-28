@@ -47,7 +47,6 @@ class ActivityInput extends Component {
         return props.trip.activities.find(activity => activity.id == props.match.params.id)
     }
 
-
     handleChange = (event) => {
         this.setState({ 
             [event.target.name]: event.target.value
@@ -77,11 +76,9 @@ class ActivityInput extends Component {
             })
 
         } else if (this.state.input_type === 'edit') {
-            console.log(this.props)
-
             tripID = this.props.trip.id
-
             let activityID = this.findActivity(this.props).id
+
             this.props.updateActivity(this.state, tripID, activityID)
         }
 
