@@ -5,6 +5,7 @@ import TripInput from './TripInput'
 import TripDetails from './TripDetails'
 import AttendeesContainer from '../../containers/AttendeesContainer'
 import ActivitiesContainer from '../../containers/ActivitiesContainer'
+import { Redirect } from 'react-router-dom'
 
 class Trip extends React.Component {
     

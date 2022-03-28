@@ -4,6 +4,7 @@ import TripInput from './TripInput'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 
+
 class Trips extends React.Component {    
     state = {
         ...this.state,
