@@ -1,7 +1,3 @@
-// import './index.css';
-// import reportWebVitals from './reportWebVitals';
-// import { composeWithDevTools } from 'redux-devtools-extension';
-// to set up dev tppls: like thunk, store, enhancers: // https://redux-observable.js.org/docs/basics/SettingUpTheMiddleware.html
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware, compose } from 'redux'; 

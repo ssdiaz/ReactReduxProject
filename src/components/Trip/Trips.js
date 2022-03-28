@@ -36,7 +36,6 @@ class Trips extends React.Component {
     }
 }
 
-
 const mapStateToProps = state => { 
     return {
         trips: state.trips,

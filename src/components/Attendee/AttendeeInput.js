@@ -25,15 +25,15 @@ class AttendeeInput extends React.Component {
                 input_type: 'edit',
             }
         } else {   
-            this.state = {   
+            this.state = { 
                 name: '',
                 phone: '5555555555',
                 status: '',
                 notes: '',
                 relationship: 'Attendee',
                 lodgingBudget: 0,
-                eventsBudget: 0,                
-                trip_id: props.trip.id, 
+                eventsBudget: 0,
+                trip_id: props.trip.id,
                 input_type: 'add',
             }
         }
