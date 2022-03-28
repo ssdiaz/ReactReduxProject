@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import AttendeeInput from './AttendeeInput';
+import ListGroup from 'react-bootstrap/ListGroup'
 
 
 class Attendees extends React.Component {
@@ -21,9 +22,13 @@ class Attendees extends React.Component {
                 <h3>Attendees</h3>
 
                 {this.props.attendees && this.props.attendees.map(attendee => 
-                    <ul className="list-group">
-                        <Link to={`/trips/${attendee.trip_id}/attendees/${attendee.name}`} className="list-group-item list-group-item-action flex-column align-items-start" >{attendee.name}</Link>
-                    </ul>
+                    <ListGroup as="ol" numbered>
+                        <Link to={`/trips/${attendee.trip_id}/attendees/${attendee.name}`} className="list-group-item list-group-item-action flex-column align-items-start" >
+                            <div className="fw-bold">{attendee.name}</div>
+                            <li>Relationship: {attendee.relationship}</li>
+                            <li>Status: {attendee.status}</li>
+                        </Link>
+                    </ListGroup>
                 )} 
             
                 <button className="btn btn-primary btn-lg" onClick={this.displayAttendeeInput}>Add Attendee</button>  

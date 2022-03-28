@@ -9,7 +9,7 @@ import ActivitiesContainer from '../../containers/ActivitiesContainer'
 class Trip extends React.Component {
     
     state = {
-        displayTripInput: false
+        displayTripInput: false,
     }
 
     displayTripInput = () => {
