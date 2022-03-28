@@ -6,12 +6,12 @@ import { updateActivity } from '../../actions/Activity/updateActivity';
 
 
 class ActivityInput extends Component {
- 
+
     constructor(props) {
         super(props)
 
-        if (props.activity) {
-            let activity = props.activity
+        if (props.match.params.id) {
+            let activity = this.findActivity(props)
 
             this.state = {   
                 name: activity.name,
@@ -41,6 +41,10 @@ class ActivityInput extends Component {
                 input_type: 'add',
             }
         }
+    }
+
+    findActivity = (props) => {
+        return props.trip.activities.find(activity => activity.id == props.match.params.id)
     }
 
 
@@ -73,8 +77,12 @@ class ActivityInput extends Component {
             })
 
         } else if (this.state.input_type === 'edit') {
-            tripID = this.props.activity.trip_id
-            this.props.updateActivity(this.state, this.props)
+            console.log(this.props)
+
+            tripID = this.props.trip.id
+
+            let activityID = this.findActivity(this.props).id
+            this.props.updateActivity(this.state, tripID, activityID)
         }
 
         this.props.history.push(`/trips/${tripID}`)

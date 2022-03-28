@@ -13,7 +13,7 @@ class AttendeesContainer extends React.Component {
         return (
             <div>     
                 <Attendees attendees={this.props && this.props.trip.attendees} trip={this.props && this.props.trip} key={this.props && this.props.trip.id} /> 
-                <Route path={`/trips/${tripID}/attendees/:name`} render={ (routerProps) => <Attendee {...routerProps} attendees={this.props.trip.attendees} trip={this.props.trip} /> } />           
+                <Route path={`/trips/${tripID}/attendees/:name`} render={ (routerProps) => <Attendee {...routerProps} attendees={this.props.trip.attendees} trip={this.props.trip} /> } /> 
             </div>
         );
     }

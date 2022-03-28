@@ -1,7 +1,7 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import Activity from './Activity';
 import ActivityInput from './ActivityInput';
-
 
 class Activities extends React.Component {
 
@@ -26,8 +26,8 @@ class Activities extends React.Component {
                     )}
                 </div>
                 
-                <button className="btn btn-primary btn-lg" onClick={this.displayActivityInput}>Add Activity</button>          
-                {this.state.displayActivityInput === true ? <ActivityInput trip={this.props.trip} key={this.props.trip.id} /> :  null }  
+                <button className="btn btn-primary btn-lg"  onClick={this.displayActivityInput}>Add Activity</button>          
+                {this.state.displayActivityInput === true  ?  <Redirect to={`/trips/${this.props.trip.id}/activities/new`} render ={<ActivityInput trip={this.props.trip} />} />  :  <Redirect to={`/trips/${this.props.trip.id}`} /> }  
             </div>
         )
     }
