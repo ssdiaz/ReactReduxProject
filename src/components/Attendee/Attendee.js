@@ -7,8 +7,12 @@ import AttendeeDetail from './AttendeeDetails';
 
 class Attendee extends React.Component {
 
-    state = {  
-        displayAttendeeInput: false
+  
+    constructor() {
+        super();
+        this.state = {
+            displayAttendeeInput: false
+        }
     }
     
     displayAttendeeInput = () => {
@@ -23,7 +27,7 @@ class Attendee extends React.Component {
     }
 
     render() { 
-        let attendee = this.props.attendees.find(attendee => attendee.name === this.props.match.params.name)
+        let attendee = this.props.trip.attendees.find(attendee => attendee.name === this.props.match.params.name)
 
         return (
             <div>      

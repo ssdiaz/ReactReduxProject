@@ -1,13 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import AttendeeInput from './AttendeeInput';
 import ListGroup from 'react-bootstrap/ListGroup'
 
 
 class Attendees extends React.Component {
 
-    state = { 
-        displayAttendeeInput: false
+    constructor() {
+        super();
+        this.state = {
+            displayAttendeeInput: false
+        }
     }
 
     displayAttendeeInput = () => {
@@ -29,11 +32,10 @@ class Attendees extends React.Component {
                             <li>Status: {attendee.status}</li>
                         </Link>
                     </ListGroup>
-
                 )} 
             
                 <button className="btn btn-primary btn-lg" onClick={this.displayAttendeeInput}>Add Attendee</button>  
-                {this.state.displayAttendeeInput === true ? <AttendeeInput trip={this.props.trip} key={this.props.trip.id} /> :  null }  
+                {this.state.displayAttendeeInput === true ? <AttendeeInput trip={this.props.trip} key={this.props.trip.id} /> :  <Redirect to={`/trips/${this.props.trip.id}`} />  }  
             </div> 
         )
     }

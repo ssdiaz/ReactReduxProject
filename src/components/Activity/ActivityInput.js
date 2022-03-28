@@ -11,7 +11,7 @@ class ActivityInput extends Component {
         super(props)
 
         if (props.match.params.id) {
-            let activity = this.findActivity(props)
+            let activity = this.findActivity()
 
             this.state = {   
                 name: activity.name,
@@ -43,10 +43,10 @@ class ActivityInput extends Component {
         }
     }
 
-    findActivity = (props) => {
-        return props.trip.activities.find(activity => activity.id == props.match.params.id)
+    findActivity = () => {
+        return this.props.trip.activities.find(activity => activity.id == this.props.match.params.id)
     }
-
+    
     handleChange = (event) => {
         this.setState({ 
             [event.target.name]: event.target.value
@@ -77,7 +77,7 @@ class ActivityInput extends Component {
 
         } else if (this.state.input_type === 'edit') {
             tripID = this.props.trip.id
-            let activityID = this.findActivity(this.props).id
+            let activityID = this.findActivity().id
 
             this.props.updateActivity(this.state, tripID, activityID)
         }
@@ -108,7 +108,7 @@ class ActivityInput extends Component {
                             <div className="form-group col-md-6">
                                 <label> Priority </label>
                                 <select className="form-control" value={this.state.priority} name="priority" onChange={this.handleChange}>
-                                    <option selected> </option>
+                                    <option defaultValue> </option>
                                     <option> HIGH </option>
                                     <option> MEDIUM </option>
                                     <option> LOW </option>
