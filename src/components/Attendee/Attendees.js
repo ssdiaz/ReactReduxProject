@@ -7,10 +7,13 @@ import TripInput from '../Trip/TripInput';
 
 class Attendees extends React.Component {
 
-    state = { 
-        displayAttendeeInput: false
+    constructor() {
+        super()
+        this.state = {
+            displayAttendeeInput: false
+        }
     }
-
+ 
     displayAttendeeInput = () => {
         this.setState({
             displayAttendeeInput: !this.state.displayAttendeeInput
@@ -18,6 +21,7 @@ class Attendees extends React.Component {
     } 
 
     render() {
+        console.log(this.state.displayAttendeeInput, 'state')
         return(  
             <> 
                 <h3>Attendees</h3>
@@ -33,7 +37,7 @@ class Attendees extends React.Component {
                 )} 
             
                 <button className="btn btn-primary btn-lg" onClick={this.displayAttendeeInput}>Add Attendee</button> 
-                {this.state.displayAttendeeInput === true ?  <Redirect to={`/trips/${this.props.trip.id}/attendees/new`} render={ (routerProps) => <TripInput {...routerProps} trip={this.props.trip} />} /> :  <Redirect to={`/trips/${this.props.trip.id}`} />  }  
+                {this.state.displayAttendeeInput === true ?  <Redirect to={`/trips/${this.props.trip.id}/attendees/new`} /> :  <Redirect to={`/trips/${this.props.trip.id}`} />  }  
             </> 
         )
     }

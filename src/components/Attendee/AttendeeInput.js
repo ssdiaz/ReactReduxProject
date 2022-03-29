@@ -128,7 +128,6 @@ class AttendeeInput extends React.Component {
                             </div>
                         </div>
 
-
                         <div className="form-group">    
                             <label> Notes </label>
                             <textarea type="text" className="form-control" placeholder='Notes' value={this.state.notes} name="notes" onChange={this.handleChange} /><br/>
