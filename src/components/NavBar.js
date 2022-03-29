@@ -7,7 +7,7 @@ import Home from './Home';
 const NavBar = () => {
 
   return (
-    <div>
+    <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <NavLink to='/' className="nav-link" >HOME</NavLink>
         <NavLink to='/trips' className="nav-link" >TRIPS</NavLink>
@@ -17,7 +17,7 @@ const NavBar = () => {
         <Route exact path="/trips" ></Route>
         <Route exact path="/" component={Home}></Route>
       </Switch>
-    </div>
+    </>
   )
 }
 

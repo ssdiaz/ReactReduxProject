@@ -17,7 +17,7 @@ class Activities extends React.Component {
 
     render() { 
         return(
-            <div>
+            <>
                 <div className="row">
                     <h3>Activities</h3>
 
@@ -28,7 +28,7 @@ class Activities extends React.Component {
                 
                 <button className="btn btn-primary btn-lg"  onClick={this.displayActivityInput}>Add Activity</button>          
                 {this.state.displayActivityInput === true  ?  <Redirect to={`/trips/${this.props.trip.id}/activities/new`} render={<ActivityInput trip={this.props.trip} />} />  :  <Redirect to={`/trips/${this.props.trip.id}`} /> }  
-            </div>
+            </>
         )
     }
 }

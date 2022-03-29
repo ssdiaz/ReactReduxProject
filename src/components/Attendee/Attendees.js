@@ -18,7 +18,7 @@ class Attendees extends React.Component {
 
     render() {
         return(  
-            <div> 
+            <> 
                 <h3>Attendees</h3>
 
                 {this.props.attendees && this.props.attendees.map(attendee => 
@@ -33,7 +33,7 @@ class Attendees extends React.Component {
             
                 <button className="btn btn-primary btn-lg" onClick={this.displayAttendeeInput}>Add Attendee</button>  
                 {this.state.displayAttendeeInput === true ? <AttendeeInput trip={this.props.trip} key={this.props.trip.id} /> :  <Redirect to={`/trips/${this.props.trip.id}`} />  }  
-            </div> 
+            </> 
         )
     }
 }

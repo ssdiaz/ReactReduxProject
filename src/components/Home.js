@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <div>
+    <>
       <div className="jumbotron">
         <h1 className="display-5">Welcome to the Bachelorette Planner!</h1>
 
@@ -19,7 +19,7 @@ const Home = () => {
           Click <Link to="/trips" className="btn btn-primary">Trips</Link> to get started.
         </p>
       </div>
-    </div>
+    </>
   )
 }
 

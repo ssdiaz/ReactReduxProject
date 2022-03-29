@@ -7,45 +7,25 @@ Our fetch request:
         .then(response => response.json()) //response here is the return value of the fetch request
         .then(data => console.log(data))  //data here is the return value above (which is the fetch return in json form)
     } 
-        ...
-        // componentDidMount() { //note: fetch request default ot GET so you dont need the second part
-        //   fetch('http://localhost:3000/api/v1/attendees', {
-        //     method: 'GET'
-        //   })
-        //   .then(response => response.json()) //response here is the return value of the fetch request
-        //   .then(data => {
-        //     console.log(data[0].name)
-        //     console.log(data)
-        //   })  //data here is the return value above (which is the fetch return in json form)
 
-        //   fetch('http://localhost:3000/api/v1/activities', {
-        //     method: 'GET'
-        //   })
-        //   .then(response => response.json()) //response here is the return value of the fetch request
-        //   .then(data => {
-        //     console.log(data[0].name)
-        //     console.log(data)
-        //   })  //data here is the return value above (which is the fetch return in json form)
-        // }
+
+
 
 NOTE:
  need to run backend server (on localhost 3000) and the frontend npm start second so you can run on a different port (3001)
- - have to install deux:
+ - have to install redux:
     - npm install redux --save react-redux --save redux-thunk --save react-router-dom --save
     - the save tag adds them to the package.json file, which can be imported into your files
-- Video 4 is we set up the store (EXpense Tracker)
-
-
 
 
 
 GREAT blog for clicking and unclicking components
 https://betterprogramming.pub/rendering-components-in-onclick-events-in-react-bc0d7b54e1cd
 
-used to render component and route ChannelMergerNode
+Used to render component and route ChannelMergerNode
 https://www.codegrepper.com/code-examples/javascript/onclick+change+route+react
 
-for withRouter in AttendeeInput - to use this.props.histpory(push)
+For withRouter in AttendeeInput - to use this.props.histpory(push)
 https://codesource.io/how-to-use-this-props-history-push-on-your-react-project/
     - "you can only use this.props.history.push() function inside the component page that already listed on your project route."
     - "or use withRouter() HOC if the component is not avaible in the route list...."
@@ -53,5 +33,7 @@ https://codesource.io/how-to-use-this-props-history-push-on-your-react-project/
     
 
 
-Refactor:
-pages 81-82 to separate form from Input Component
+To Refactor:
+- pages 81-82 to separate form from Input Component
+- page 118 - one button for all to keep them styled 
+

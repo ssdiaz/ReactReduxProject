@@ -20,7 +20,7 @@ class Trips extends React.Component {
    
     render() {  
         return (
-            <div>
+            <>
                 <h3>Trips</h3>              
                 <div className="card">
                     {this.props.trips && this.props.trips.map( (trip, index) => 
@@ -32,7 +32,7 @@ class Trips extends React.Component {
                     
                 <button className="btn btn-primary btn-lg" onClick={ () => this.displayTripInput()} >Add Trip</button>   
                 {this.state.displayTripInput === true ?  <Redirect to='/trips/new' render={ <TripInput /> } /> :  null }
-            </div>
+            </>
         )
     }
 }
