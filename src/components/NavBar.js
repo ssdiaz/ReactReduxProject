@@ -1,8 +1,7 @@
 import React from 'react'
-import {  NavLink } from "react-router-dom";
-import { Switch,  Route } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { Route } from "react-router-dom";
 import Home from './Home';
-import Trips from './Trip/Trips';
 
 
 const NavBar = () => {
@@ -14,10 +13,7 @@ const NavBar = () => {
         <NavLink to='/trips' className="nav-link" activeStyle={{background: "lightblue"}} >TRIPS</NavLink>
       </nav>
 
-      {/* <Switch>           
-        <Route exact path="/trips" ></Route>
-        <Route exact path="/" component={Home}></Route>
-      </Switch> */}
+      <Route exact path="/" component={Home}></Route>
     </>
   )
 }

@@ -6,7 +6,6 @@ import Trips from '../components/Trip/Trips';
 import Trip from '../components/Trip/Trip';
 import TripInput from '../components/Trip/TripInput';
 
-import Home from '../components/Home';
 
 class TripsContainer extends React.Component {
 
@@ -17,23 +16,12 @@ class TripsContainer extends React.Component {
     render() {
         return (
             <>
-
                 <Switch>           
                     <Route exact path='/trips' render={ (routerProps) => <Trips {...routerProps} trips={this.props.trips} /> } /> 
-                    <Route exact path="/" component={Home}></Route>
-                
                     <Route exact path='/trips/new' component={TripInput} />
-                    {/* <Route exact path='/trips/:id/edit' component={TripInput} /> */}
-                    <Route exact path='/trips/:id/edit' render={ (routerProps) => <TripInput {...routerProps} trips={this.props.trips} /> } />
-                
-                
+                    <Route exact path='/trips/:id/edit' render={ (routerProps) => <TripInput {...routerProps} trips={this.props.trips} /> } />    
                     <Route path='/trips/:id' render={ (routerProps) => <Trip {...routerProps} trips={this.props.trips} /> } />
-
-
                 </Switch>
-
-
-
             </>
         );
     }
