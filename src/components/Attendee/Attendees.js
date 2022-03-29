@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom'
+import { Route, Link, Redirect } from 'react-router-dom'
 import AttendeeInput from './AttendeeInput';
 import ListGroup from 'react-bootstrap/ListGroup'
+import TripInput from '../Trip/TripInput';
 
 
 class Attendees extends React.Component {
@@ -33,6 +34,7 @@ class Attendees extends React.Component {
             
                 <button className="btn btn-primary btn-lg" onClick={this.displayAttendeeInput}>Add Attendee</button>  
                 {this.state.displayAttendeeInput === true ? <AttendeeInput trip={this.props.trip} key={this.props.trip.id} /> :  <Redirect to={`/trips/${this.props.trip.id}`} />  }  
+                {/* {this.state.displayAttendeeInput === true ?<Route path={`/trips/${this.props.trip.id}/attendees/new`} render={ (routerProps) => <TripInput {...routerProps} trip={this.props.trip} />} /> :  <Redirect to={`/trips/${this.props.trip.id}`} />  }   */}
             </> 
         )
     }
