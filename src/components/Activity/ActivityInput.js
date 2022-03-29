@@ -123,14 +123,14 @@ class ActivityInput extends Component {
                             {/* <div className="col-sm-2">
                                 <label> Mandatory? </label>
                                 <div className="form-check">
-                                    <input type="checkbox" className="form-check-input" defaultChecked={this.state.includeInTotal} value={this.state.mandatory} name="mandatory" onChange={this.handleChange} />
+                                    <input type="checkbox" className="form-check-input" defaultChecked={this.state.includeInTotal} checked={this.state.mandatory} name="mandatory" onChange={this.handleChange} />
                                 </div>
                             </div>
 
                             <div className="col-sm-4">
                                 <label> Include in Total? </label>
                                 <div className="form-check">
-                                    <input type="checkbox" className="form-check-input" defaultChecked={this.state.includeInTotal} value={this.state.includeInTotal} name="includeInTotal" onChange={this.handleChange} />
+                                    <input type="checkbox" className="form-check-input" defaultChecked={this.state.includeInTotal} checked={this.state.includeInTotal} name="includeInTotal" onChange={this.handleChange} />
                                 </div>
                             </div> */}
                         </div>

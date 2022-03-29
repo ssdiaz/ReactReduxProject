@@ -5,9 +5,9 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 
 
-class Trips extends React.Component {    
-    state = {
-        ...this.state,
+class Trips extends React.Component { 
+
+    state = { 
         displayTripInput: false
     }
     

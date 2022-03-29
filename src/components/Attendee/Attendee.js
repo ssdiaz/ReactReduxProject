@@ -6,13 +6,9 @@ import AttendeeDetail from './AttendeeDetails';
 
 
 class Attendee extends React.Component {
-
   
-    constructor() {
-        super();
-        this.state = {
-            displayAttendeeInput: false
-        }
+    state = { 
+        displayAttendeeInput: false
     }
     
     displayAttendeeInput = () => {

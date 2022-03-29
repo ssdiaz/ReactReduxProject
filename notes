@@ -51,3 +51,7 @@ https://codesource.io/how-to-use-this-props-history-push-on-your-react-project/
     - "or use withRouter() HOC if the component is not avaible in the route list...."
     -  //https://stackoverflow.com/questions/44522811/how-to-redirect-to-home-page-after-submitting-redux-form
     
+
+
+Refactor:
+pages 81-82 to separate form from Input Component
