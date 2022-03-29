@@ -9,9 +9,9 @@ class TripInput extends Component {
 
     constructor(props) {
         super(props)
-        
-        if (this.props.trip){
-            let trip = this.props.trip
+
+        if (this.props.match.params.id){
+            let trip = this.findTrip()
 
             this.state = {   
                 location: trip.location,
@@ -31,6 +31,10 @@ class TripInput extends Component {
                 input_type: 'add',
             }
         }
+    }
+
+    findTrip = () => {
+        return this.props.trips.find(trip => trip.id == this.props.match.params.id)
     }
     
     handleChange = (event) => {     
@@ -53,9 +57,10 @@ class TripInput extends Component {
                 input_type: 'add',
             })
             this.props.history.push(`/trips`)
-        } else if (this.state.input_type === 'edit') {        
-            this.props.updateTrip(this.state, this.props)
-            this.props.history.push(`/trips/${this.props.trip.id}`)
+        } else if (this.state.input_type === 'edit') {  
+            let tripID = this.findTrip().id
+            this.props.updateTrip(this.state, tripID)
+            this.props.history.push(`/trips/${tripID}`)
         }
     }
 

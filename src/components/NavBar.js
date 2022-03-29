@@ -14,10 +14,10 @@ const NavBar = () => {
         <NavLink to='/trips' className="nav-link" activeStyle={{background: "lightblue"}} >TRIPS</NavLink>
       </nav>
 
-      <Switch>           
+      {/* <Switch>           
         <Route exact path="/trips" ></Route>
         <Route exact path="/" component={Home}></Route>
-      </Switch>
+      </Switch> */}
     </>
   )
 }

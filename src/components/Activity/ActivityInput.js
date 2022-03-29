@@ -59,7 +59,6 @@ class ActivityInput extends Component {
         let tripID = this.props.trip.id
 
         if (this.state.input_type === 'add') {
-            // tripID = this.props.trip.id
             this.props.addActivity(this.state, this.props)
             this.setState({
                 name: '',
@@ -76,7 +75,6 @@ class ActivityInput extends Component {
             })
 
         } else if (this.state.input_type === 'edit') {
-            // tripID = this.props.trip.id
             let activityID = this.findActivity().id
 
             this.props.updateActivity(this.state, tripID, activityID)

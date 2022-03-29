@@ -1,6 +1,4 @@
-export const updateTrip = (stateFormData, props) => {  
-
-    let tripID = props.trip.id
+export const updateTrip = (stateFormData, tripID) => {  
     
     return (dispatch) => {
         fetch(`http://localhost:3000/api/v1/trips/${tripID}`, {

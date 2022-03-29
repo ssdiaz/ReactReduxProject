@@ -9,8 +9,6 @@ class AttendeeInput extends React.Component {
         
     constructor(props) {
         super(props)
-        
-        console.log(this.props)
 
         if (this.props.match.params.name) {   
             let attendee = this.findAttendee()
@@ -53,7 +51,7 @@ class AttendeeInput extends React.Component {
     
     handleSubmit = (event) => {
         event.preventDefault() 
-        
+
         let tripID = this.props.trip.id 
         
         if (this.state.input_type === 'add') {  

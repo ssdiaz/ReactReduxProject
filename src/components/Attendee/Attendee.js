@@ -25,8 +25,6 @@ class Attendee extends React.Component {
     render() { 
         let attendee = this.props.trip.attendees.find(attendee => attendee.name === this.props.match.params.name)
 
-        // console.log(attendee, 'attendee')
-
         return (
             <>   
                 {attendee ? <AttendeeDetail attendee={attendee} /> : null }   
@@ -34,8 +32,7 @@ class Attendee extends React.Component {
                 <button className="btn btn-outline-secondary" onClick={ this.displayAttendeeInput }>Edit</button>                    
                 <button className="btn btn-outline-danger" onClick={ () => this.handleDelete(attendee) }>Delete</button>
 
-                {/* {this.state.displayAttendeeInput === true ? <AttendeeInput attendee={attendee} /> :  null }  */}
-                {this.state.displayAttendeeInput === true ?  <Redirect to={`/trips/${attendee.trip_id}/attendees/${attendee.name}/edit`} /> :  null } 
+                {this.state.displayAttendeeInput === true ? <Redirect to={`/trips/${attendee.trip_id}/attendees/${attendee.name}/edit`} /> : null } 
             </>
         );
     }
