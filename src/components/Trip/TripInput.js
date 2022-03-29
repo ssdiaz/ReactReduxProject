@@ -8,7 +8,7 @@ import { updateTrip } from '../../actions/Trips/updateTrip';
 class TripInput extends Component {
 
     constructor(props) {
-        super()
+        super(props)
         
         if (props.trip){
             let trip = props.trip

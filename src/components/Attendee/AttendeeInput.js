@@ -8,7 +8,7 @@ import { updateAttendee } from '../../actions/Attendee/updateAttendee';
 class AttendeeInput extends React.Component { 
         
     constructor(props) {
-        super()
+        super(props)
         
         if (props.attendee) {   
             let attendee = props.attendee
