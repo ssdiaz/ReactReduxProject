@@ -26,10 +26,4 @@ class TripsContainer extends React.Component {
     }
 }
 
-const mapStateToProps = state => { 
-    return { 
-        trips: state.trips,
-    }
-}
-
-export default connect(mapStateToProps, {fetchTrips})(TripsContainer);
+export default connect(state => ({ trips: state.trips }), {fetchTrips})(TripsContainer);
