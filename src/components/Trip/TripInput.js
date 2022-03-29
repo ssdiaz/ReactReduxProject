@@ -10,8 +10,8 @@ class TripInput extends Component {
     constructor(props) {
         super(props)
         
-        if (props.trip){
-            let trip = props.trip
+        if (this.props.trip){
+            let trip = this.props.trip
 
             this.state = {   
                 location: trip.location,
@@ -32,7 +32,7 @@ class TripInput extends Component {
             }
         }
     }
-
+    
     handleChange = (event) => {     
         this.setState({
             [event.target.name]: event.target.value

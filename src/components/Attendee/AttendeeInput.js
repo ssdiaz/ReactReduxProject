@@ -10,8 +10,8 @@ class AttendeeInput extends React.Component {
     constructor(props) {
         super(props)
         
-        if (props.attendee) {   
-            let attendee = props.attendee
+        if (this.props.attendee) {   
+            let attendee = this.props.attendee
 
             this.state = {   
                 name: attendee.name,
@@ -38,7 +38,7 @@ class AttendeeInput extends React.Component {
             }
         }
     }
-
+    
     handleChange = (event) => {
         this.setState({
             [event.target.name]: event.target.value

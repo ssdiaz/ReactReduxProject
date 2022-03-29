@@ -10,7 +10,7 @@ class ActivityInput extends Component {
     constructor(props) {
         super(props)
 
-        if (props.match.params.id) {
+        if (this.props.match.params.id) {
             let activity = this.findActivity()
 
             this.state = {   

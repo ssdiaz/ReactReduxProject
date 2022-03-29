@@ -21,7 +21,7 @@ class Trips extends React.Component {
     render() {  
         return (
             <>
-                <h3>Trips</h3>              
+                <h3>Trips</h3>
                 <div className="card">
                     {this.props.trips && this.props.trips.map( (trip, index) => 
                         <div className="card-body" key={index}>
