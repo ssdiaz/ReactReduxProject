@@ -21,7 +21,8 @@ class Attendees extends React.Component {
     } 
 
     render() {
-        console.log(this.state.displayAttendeeInput, 'state')
+        // console.log(this.state.displayAttendeeInput, 'state')
+        
         return(  
             <> 
                 <h3>Attendees</h3>

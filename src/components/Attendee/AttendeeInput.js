@@ -10,8 +10,10 @@ class AttendeeInput extends React.Component {
     constructor(props) {
         super(props)
         
-        if (this.props.attendee) {   
-            let attendee = this.props.attendee
+        console.log(this.props)
+
+        if (this.props.match.params.name) {   
+            let attendee = this.findAttendee()
 
             this.state = {   
                 name: attendee.name,
@@ -38,6 +40,10 @@ class AttendeeInput extends React.Component {
             }
         }
     }
+
+    findAttendee = () => {
+        return this.props.trip.attendees.find(attendee => attendee.name == this.props.match.params.name)
+    }
     
     handleChange = (event) => {
         this.setState({
@@ -48,10 +54,9 @@ class AttendeeInput extends React.Component {
     handleSubmit = (event) => {
         event.preventDefault() 
         
-        let tripID;  
+        let tripID = this.props.trip.id 
         
-        if (this.state.input_type === 'add') {
-            tripID = this.props.trip.id       
+        if (this.state.input_type === 'add') {  
             this.props.addAttendee(this.state, this.props)
             this.setState({
                 name: '',
@@ -64,10 +69,9 @@ class AttendeeInput extends React.Component {
                 trip_id: tripID,
                 input_type: 'add',
             })
-
         } else if (this.state.input_type === 'edit') {         
-            tripID = this.props.attendee.trip_id
-            this.props.updateAttendee(this.state, this.props)
+            let attendeeID = this.findAttendee().id
+            this.props.updateAttendee(this.state, tripID, attendeeID)
         }
 
         this.props.history.push(`/trips/${tripID}`)

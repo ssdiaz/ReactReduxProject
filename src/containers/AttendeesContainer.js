@@ -9,17 +9,17 @@ import AttendeeInput from '../components/Attendee/AttendeeInput';
 class AttendeesContainer extends React.Component {
 
     render() {
-        let tripID = this.props && this.props.trip.id
+        let trip = this.props.trip && this.props.trip
 
         return (
             <div>     
-                <Attendees attendees={this.props && this.props.trip.attendees} trip={this.props && this.props.trip} key={this.props && this.props.trip.id} /> 
+                <Attendees attendees={trip.attendees} trip={trip} key={trip.id} /> 
 
-                <Switch>
-                    <Route path={`/trips/${tripID}/attendees/new`} render={ (routerProps) => <AttendeeInput {...routerProps} trip={this.props.trip} /> } /> 
-                    <Route path={`/trips/${tripID}/attendees/:name`} render={ (routerProps) => <Attendee {...routerProps} attendees={this.props.trip.attendees} trip={this.props.trip} /> } /> 
-                </Switch>
-            
+                {/* <Switch> */}
+                    <Route path={`/trips/:trip_id/attendees/new`} render={ (routerProps) => <AttendeeInput {...routerProps} trip={trip} /> } /> 
+                    <Route path={`/trips/:trip_id/attendees/:name`} render={ (routerProps) => <Attendee {...routerProps} trip={trip} /> } /> 
+                {/* </Switch> */}
+                <Route path='/trips/:trip_id/attendees/:name/edit' render={ (routerProps) => <AttendeeInput {...routerProps} trip={trip} /> } /> 
             </div>
         );
     }
