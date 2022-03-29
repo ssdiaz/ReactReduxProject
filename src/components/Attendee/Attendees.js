@@ -32,9 +32,8 @@ class Attendees extends React.Component {
                     </ListGroup>
                 )} 
             
-                <button className="btn btn-primary btn-lg" onClick={this.displayAttendeeInput}>Add Attendee</button>  
-                {this.state.displayAttendeeInput === true ? <AttendeeInput trip={this.props.trip} key={this.props.trip.id} /> :  <Redirect to={`/trips/${this.props.trip.id}`} />  }  
-                {/* {this.state.displayAttendeeInput === true ?<Route path={`/trips/${this.props.trip.id}/attendees/new`} render={ (routerProps) => <TripInput {...routerProps} trip={this.props.trip} />} /> :  <Redirect to={`/trips/${this.props.trip.id}`} />  }   */}
+                <button className="btn btn-primary btn-lg" onClick={this.displayAttendeeInput}>Add Attendee</button> 
+                {this.state.displayAttendeeInput === true ?  <Redirect to={`/trips/${this.props.trip.id}/attendees/new`} render={ (routerProps) => <TripInput {...routerProps} trip={this.props.trip} />} /> :  <Redirect to={`/trips/${this.props.trip.id}`} />  }  
             </> 
         )
     }

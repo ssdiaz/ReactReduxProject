@@ -26,8 +26,8 @@ class Attendee extends React.Component {
         let attendee = this.props.trip.attendees.find(attendee => attendee.name === this.props.match.params.name)
 
         return (
-            <>      
-                <AttendeeDetail attendee={attendee} />
+            <>   
+                {attendee ? <AttendeeDetail attendee={attendee} /> : null }   
          
                 <button className="btn btn-outline-secondary" onClick={ this.displayAttendeeInput }>Edit</button>                    
                 <button className="btn btn-outline-danger" onClick={ () => this.handleDelete(attendee) }>Delete</button>
