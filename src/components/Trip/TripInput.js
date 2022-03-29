@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { addTrip } from '../../actions/Trips/addTrip';
 import { updateTrip } from '../../actions/Trips/updateTrip';
 
+import TripForm from './TripFrom';
 
 class TripInput extends Component {
 
@@ -66,28 +67,11 @@ class TripInput extends Component {
 
     render() {
         return(
-            <div className="alert alert-info" >
-                <div className="card-body">
-
-                    <h3>{this.state.input_type === 'add' ? 'ADD TRIP' : 'EDIT TRIP'}</h3>
-
-                    <form onSubmit={this.handleSubmit}>                       
-                        <label>Location </label>
-                        <input type="text" className="form-control" value={this.state.location} name="location" onChange={this.handleChange} /><br/>
-                        
-                        {/* <label>Start Date: </label>
-                        <input type="text" className="phone" value={this.state.start_date} name="start_date" onChange={this.handleChange} /><br/>
-
-                        <label>End Date: </label>
-                        <input type="text" className="relationship"  value={this.state.end_date} name="end_date" onChange={this.handleChange} /><br/>
-                        
-                        <label>Bride ID: </label>
-                        <input type="text" className="status" value={this.state.bride_id} name="bride_id" onChange={this.handleChange} /><br/>
-                        */}
-                        <button type="submit" className="btn btn-primary">Submit</button>
-                    </form>
-                </div>
-            </div>
+            <TripForm 
+                formData={this.state}
+                handleChange={this.handleChange}
+                handleSubmit={this.handleSubmit}
+            />
         )
     }
 }
