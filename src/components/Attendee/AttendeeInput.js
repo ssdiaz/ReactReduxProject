@@ -28,7 +28,7 @@ class AttendeeInput extends React.Component {
         } else {   
             this.state = { 
                 name: '',
-                phone: '5555555555',
+                phone: '',
                 status: '',
                 notes: '',
                 relationship: 'Attendee',
