@@ -1,6 +1,6 @@
 const AttendeeForm = (props) => {
     return (
-            <div className="alert alert-info" >
+        <div className="alert alert-info" >
             <div className="card-body">
                 <h3>{props.formData.input_type === 'add' ? 'ADD ATTENDEE' : 'EDIT ATTENDEE'}</h3>
 

@@ -59,7 +59,7 @@ class AttendeeInput extends React.Component {
             this.props.addAttendee(this.state, this.props)
             this.setState({
                 name: '',
-                phone: '5555555555',
+                phone: '',
                 status: '',
                 notes: '',
                 relationship: 'Attendee',
