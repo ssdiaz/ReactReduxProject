@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { addTrip } from '../../actions/Trips/addTrip';
 import { updateTrip } from '../../actions/Trips/updateTrip';
-
-import TripForm from './TripFrom';
+import TripForm from './TripForm';
 
 class TripInput extends Component {
 
