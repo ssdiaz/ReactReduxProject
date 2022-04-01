@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { deleteAttendee } from '../../actions/Attendee/deleteAttendee';
-import AttendeeInput from './AttendeeInput';
 import AttendeeDetail from './AttendeeDetails';
 import { Redirect } from 'react-router-dom';
 

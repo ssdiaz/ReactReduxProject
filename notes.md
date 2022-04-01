@@ -32,10 +32,10 @@ For withRouter in AttendeeInput - to use this.props.histpory(push)
     
 
 To Refactor:
-- [] pages 81-82 to separate form from Input Component
+- [X] pages 81-82 to separate form from Input Component
     - [X] Trip -> TripForm
-    - [] Attendees -> AttendeeForm
-    - [] ActivityInput -> ActivityForm
+    - [X] Attendees -> AttendeeForm
+    - [X] ActivityInput -> ActivityForm
 - [] page 118 - one button for all to keep them styled 
 - [] make project accessible! using labels and such - https://medium.com/@emilymears/getting-started-with-web-accessibility-in-react-9e591fdb0d52
 - [] maybe use combineReducer? https://redux.js.org/faq/immutable-data#accidental-object-mutation, https://redux.js.org/usage/structuring-reducers/immutable-update-patterns

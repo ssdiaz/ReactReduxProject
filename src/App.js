@@ -2,6 +2,8 @@ import React from 'react';
 import NavBar from './components/NavBar';
 import TripsContainer from './containers/TripsContainer';
 import Container from 'react-bootstrap/Container';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './index.css';
 
 
 class App extends React.Component {
