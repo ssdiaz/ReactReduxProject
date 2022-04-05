@@ -62,6 +62,8 @@ const AttendeeForm = (props) => {
                     
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
+                
+                <button className="btn btn-outline-danger" onClick={ props.handleDelete }>Delete</button>
             </div>
         </div>
     )

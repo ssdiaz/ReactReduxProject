@@ -32,8 +32,8 @@ class Activities extends React.Component {
                             <th>#</th>
                             <th>Activity Name</th>
                             <th>Description</th>
-                            <th>Cost</th>
                             <th>Priority</th>
+                            <th>Cost</th>
                             <th>Comment</th>
                             <th>Day</th>
                             <th>Time</th>
@@ -44,6 +44,7 @@ class Activities extends React.Component {
                     )}
                     <tfoot>
                         <tr>
+                            <td></td>
                             <td></td>
                             <td></td>
                             <td><b>TOTAL COST PER GIRL:</b></td>
@@ -60,15 +61,12 @@ class Activities extends React.Component {
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td></td>
                         </tr>
                     </tfoot>
                 </Table>
-
             
                 <button className="btn btn-primary btn-lg"  onClick={this.displayActivityInput}>Add Activity</button>          
                 {this.state.displayActivityInput === true  ?  <Redirect to={`/trips/${this.props.trip.id}/activities/new`} />  :  <Redirect to={`/trips/${this.props.trip.id}`} /> }  
-        
             </>
         )
     }

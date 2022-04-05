@@ -34,7 +34,7 @@ class Attendees extends React.Component {
                 <CardGroup>
                     <Card>
                         <Card.Body>
-                            <Card.Title>Coming</Card.Title>
+                            <Card.Title>Confirmed</Card.Title>
                             <Card.Text>Count: {attendeesConfirmed.length}</Card.Text>
                             {attendeesConfirmed.map( attendee =>     
                                 <Attendee attendee={attendee} />
@@ -62,15 +62,18 @@ class Attendees extends React.Component {
                         </Card.Body>
                     </Card>
 
-                    <Card>
-                        <Card.Body>
-                            <Card.Title>Not Yet Responded</Card.Title>
-                            <Card.Text>Count: {attendeesNotResponded.length}</Card.Text>
-                            {attendeesNotResponded.map( attendee =>     
-                                <Attendee attendee={attendee} />
-                            )}
-                        </Card.Body>
-                    </Card>
+                    { attendeesNotResponded.length === 0 ? null :     
+                        <Card>
+                            <Card.Body>
+                                <Card.Title>Not Yet Responded</Card.Title>
+                                <Card.Text>Count: {attendeesNotResponded.length}</Card.Text>
+                                {attendeesNotResponded.map( attendee =>     
+                                    <Attendee attendee={attendee} />
+                                )}
+                            </Card.Body>
+                        </Card>
+                    }
+
                 </CardGroup>
             
                 <button className="btn btn-primary btn-lg" onClick={this.displayAttendeeInput}>Add Attendee</button> 

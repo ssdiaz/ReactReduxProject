@@ -11,6 +11,7 @@ const ActivityDetails = (props) => {
             <td>{index + 1}</td>
             <td>{activity.name}</td>
             <td>{activity.description}</td>
+            <td>{activity.priority}</td>
             <td>
                 <NumberFormat
                     thousandsGroupStyle="thousand"
@@ -20,7 +21,6 @@ const ActivityDetails = (props) => {
                     thousandSeparator={true}
                 /> 
             </td>
-            <td>{activity.priority}</td>
             <td>{activity.comment}</td>
             <td>{activity.day}</td>
             <td>{activity.time}</td>

@@ -1,30 +1,27 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { deleteAttendee } from '../../actions/Attendee/deleteAttendee';
-import AttendeeDetail from './AttendeeDetails';
-import { Link, Redirect } from 'react-router-dom'
-import Card from 'react-bootstrap/Card'
-import CardGroup from 'react-bootstrap/CardGroup'
+// import { deleteAttendee } from '../../actions/Attendee/deleteAttendee';
+import { Link } from 'react-router-dom'
 import ListGroup from 'react-bootstrap/ListGroup'
 import NumberFormat from "react-number-format";
 
 
 class Attendee extends React.Component {
   
-    state = { 
-        displayAttendeeInput: false
-    }
+    // state = { 
+    //     displayAttendeeInput: false
+    // }
     
-    displayAttendeeInput = () => {
-        this.setState({
-            displayAttendeeInput: !this.state.displayAttendeeInput
-        })
-    }
+    // displayAttendeeInput = () => {
+    //     this.setState({
+    //         displayAttendeeInput: !this.state.displayAttendeeInput
+    //     })
+    // }
 
-    handleDelete = (attendee) => {
-        this.props.deleteAttendee(attendee.id, this.props.trip.id)
-        this.props.history.push(`/trips/${this.props.trip.id}`)
-    }
+    // handleDelete = (attendee) => {
+    //     this.props.deleteAttendee(attendee.id, this.props.trip.id)
+    //     this.props.history.push(`/trips/${this.props.trip.id}`)
+    // }
 
     render() { 
         let attendee = this.props.attendee
@@ -34,7 +31,7 @@ class Attendee extends React.Component {
             <ListGroup as="ol" numbered>
                 <Link to={`/trips/${attendee.trip_id}/attendees/${attendee.name}/edit`} className="list-group-item list-group-item-action flex-column align-items-start" >
                     <div className="fw-bold">{attendee.name}</div>
-                    <li>Relationship: {attendee.relationship}</li>
+                    <li>{attendee.relationship}</li>
                     <li>Status: {attendee.status}</li>
                     <li>Lodging Budget: 
                         <NumberFormat thousandsGroupStyle="thousand" value={attendee.lodgingBudget} prefix="$" displayType="text" thousandSeparator={true} />
@@ -49,7 +46,8 @@ class Attendee extends React.Component {
     }
 }
 
-export default connect(null, {deleteAttendee})(Attendee);
+// export default connect(null, {deleteAttendee})(Attendee);
+export default connect(null)(Attendee);
 
 
 

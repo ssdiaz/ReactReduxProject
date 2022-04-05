@@ -31,7 +31,7 @@ export function tripReducer(state = { trips:[] }, action) {
             tripToUpdate = state.trips.find(trip => trip.id === action.payload.trip_id)
             
             let newAttendees = tripToUpdate.attendees.filter( attendee => attendee.id !== action.payload.id ) 
-            
+
             let newTripList = state.trips.map(trip => {    
                 if (trip.id === action.payload.trip_id) {
                     trip.attendees = newAttendees

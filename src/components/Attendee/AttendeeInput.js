@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { addAttendee } from '../../actions/Attendee/addAttendee';
 import { updateAttendee } from '../../actions/Attendee/updateAttendee';
+import { deleteAttendee } from '../../actions/Attendee/deleteAttendee';
 import AttendeeForm from './AttendeeForm';
-
 
 class AttendeeInput extends React.Component { 
         
@@ -76,15 +76,23 @@ class AttendeeInput extends React.Component {
         this.props.history.push(`/trips/${tripID}`)
     }
 
+    handleDelete = () => {
+        let attendeeID = this.findAttendee().id
+
+        this.props.deleteAttendee(attendeeID, this.props.trip.id)
+        this.props.history.push(`/trips/${this.props.trip.id}`)
+    }
+
     render() {
         return(
             <AttendeeForm
                 formData={this.state}
                 handleChange={this.handleChange}
-                handleSubmit={this.handleSubmit} 
+                handleSubmit={this.handleSubmit}
+                handleDelete={this.handleDelete} 
             />
         )
     }
 }
 
-export default connect(null, {addAttendee, updateAttendee})(withRouter(AttendeeInput));
+export default connect(null, {addAttendee, updateAttendee, deleteAttendee})(withRouter(AttendeeInput));
