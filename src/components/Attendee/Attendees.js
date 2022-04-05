@@ -35,6 +35,7 @@ class Attendees extends React.Component {
                     <Card>
                         <Card.Body>
                             <Card.Title>Coming</Card.Title>
+                            <Card.Text>Count: {attendeesConfirmed.length}</Card.Text>
                             {attendeesConfirmed.map( attendee =>     
                                 <Attendee attendee={attendee} />
                             )}
@@ -44,6 +45,7 @@ class Attendees extends React.Component {
                     <Card>
                         <Card.Body>
                             <Card.Title>Maybe</Card.Title>
+                            <Card.Text>Count: {attendeesMaybe.length}</Card.Text>
                             {attendeesMaybe.map( attendee =>     
                                 <Attendee attendee={attendee} />
                             )}
@@ -53,6 +55,7 @@ class Attendees extends React.Component {
                     <Card>
                         <Card.Body>
                             <Card.Title>Not Coming</Card.Title>
+                            <Card.Text>Count: {attendeesNotComing.length}</Card.Text>
                             {attendeesNotComing.map( attendee =>     
                                 <Attendee attendee={attendee} />
                             )}
@@ -62,6 +65,7 @@ class Attendees extends React.Component {
                     <Card>
                         <Card.Body>
                             <Card.Title>Not Yet Responded</Card.Title>
+                            <Card.Text>Count: {attendeesNotResponded.length}</Card.Text>
                             {attendeesNotResponded.map( attendee =>     
                                 <Attendee attendee={attendee} />
                             )}
