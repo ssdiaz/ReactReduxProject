@@ -3,6 +3,8 @@ import { Redirect } from 'react-router-dom';
 import Activity from './Activity';
 import Table from 'react-bootstrap/Table'
 import ActivityDetails from './ActivityDetails';
+import NumberFormat from "react-number-format";
+
 
 class Activities extends React.Component {
 
@@ -18,6 +20,7 @@ class Activities extends React.Component {
 
     render() { 
         const activities = this.props.activities
+        let totalCost = activities.reduce( (total, activity) => total = total + activity.cost ,0 )
 
         return(
             <>
@@ -39,6 +42,27 @@ class Activities extends React.Component {
                     {activities && activities.map((activity, index) => 
                         <Activity activity={activity} index={index} />
                     )}
+                    <tfoot>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td><b>TOTAL COST PER GIRL:</b></td>
+                            <td><b>
+                                <NumberFormat
+                                    thousandsGroupStyle="thousand"
+                                    value={totalCost}
+                                    prefix="$"
+                                    displayType="text"
+                                    thousandSeparator={true}
+                                    /> 
+                            </b></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tfoot>
                 </Table>
 
             

@@ -29,7 +29,13 @@ For withRouter in AttendeeInput - to use this.props.histpory(push)
     - "you can only use this.props.history.push() function inside the component page that already listed on your project route."
     - "or use withRouter() HOC if the component is not avaible in the route list...."
     -  //https://stackoverflow.com/questions/44522811/how-to-redirect-to-home-page-after-submitting-redux-form
-    
+
+For the totals bar in a table:
+- https://www.cloudhadoop.com/react-array-objects-sum/
+
+To display activity cost & attendee phone number
+- https://jinno.io/app/23/decimalScale?source=react-number-format&displayType=input&decimalScale=2
+
 
 To Refactor:
 - [X] pages 81-82 to separate form from Input Component
