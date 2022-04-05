@@ -12,6 +12,7 @@ const ActivityDetails = (props) => {
             <td>{activity.name}</td>
             <td>{activity.description}</td>
             <td>{activity.priority}</td>
+            {/* <td>{activity.mandatory}</td> */}
             <td>
                 <NumberFormat
                     thousandsGroupStyle="thousand"

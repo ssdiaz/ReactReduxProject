@@ -39,11 +39,11 @@ const ActivityForm = (props) => {
                         {/* <div className="col-sm-2">
                             <label> Mandatory? </label>
                             <div className="form-check">
-                                <input type="checkbox" className="form-check-input" defaultChecked={props.formData.includeInTotal} checked={props.formData.mandatory} name="mandatory" onChange={props.handleChange} />
+                                <input type="checkbox" className="form-check-input" defaultChecked={props.formData.mandatory} value={props.formData.mandatory} name="mandatory" onChange={props.handleChange} />
                             </div>
-                        </div>
+                        </div> */}
 
-                        <div className="col-sm-4">
+                        {/* <div className="col-sm-4">
                             <label> Include in Total? </label>
                             <div className="form-check">
                                 <input type="checkbox" className="form-check-input" defaultChecked={props.formData.includeInTotal} checked={props.formData.includeInTotal} name="includeInTotal" onChange={props.handleChange} />

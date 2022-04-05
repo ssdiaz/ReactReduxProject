@@ -47,7 +47,8 @@ class Attendee extends React.Component {
 }
 
 // export default connect(null, {deleteAttendee})(Attendee);
-export default connect(null)(Attendee);
+// export default connect(null)(Attendee);
+export default Attendee;
 
 
 

@@ -31,6 +31,7 @@ class Attendees extends React.Component {
         return(  
             <>
                 <h3>Attendees</h3>
+
                 <CardGroup>
                     <Card>
                         <Card.Body>

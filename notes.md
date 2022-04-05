@@ -36,6 +36,9 @@ For the totals bar in a table:
 To display activity cost & attendee phone number
 - https://jinno.io/app/23/decimalScale?source=react-number-format&displayType=input&decimalScale=2
 
+To Sort a React Table:
+- https://www.smashingmagazine.com/2020/03/sortable-tables-react/
+
 
 To Refactor:
 - [X] pages 81-82 to separate form from Input Component
