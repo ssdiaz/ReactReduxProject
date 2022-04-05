@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 import { deleteActivity } from '../../actions/Activity/deleteActivity';
 import { Redirect, Route } from 'react-router-dom';
 import ActivityDetails from './ActivityDetails';
-import ActivityInput from './ActivityInput';
-
+import Table from 'react-bootstrap/Table'
 
 class Activity extends React.Component {
 
@@ -26,16 +25,14 @@ class Activity extends React.Component {
         let activity = this.props.activity
 
         return(
-            <div className="card w-50">
-                <div className="card-body">
-                    <ActivityDetails activity={activity} />
+            <tbody>
+                <ActivityDetails activity={this.props.activity} index={this.props.index} />
 
-                    <button className="btn btn-outline-secondary" onClick={ this.displayActivityInput }>Edit</button> 
-                    <button className="btn btn-outline-danger" onClick={ () => this.handleDelete(activity) }>Delete</button>       
+                <td><button className="btn btn-outline-secondary" onClick={ this.displayActivityInput }>Edit</button></td>
+                <td><button className="btn btn-outline-danger" onClick={ () => this.handleDelete(activity) }>Delete</button></td>
 
-                    {this.state.displayActivityInput === true  ?  <Redirect to={`/trips/${activity.trip_id}/activities/${activity.id}/edit`} />  :  <Redirect to={`/trips/${activity.trip_id}`} /> } 
-                </div>
-            </div>
+                {this.state.displayActivityInput === true  ?  <Redirect to={`/trips/${activity.trip_id}/activities/${activity.id}/edit`} />  :  <Redirect to={`/trips/${activity.trip_id}`} /> } 
+            </tbody>
         )
     }
 }

@@ -5,7 +5,6 @@ import Activities from '../components/Activity/Activities';
 import ActivityInput from '../components/Activity/ActivityInput';
 
 class ActivitiesContainer extends React.Component {
-
     render() { 
         let trip = this.props.trip
 

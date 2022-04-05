@@ -78,13 +78,11 @@ class AttendeeInput extends React.Component {
 
     render() {
         return(
-                <>
-                    <AttendeeForm
-                        formData={this.state}
-                        handleChange={this.handleChange}
-                        handleSubmit={this.handleSubmit} 
-                    />
-                </>
+            <AttendeeForm
+                formData={this.state}
+                handleChange={this.handleChange}
+                handleSubmit={this.handleSubmit} 
+            />
         )
     }
 }

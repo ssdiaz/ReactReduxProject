@@ -1,3 +1,5 @@
+import NumberFormat from 'react-number-format';
+
 const ActivityForm = (props) => {
     return (
         <div className="alert alert-info" >
@@ -30,7 +32,8 @@ const ActivityForm = (props) => {
 
                         <div className="form-group col-md-6">
                             <label> Cost </label>
-                            <input type="text" className="form-control" value={props.formData.cost} name="cost" onChange={props.handleChange} /><br/>
+                            <NumberFormat className="form-control" placeholder='Cost' thousandSeparator={true} prefix={'$'} value={props.formData.cost} name="cost" onChange={props.handleChange}  />
+                            {/* <input type="text" className="form-control" value={props.formData.cost} name="cost" onChange={props.handleChange} /><br/> */}
                         </div>
 
                         {/* <div className="col-sm-2">

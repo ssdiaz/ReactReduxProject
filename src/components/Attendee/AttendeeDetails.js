@@ -3,8 +3,10 @@ const AttendeeDetail = (props) => {
     let attendee = props.attendee
 
     return(
-        <div className="card" style={{widtch: "18rem",}}>
+        <>
+        {/* <div className="card" style={{width: "35rem",}}> */}
             <div className="card-body">
+            {/* <div className="card w-25"> */}
                 <h4 className="card-title">Name: {attendee.name}</h4>
                 <ul className="card-text">
                     <li>Phone: {attendee.phone}</li>
@@ -15,7 +17,8 @@ const AttendeeDetail = (props) => {
                     <li>Events Budget: {attendee.eventsBudget}</li> 
                 </ul>
             </div>
-       </div>
+        {/* </div> */}
+        </>
     )
 }
 

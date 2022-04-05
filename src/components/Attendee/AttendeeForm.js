@@ -1,3 +1,5 @@
+import NumberFormat from 'react-number-format';
+
 const AttendeeForm = (props) => {
     return (
         <div className="alert alert-info" >
@@ -14,7 +16,7 @@ const AttendeeForm = (props) => {
                             
                         <div className="form-group col-md-6">
                             <label> Phone Number </label>
-                            <input type="text" className="form-control" placeholder='Phone Number' value={props.formData.phone} name="phone" onChange={props.handleChange} /><br/>
+                            <NumberFormat format="+1 (###) ###-####" mask="_" className="form-control" placeholder='+1 (###) ###-####' value={props.formData.phone} name="phone" onChange={props.handleChange} />
                         </div>
                     </div>
 

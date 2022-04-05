@@ -14,8 +14,8 @@ class AttendeesContainer extends React.Component {
             <div>     
                 <Attendees attendees={trip.attendees} trip={trip} key={trip.id} /> 
 
-                <Route path={`/trips/:trip_id/attendees/new`} render={ (routerProps) => <AttendeeInput {...routerProps} trip={trip} /> } /> 
-                <Route path={`/trips/:trip_id/attendees/:name`} render={ (routerProps) => <Attendee {...routerProps} trip={trip} /> } /> 
+                <Route path='/trips/:trip_id/attendees/new' render={ (routerProps) => <AttendeeInput {...routerProps} trip={trip} /> } /> 
+                <Route path='/trips/:trip_id/attendees/:name' render={ (routerProps) => <Attendee {...routerProps} trip={trip} /> } /> 
                 <Route path='/trips/:trip_id/attendees/:name/edit' render={ (routerProps) => <AttendeeInput {...routerProps} trip={trip} /> } /> 
             </div>
         );

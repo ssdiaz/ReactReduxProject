@@ -31,7 +31,7 @@ class ActivityInput extends Component {
             this.state = {   
                 name: '',
                 description: '',
-                cost: 0,
+                cost: null,
                 mandatory: true,
                 priority: '',
                 includeInTotal: true,
@@ -86,13 +86,11 @@ class ActivityInput extends Component {
 
     render() {
         return (
-            <>
-                <ActivityForm 
-                    formData={this.state}
-                    handleChange={this.handleChange}
-                    handleSubmit={this.handleSubmit}
-                />
-            </>
+            <ActivityForm 
+                formData={this.state}
+                handleChange={this.handleChange}
+                handleSubmit={this.handleSubmit}
+            />
         );
     }
 }
