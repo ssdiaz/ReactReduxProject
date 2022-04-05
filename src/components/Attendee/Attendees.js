@@ -2,9 +2,8 @@ import React from 'react';
 import { Link, Redirect } from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
 import CardGroup from 'react-bootstrap/CardGroup'
-import ListGroup from 'react-bootstrap/ListGroup'
 import Attendee from './Attendee';
-
+import Accordion from 'react-bootstrap/Accordion'
 
 class Attendees extends React.Component {
 
@@ -31,54 +30,61 @@ class Attendees extends React.Component {
         return(  
             <>
                 <h3>Attendees</h3>
+                <Accordion defaultActiveKey={['0']} alwaysOpen>
+                    <Accordion.Item eventKey="0">
+                        <Accordion.Header>Attendees</Accordion.Header>
+                        <Accordion.Body>
+                            <CardGroup>
 
-                <CardGroup>
-                    <Card>
-                        <Card.Body>
-                            <Card.Title>Confirmed</Card.Title>
-                            <Card.Text>Count: {attendeesConfirmed.length}</Card.Text>
-                            {attendeesConfirmed.map( attendee =>     
-                                <Attendee attendee={attendee} />
-                            )}
-                        </Card.Body>
-                    </Card>
+                                <Card>
+                                    <Card.Body>
+                                        <Card.Title>Confirmed</Card.Title>
+                                        <Card.Text>Count: {attendeesConfirmed.length}</Card.Text>
+                                        {attendeesConfirmed.map( attendee =>     
+                                            <Attendee attendee={attendee} />
+                                        )}
+                                    </Card.Body>
+                                </Card>
 
-                    <Card>
-                        <Card.Body>
-                            <Card.Title>Maybe</Card.Title>
-                            <Card.Text>Count: {attendeesMaybe.length}</Card.Text>
-                            {attendeesMaybe.map( attendee =>     
-                                <Attendee attendee={attendee} />
-                            )}
-                        </Card.Body>
-                    </Card>
-                    
-                    <Card>
-                        <Card.Body>
-                            <Card.Title>Not Coming</Card.Title>
-                            <Card.Text>Count: {attendeesNotComing.length}</Card.Text>
-                            {attendeesNotComing.map( attendee =>     
-                                <Attendee attendee={attendee} />
-                            )}
-                        </Card.Body>
-                    </Card>
+                                <Card>
+                                    <Card.Body>
+                                        <Card.Title>Maybe</Card.Title>
+                                        <Card.Text>Count: {attendeesMaybe.length}</Card.Text>
+                                        {attendeesMaybe.map( attendee =>     
+                                            <Attendee attendee={attendee} />
+                                        )}
+                                    </Card.Body>
+                                </Card>
+                                
+                                <Card>
+                                    <Card.Body>
+                                        <Card.Title>Not Coming</Card.Title>
+                                        <Card.Text>Count: {attendeesNotComing.length}</Card.Text>
+                                        {attendeesNotComing.map( attendee =>     
+                                            <Attendee attendee={attendee} />
+                                        )}
+                                    </Card.Body>
+                                </Card>
 
-                    { attendeesNotResponded.length === 0 ? null :     
-                        <Card>
-                            <Card.Body>
-                                <Card.Title>Not Yet Responded</Card.Title>
-                                <Card.Text>Count: {attendeesNotResponded.length}</Card.Text>
-                                {attendeesNotResponded.map( attendee =>     
-                                    <Attendee attendee={attendee} />
-                                )}
-                            </Card.Body>
-                        </Card>
-                    }
+                                { attendeesNotResponded.length === 0 ? null :     
+                                    <Card>
+                                        <Card.Body>
+                                            <Card.Title>Not Yet Responded</Card.Title>
+                                            <Card.Text>Count: {attendeesNotResponded.length}</Card.Text>
+                                            {attendeesNotResponded.map( attendee =>     
+                                                <Attendee attendee={attendee} />
+                                            )}
+                                        </Card.Body>
+                                    </Card>
+                                }
 
-                </CardGroup>
-            
+                            </CardGroup>
+                        </Accordion.Body>
+                    </Accordion.Item>
+                </Accordion>
+
                 <button className="btn btn-primary btn-lg" onClick={this.displayAttendeeInput}>Add Attendee</button> 
-                {this.state.displayAttendeeInput === true ?  <Redirect to={`/trips/${this.props.trip.id}/attendees/new`} /> :  <Redirect to={`/trips/${this.props.trip.id}`} />  }  
+                {this.state.displayAttendeeInput === true ?  <Redirect to={`/trips/${this.props.trip.id}/attendees/new`} />  :  <Redirect to={`/trips/${this.props.trip.id}`} />  }  
             </>
         )
     }

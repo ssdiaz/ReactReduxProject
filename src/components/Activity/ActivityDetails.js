@@ -22,6 +22,7 @@ const ActivityDetails = (props) => {
                     thousandSeparator={true}
                 /> 
             </td>
+            {/* <td>amount if split is ticked. so {activity.cost} / confirmed girls - need this number from somewhere. Redux state? Probs</td> */}
             <td>{activity.comment}</td>
             <td>{activity.day}</td>
             <td>{activity.time}</td>
