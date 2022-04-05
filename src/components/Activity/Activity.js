@@ -26,12 +26,14 @@ class Activity extends React.Component {
 
         return(
             <tbody>
-                <ActivityDetails activity={this.props.activity} index={this.props.index} />
+                <tr>
+                    <ActivityDetails activity={this.props.activity} index={this.props.index} />
 
-                <td><button className="btn btn-outline-secondary" onClick={ this.displayActivityInput }>Edit</button></td>
-                <td><button className="btn btn-outline-danger" onClick={ () => this.handleDelete(activity) }>Delete</button></td>
+                    <td><button className="btn btn-outline-secondary" onClick={ this.displayActivityInput }>Edit</button></td>
+                    <td><button className="btn btn-outline-danger" onClick={ () => this.handleDelete(activity) }>Delete</button></td>
 
-                {this.state.displayActivityInput === true  ?  <Redirect to={`/trips/${activity.trip_id}/activities/${activity.id}/edit`} />  :  <Redirect to={`/trips/${activity.trip_id}`} /> } 
+                    {this.state.displayActivityInput === true  ?  <Redirect to={`/trips/${activity.trip_id}/activities/${activity.id}/edit`} />  :  <Redirect to={`/trips/${activity.trip_id}`} /> } 
+                </tr>
             </tbody>
         )
     }

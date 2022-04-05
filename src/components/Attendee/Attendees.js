@@ -23,13 +23,11 @@ class Attendees extends React.Component {
 
     render() {
             const attendees = this.props.attendees
-
             let attendeesConfirmed = attendees.filter( attendee => attendee.status === 'Confirmed')
             let attendeesMaybe = attendees.filter( attendee => attendee.status === 'Maybe')
             let attendeesNotComing = attendees.filter( attendee => attendee.status === 'Not Coming')
             let attendeesNotResponded = attendees.filter( attendee => attendee.status === '')
 
-        
         return(  
             <>
                 <CardGroup>
