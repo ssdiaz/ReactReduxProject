@@ -31,8 +31,8 @@ const ActivityForm = (props) => {
                         </div>
 
                         <div className="form-group col-md-6">
-                            <label> Cost </label>
-                            <NumberFormat className="form-control" placeholder='Cost' thousandSeparator={true} prefix={'$'} value={props.formData.cost} name="cost" onChange={props.handleChange}  />
+                            <label> Cost ($) </label>
+                            <NumberFormat className="form-control" placeholder='Cost' value={props.formData.cost} name="cost" onChange={props.handleChange} />
                             {/* <input type="text" className="form-control" value={props.formData.cost} name="cost" onChange={props.handleChange} /><br/> */}
                         </div>
 
