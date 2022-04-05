@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom'
 import Attendees from '../components/Attendee/Attendees';
 import Attendee from '../components/Attendee/Attendee';
 import AttendeeInput from '../components/Attendee/AttendeeInput';
-
+import AttendeeDetail from '../components/Attendee/AttendeeDetails';
 
 class AttendeesContainer extends React.Component {
     render() {
@@ -15,7 +15,7 @@ class AttendeesContainer extends React.Component {
                 <Attendees attendees={trip.attendees} trip={trip} key={trip.id} /> 
 
                 <Route path='/trips/:trip_id/attendees/new' render={ (routerProps) => <AttendeeInput {...routerProps} trip={trip} /> } /> 
-                <Route path='/trips/:trip_id/attendees/:name' render={ (routerProps) => <Attendee {...routerProps} trip={trip} /> } /> 
+                {/* <Route path='/trips/:trip_id/attendees/:name' render={ (routerProps) => <Attendee {...routerProps} trip={trip} /> } />  */}
                 <Route path='/trips/:trip_id/attendees/:name/edit' render={ (routerProps) => <AttendeeInput {...routerProps} trip={trip} /> } /> 
             </div>
         );

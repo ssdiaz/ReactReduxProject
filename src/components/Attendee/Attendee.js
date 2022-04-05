@@ -2,7 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { deleteAttendee } from '../../actions/Attendee/deleteAttendee';
 import AttendeeDetail from './AttendeeDetails';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom'
+import Card from 'react-bootstrap/Card'
+import CardGroup from 'react-bootstrap/CardGroup'
+import ListGroup from 'react-bootstrap/ListGroup'
+import NumberFormat from "react-number-format";
+
 
 class Attendee extends React.Component {
   
@@ -22,22 +27,54 @@ class Attendee extends React.Component {
     }
 
     render() { 
-        let attendee = this.props.trip.attendees.find(attendee => attendee.name === this.props.match.params.name)
+        let attendee = this.props.attendee
+        // let attendee = this.props.trip.attendees.find(attendee => attendee.name === this.props.match.params.name)
 
         return (
-            
-            <div className="card w-100">
-                <div className="card-body">
-                    {attendee ? <AttendeeDetail attendee={attendee} /> : null }   
-         
-                    <button className="btn btn-outline-secondary" onClick={ this.displayAttendeeInput }>Edit</button>                    
-                    <button className="btn btn-outline-danger" onClick={ () => this.handleDelete(attendee) }>Delete</button>
-
-                    {this.state.displayAttendeeInput === true ? <Redirect to={`/trips/${attendee.trip_id}/attendees/${attendee.name}/edit`} /> : null } 
-                </div>
-            </div>
+            <ListGroup as="ol" numbered>
+                <Link to={`/trips/${attendee.trip_id}/attendees/${attendee.name}/edit`} className="list-group-item list-group-item-action flex-column align-items-start" >
+                    <div className="fw-bold">{attendee.name}</div>
+                    <li>Relationship: {attendee.relationship}</li>
+                    <li>Status: {attendee.status}</li>
+                    <li>Lodging Budget: 
+                        <NumberFormat thousandsGroupStyle="thousand" value={attendee.lodgingBudget} prefix="$" displayType="text" thousandSeparator={true} />
+                    </li>
+                    <li>Events Budget:   
+                        <NumberFormat thousandsGroupStyle="thousand" value={attendee.eventsBudget} prefix="$" displayType="text" thousandSeparator={true} />
+                    </li>
+                    <li>Notes: {attendee.notes}</li>
+                </Link>
+            </ListGroup>
         );
     }
 }
 
 export default connect(null, {deleteAttendee})(Attendee);
+
+
+
+
+
+
+
+
+
+
+
+// render() { 
+//     let attendee = this.props.trip.attendees.find(attendee => attendee.name === this.props.match.params.name)
+
+//     return (
+        
+//         <div className="card w-100">
+//             <div className="card-body">
+//                 {attendee ? <AttendeeDetail attendee={attendee} /> : null }   
+     
+//                 <button className="btn btn-outline-secondary" onClick={ this.displayAttendeeInput }>Edit</button>                    
+//                 <button className="btn btn-outline-danger" onClick={ () => this.handleDelete(attendee) }>Delete</button>
+
+//                 {this.state.displayAttendeeInput === true ? <Redirect to={`/trips/${attendee.trip_id}/attendees/${attendee.name}/edit`} /> : null } 
+//             </div>
+//         </div>
+//     );
+// }

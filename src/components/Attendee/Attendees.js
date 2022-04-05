@@ -1,9 +1,9 @@
 import React from 'react';
-import { Route, Link, Redirect } from 'react-router-dom'
-import Attendee from './Attendee';
+import { Link, Redirect } from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
 import CardGroup from 'react-bootstrap/CardGroup'
 import ListGroup from 'react-bootstrap/ListGroup'
+import Attendee from './Attendee';
 
 
 class Attendees extends React.Component {
@@ -30,18 +30,13 @@ class Attendees extends React.Component {
 
         return(  
             <>
+                <h3>Attendees</h3>
                 <CardGroup>
                     <Card>
                         <Card.Body>
                             <Card.Title>Coming</Card.Title>
                             {attendeesConfirmed.map( attendee =>     
-                                <ListGroup as="ol" numbered>
-                                        <Link to={`/trips/${attendee.trip_id}/attendees/${attendee.name}`} className="list-group-item list-group-item-action flex-column align-items-start" >
-                                            <div className="fw-bold">{attendee.name}</div>
-                                            <li>Relationship: {attendee.relationship}</li>
-                                            <li>Status: {attendee.status}</li>
-                                        </Link>
-                                </ListGroup>
+                                <Attendee attendee={attendee} />
                             )}
                         </Card.Body>
                     </Card>
@@ -50,13 +45,7 @@ class Attendees extends React.Component {
                         <Card.Body>
                             <Card.Title>Maybe</Card.Title>
                             {attendeesMaybe.map( attendee =>     
-                                <ListGroup as="ol" numbered>
-                                        <Link to={`/trips/${attendee.trip_id}/attendees/${attendee.name}`} className="list-group-item list-group-item-action flex-column align-items-start" >
-                                            <div className="fw-bold">{attendee.name}</div>
-                                            <li>Relationship: {attendee.relationship}</li>
-                                            <li>Status: {attendee.status}</li>
-                                        </Link>
-                                </ListGroup>
+                                <Attendee attendee={attendee} />
                             )}
                         </Card.Body>
                     </Card>
@@ -65,13 +54,7 @@ class Attendees extends React.Component {
                         <Card.Body>
                             <Card.Title>Not Coming</Card.Title>
                             {attendeesNotComing.map( attendee =>     
-                                <ListGroup as="ol" numbered>
-                                        <Link to={`/trips/${attendee.trip_id}/attendees/${attendee.name}`} className="list-group-item list-group-item-action flex-column align-items-start" >
-                                            <div className="fw-bold">{attendee.name}</div>
-                                            <li>Relationship: {attendee.relationship}</li>
-                                            <li>Status: {attendee.status}</li>
-                                        </Link>
-                                </ListGroup>
+                                <Attendee attendee={attendee} />
                             )}
                         </Card.Body>
                     </Card>
@@ -80,13 +63,7 @@ class Attendees extends React.Component {
                         <Card.Body>
                             <Card.Title>Not Yet Responded</Card.Title>
                             {attendeesNotResponded.map( attendee =>     
-                                <ListGroup as="ol" numbered>
-                                        <Link to={`/trips/${attendee.trip_id}/attendees/${attendee.name}`} className="list-group-item list-group-item-action flex-column align-items-start" >
-                                            <div className="fw-bold">{attendee.name}</div>
-                                            <li>Relationship: {attendee.relationship}</li>
-                                            <li>Status: {attendee.status}</li>
-                                        </Link>
-                                </ListGroup>
+                                <Attendee attendee={attendee} />
                             )}
                         </Card.Body>
                     </Card>
