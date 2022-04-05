@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { deleteActivity } from '../../actions/Activity/deleteActivity';
 import { Redirect, Route } from 'react-router-dom';
 import ActivityDetails from './ActivityDetails';
-import Table from 'react-bootstrap/Table'
+
 
 class Activity extends React.Component {
 

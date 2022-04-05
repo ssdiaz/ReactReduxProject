@@ -1,4 +1,4 @@
-import Table from 'react-bootstrap/Table'
+import NumberFormat from "react-number-format";
 
 
 const ActivityDetails = (props) => {
@@ -11,7 +11,15 @@ const ActivityDetails = (props) => {
             <td>{index + 1}</td>
             <td>{activity.name}</td>
             <td>{activity.description}</td>
-            <td>${activity.cost}</td>
+            <td>
+                <NumberFormat
+                    thousandsGroupStyle="thousand"
+                    value={activity.cost}
+                    prefix="$"
+                    displayType="text"
+                    thousandSeparator={true}
+                /> 
+            </td>
             <td>{activity.priority}</td>
             <td>{activity.comment}</td>
             <td>{activity.day}</td>

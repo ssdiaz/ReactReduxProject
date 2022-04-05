@@ -54,7 +54,7 @@ class Activities extends React.Component {
                                     prefix="$"
                                     displayType="text"
                                     thousandSeparator={true}
-                                    /> 
+                                /> 
                             </b></td>
                             <td></td>
                             <td></td>
