@@ -2,7 +2,8 @@ const TripDetails = (props) => {
     let trip = props.trip
 
     return(
-            <div className="card text-white bg-info mb-3">
+            // <div className="card text-white bg-info mb-3">
+            <div className="cardTest">
                 <ul className="text-center" key={trip.id}>
                     <h4>Location:</h4> 
                     <h2>{trip.location}</h2>

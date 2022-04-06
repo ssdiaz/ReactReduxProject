@@ -9,10 +9,12 @@ import './index.css';
 class App extends React.Component {
   render() {
     return (
+      // <div class="container">
       <Container className="p-5 mb-4 bg-light rounded-3">
         <NavBar />
         <TripsContainer />
       </Container>
+      // </div>
     );
   }
 }

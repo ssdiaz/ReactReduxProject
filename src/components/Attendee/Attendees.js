@@ -29,13 +29,12 @@ class Attendees extends React.Component {
 
         return(  
             <>
-                <h3>Attendees</h3>
-                <Accordion defaultActiveKey={['0']} alwaysOpen>
+                <Accordion>
                     <Accordion.Item eventKey="0">
-                        <Accordion.Header>Attendees</Accordion.Header>
+                        <Accordion.Header><h3>Attendees</h3></Accordion.Header>
                         <Accordion.Body>
-                            <CardGroup>
 
+                            <CardGroup>
                                 <Card>
                                     <Card.Body>
                                         <Card.Title>Confirmed</Card.Title>
@@ -77,8 +76,8 @@ class Attendees extends React.Component {
                                         </Card.Body>
                                     </Card>
                                 }
-
                             </CardGroup>
+
                         </Accordion.Body>
                     </Accordion.Item>
                 </Accordion>
