@@ -3,7 +3,7 @@ const TripDetails = (props) => {
 
     return(
             // <div className="card text-white bg-info mb-3">
-            <div className="cardTest">
+            <div className="trip-card">
                 <ul className="text-center" key={trip.id}>
                     <h4>Location:</h4> 
                     <h2>{trip.location}</h2>

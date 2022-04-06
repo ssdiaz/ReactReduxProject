@@ -26,7 +26,7 @@ class Trips extends React.Component {
                 {/* <div id="trip"> */}
                     {this.props.trips && this.props.trips.map( (trip, index) => 
                         <div className="card-body" key={index}>
-                            <Link to={`/trips/${trip.id}`} className="btn btn-info" >{trip.location}</Link>
+                            <Link to={`/trips/${trip.id}`} className="btn btn-info" id="trip" >{trip.location}</Link>
                         </div>
                     )} 
                 </div>

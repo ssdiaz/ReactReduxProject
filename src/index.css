@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #FFB3D9;
+  background-color: #FFDFEF;
 }
 
 code {
@@ -13,8 +13,25 @@ code {
     monospace;
 }
 
-.cardTest{
+.trip-card {
   color: white;
   background-color: #FF2793;
   padding: 10px;
+}
+
+/* .btn{
+  color: white;
+  background-color: #FF2793;
+} */
+#trip{
+  color: white;
+  background-color: #FF2793;
+}
+
+a.nav-link:link, a.nav-link:visited {
+  color: #FF2793;
+}
+
+a.nav-link:hover {
+  color: #916B7E;
 }
