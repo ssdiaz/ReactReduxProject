@@ -19,7 +19,17 @@ class Activities extends React.Component {
 
     render() { 
         const activities = this.props.activities
-        let totalCost = activities.reduce( (total, activity) => total = total + activity.cost ,0 )
+        let totalCost = activities.filter( activity => activity.includeInTotal === true)
+            .reduce( (total, activity) => {
+                if (activity.includeInTotal === true) {
+                    return total = total + activity.cost
+                }
+            } , 0 )
+        // let totalCost = activities.reduce( (total, activity) => {
+        //     if (activity.includeInTotal === true) {
+        //         return total = total + activity.cost
+        //     }
+        // } , 0 )
 
         let sortedActivities = [...activities];
         sortedActivities.sort((a, b) => {
@@ -45,6 +55,7 @@ class Activities extends React.Component {
                             <th>Priority</th>
                             {/* <th>Mandatory?</th> */}
                             <th>Cost</th>
+                            <th>Include in Total?</th>
                             <th>Comment</th>
                             <th>Day</th>
                             <th>Time</th>

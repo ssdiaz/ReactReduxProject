@@ -1,37 +1,113 @@
+// import React from 'react';
 import NumberFormat from "react-number-format";
+import { connect } from 'react-redux';
+import { updateActivity } from '../../actions/Activity/updateActivity';
+
+import React, { useState } from 'react';
+
+// const ActivityDetails = (props) => {
+class ActivityDetails extends React.Component {
+
+    constructor(props) {
+        super(props);
+        let activity = this.props.activity
+      
+        this.state = {   
+            name: activity.name,
+            description: activity.description,
+            cost:activity.cost,
+            mandatory: activity.mandatory,
+            priority: activity.priority,
+            includeInTotal: activity.includeInTotal,
+            comment: activity.comment,
+            day: activity.day,
+            time: activity.time,
+            trip_id: activity.trip_id,
+            input_type: 'edit',
+        }
+    }
 
 
-const ActivityDetails = (props) => {
+    handleClick = () => {
+        // this.setState({
+        //     includeInTotal: !this.state.includeInTotal
+        // })
+        
+
+        this.setState({ 
+            includeInTotal: !this.state.includeInTotal 
+        }, () => {
+            console.log(this.state.includeInTotal, '??');
+
+            let activity = this.props.activity
+            this.props.updateActivity(this.state, activity.trip_id, activity.id)
+            // console.log(this.state, 'state')
+          }); 
+
+
+
+
+        // this.dispatch()
+        
+        // let activity = this.props.activity
+        // this.props.updateActivity(this.state, activity.trip_id, activity.id)
+        
+
+    }
     
-    let activity = props.activity
-    let index = props.index
+    // dispatch = () => {
+    //     let activity = this.props.activity
+    //     this.props.updateActivity(this.state, activity.trip_id, activity.id)
+    //     console.log(this.state, 'state')
 
-    return(
-        <>
-            <td>{index + 1}</td>
-            <td>{activity.name}</td>
-            <td>{activity.description}</td>
-            <td>{activity.priority}</td>
-            {/* <td>{activity.mandatory}</td> */}
-            <td>
-                <NumberFormat
-                    thousandsGroupStyle="thousand"
-                    value={activity.cost}
-                    prefix="$"
-                    displayType="text"
-                    thousandSeparator={true}
-                /> 
-            </td>
-            {/* <td>amount if split is ticked. so {activity.cost} / confirmed girls - need this number from somewhere. Redux state? Probs</td> */}
-            <td>{activity.comment}</td>
-            <td>{activity.day}</td>
-            <td>{activity.time}</td>
-        </>
-    )
+    // }
+
+    checkBox = () => {
+        // console.log(this.props.activity.name,'hello')
+        console.log(this.props.activity.includeInTotal, 'status')
+
+
+        return this.props.activity.includeInTotal === true ? true : false
+    }
+    
+    render() {
+        let activity = this.props.activity
+        let index = this.props.index
+
+        return(
+            <>
+                <td>{index + 1}</td>
+                <td>{activity.name}</td>
+                <td>{activity.description}</td>
+                <td>{activity.priority}</td>
+                {/* <td>{activity.mandatory}</td> */}
+                <td>
+                    <NumberFormat
+                        thousandsGroupStyle="thousand"
+                        value={activity.cost}
+                        prefix="$"
+                        displayType="text"
+                        thousandSeparator={true}
+                    /> 
+                </td>
+                {/* <td>amount if split is ticked. so {activity.cost} / confirmed girls - need this number from somewhere. Redux state? Probs</td> */}
+                <td> 
+                    <input type="checkbox" className="form-check-input"  defaultChecked={this.checkBox()} value={this.state.includeInTotal} name="includeInTotal" onChange={() => this.handleClick()} />
+                    {/* <input type="checkbox" className="form-check-input"  value={this.props.activity.includeInTotal} name="includeInTotal" onChange={() => this.handleClick()} /> */}
+                    {/* <input type="checkbox" className="form-check-input"  value={this.props.activity.includeInTotal} name="includeInTotal" onChange={() => this.setState({includeInTotal: !this.state.includeInTotal}) } /> */}
+                </td>
+                {/* <td>{activity.includeInTotal}</td> */}
+                <td>{activity.comment}</td>
+                <td>{activity.day}</td>
+                <td>{activity.time}</td>
+            </>
+        );
+    }
 }
 
-export default ActivityDetails
-
+// export default ActivityDetails
+export default connect(null, {updateActivity})(ActivityDetails);
+// export default connect(null)(ActivityDetails);
 
 
 

@@ -39,6 +39,9 @@ To display activity cost & attendee phone number
 To Sort a React Table:
 - https://www.smashingmagazine.com/2020/03/sortable-tables-react/
 
+To setState asynchronous - use a callback method:
+- https://stackoverflow.com/questions/41446560/react-setstate-not-updating-state
+
 
 To Refactor:
 - [X] pages 81-82 to separate form from Input Component
