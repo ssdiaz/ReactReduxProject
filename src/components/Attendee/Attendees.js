@@ -48,21 +48,23 @@ class Attendees extends React.Component {
                         </Accordion>
                     </Card>
 
-                    <Card>
-                        <Accordion>
-                            <Accordion.Item eventKey="0">
-                                <Accordion.Header><h5>Maybe</h5></Accordion.Header>
-                                <Card.Body>
-                                    <Card.Text><h6>Count: {attendeesMaybe.length}</h6></Card.Text>
-                                    <Accordion.Body> 
-                                        {attendeesMaybe.map( attendee =>     
-                                            <Attendee attendee={attendee} />
-                                        )}
-                                    </Accordion.Body> 
-                                </Card.Body>
-                            </Accordion.Item>
-                        </Accordion>
-                    </Card>
+                    { attendeesMaybe.length === 0  ?  null  :  
+                        <Card>
+                            <Accordion>
+                                <Accordion.Item eventKey="0">
+                                    <Accordion.Header><h5>Maybe</h5></Accordion.Header>
+                                    <Card.Body>
+                                        <Card.Text><h6>Count: {attendeesMaybe.length}</h6></Card.Text>
+                                        <Accordion.Body> 
+                                            {attendeesMaybe.map( attendee =>     
+                                                <Attendee attendee={attendee} />
+                                            )}
+                                        </Accordion.Body> 
+                                    </Card.Body>
+                                </Accordion.Item>
+                            </Accordion>
+                        </Card>
+                    }
 
                     <Card>
                         <Accordion>

@@ -1,11 +1,9 @@
-// import React from 'react';
+import React from 'react';
 import NumberFormat from "react-number-format";
 import { connect } from 'react-redux';
 import { updateActivity } from '../../actions/Activity/updateActivity';
 
-import React, { useState } from 'react';
 
-// const ActivityDetails = (props) => {
 class ActivityDetails extends React.Component {
 
     constructor(props) {
@@ -27,46 +25,16 @@ class ActivityDetails extends React.Component {
         }
     }
 
-
     handleClick = () => {
-        // this.setState({
-        //     includeInTotal: !this.state.includeInTotal
-        // })
-        
-
         this.setState({ 
             includeInTotal: !this.state.includeInTotal 
         }, () => {
-            console.log(this.state.includeInTotal, '??');
-
             let activity = this.props.activity
             this.props.updateActivity(this.state, activity.trip_id, activity.id)
-            // console.log(this.state, 'state')
           }); 
-
-
-
-
-        // this.dispatch()
-        
-        // let activity = this.props.activity
-        // this.props.updateActivity(this.state, activity.trip_id, activity.id)
-        
-
     }
     
-    // dispatch = () => {
-    //     let activity = this.props.activity
-    //     this.props.updateActivity(this.state, activity.trip_id, activity.id)
-    //     console.log(this.state, 'state')
-
-    // }
-
     checkBox = () => {
-        // console.log(this.props.activity.name,'hello')
-        console.log(this.props.activity.includeInTotal, 'status')
-
-
         return this.props.activity.includeInTotal === true ? true : false
     }
     
@@ -93,10 +61,7 @@ class ActivityDetails extends React.Component {
                 {/* <td>amount if split is ticked. so {activity.cost} / confirmed girls - need this number from somewhere. Redux state? Probs</td> */}
                 <td> 
                     <input type="checkbox" className="form-check-input"  defaultChecked={this.checkBox()} value={this.state.includeInTotal} name="includeInTotal" onChange={() => this.handleClick()} />
-                    {/* <input type="checkbox" className="form-check-input"  value={this.props.activity.includeInTotal} name="includeInTotal" onChange={() => this.handleClick()} /> */}
-                    {/* <input type="checkbox" className="form-check-input"  value={this.props.activity.includeInTotal} name="includeInTotal" onChange={() => this.setState({includeInTotal: !this.state.includeInTotal}) } /> */}
                 </td>
-                {/* <td>{activity.includeInTotal}</td> */}
                 <td>{activity.comment}</td>
                 <td>{activity.day}</td>
                 <td>{activity.time}</td>
@@ -105,10 +70,8 @@ class ActivityDetails extends React.Component {
     }
 }
 
-// export default ActivityDetails
-export default connect(null, {updateActivity})(ActivityDetails);
-// export default connect(null)(ActivityDetails);
 
+export default connect(null, {updateActivity})(ActivityDetails);
 
 
 
