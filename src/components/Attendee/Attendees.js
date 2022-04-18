@@ -7,18 +7,20 @@ import Accordion from 'react-bootstrap/Accordion'
 
 
 class Attendees extends React.Component {
-
+    
     constructor() {
         super()
         this.state = {
             displayAttendeeInput: false
         }
     }
- 
+
     displayAttendeeInput = () => {
+
         this.setState({
             displayAttendeeInput: !this.state.displayAttendeeInput
-        })
+        }) 
+        console.log(this.state.displayAttendeeInput, 'state')
     } 
 
     render() {
@@ -35,29 +37,27 @@ class Attendees extends React.Component {
             <>
                 <h3>Attendees</h3>
                 <CardGroup>
-
-                {containers.map (container => 
-                    <>
-                        { container[0].length === 0  ?  null  :
-                            <Card>
-                                <Accordion>
-                                    <Accordion.Item eventKey="0">
-                                        <Accordion.Header><h5>{container[1]}</h5></Accordion.Header>
-                                        <Card.Body>
-                                            <Card.Text><h6>Count: {container[0].length}</h6></Card.Text>
-                                            <Accordion.Body> 
-                                                {container[0].map( attendee =>     
-                                                    <Attendee attendee={attendee} />
-                                                )}
-                                            </Accordion.Body> 
-                                        </Card.Body>
-                                    </Accordion.Item>
-                                </Accordion>
-                            </Card>
-                        }
-                    </>
-                )}
-
+                    {containers.map (container => 
+                        <>
+                            { container[0].length === 0  ?  null  :
+                                <Card>
+                                    <Accordion>
+                                        <Accordion.Item eventKey="0">
+                                            <Accordion.Header><h5>{container[1]}</h5></Accordion.Header>
+                                            <Card.Body>
+                                                <Card.Text><h6>Count: {container[0].length}</h6></Card.Text>
+                                                <Accordion.Body> 
+                                                    {container[0].map( attendee =>     
+                                                        <Attendee attendee={attendee} />
+                                                    )}
+                                                </Accordion.Body> 
+                                            </Card.Body>
+                                        </Accordion.Item>
+                                    </Accordion>
+                                </Card>
+                            }
+                        </>
+                    )}
                 </CardGroup>
 
                 <button className="btn btn-primary btn-lg" onClick={this.displayAttendeeInput}>Add Attendee</button> 

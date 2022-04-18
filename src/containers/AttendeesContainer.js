@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom'
 import Attendees from '../components/Attendee/Attendees';
 import Attendee from '../components/Attendee/Attendee';
 import AttendeeInput from '../components/Attendee/AttendeeInput';
-import AttendeeDetail from '../components/Attendee/AttendeeDetails';
+// import AttendeeDetail from '../components/Attendee/AttendeeDetails'; // THIS IS DELETED!!!!!!!!
 
 class AttendeesContainer extends React.Component {
     render() {

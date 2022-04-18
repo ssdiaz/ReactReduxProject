@@ -74,7 +74,7 @@ class Activities extends React.Component {
                             <td><b>
                                 <NumberFormat
                                     thousandsGroupStyle="thousand"
-                                    value={totalCost}
+                                    value={Math.round(totalCost)}
                                     prefix="$"
                                     displayType="text"
                                     thousandSeparator={true}

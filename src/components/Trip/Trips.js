@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import TripInput from './TripInput'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 
