@@ -5,7 +5,6 @@ import Container from 'react-bootstrap/Container';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
-
 class App extends React.Component {
   render() {
     return (
