@@ -9,7 +9,7 @@ const Attendee = (props) => {
     let attendee = props.attendee
     
     return (
-        <ListGroup as="ol" numbered>
+        <ListGroup>
             <Link to={`/trips/${attendee.trip_id}/attendees/${attendee.name}/edit`} className="list-group-item list-group-item-action flex-column align-items-start" >
                 <div className="fw-bold">{attendee.name}</div>
                 <li><i>{attendee.relationship}</i></li>
