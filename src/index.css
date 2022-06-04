@@ -6,6 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #FFDFEF;
+  font-family: Verdana;
 }
 
 code {
@@ -37,3 +38,15 @@ a.nav-link:hover {
 }
 
 li {list-style-type: none;}
+
+/* .p1 {
+  font-family: "Times New Roman", Times, serif;
+}
+
+.p2 {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.p3 {
+  font-family: "Lucida Console", "Courier New", monospace;
+} */

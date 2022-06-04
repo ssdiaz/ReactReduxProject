@@ -42,6 +42,8 @@ To Sort a React Table:
 To setState asynchronous - use a callback method:
 - https://stackoverflow.com/questions/41446560/react-setstate-not-updating-state
 
+For the Countdown:
+- https://www.npmjs.com/package/react-countdown
 
 To Refactor:
 - [X] pages 81-82 to separate form from Input Component
