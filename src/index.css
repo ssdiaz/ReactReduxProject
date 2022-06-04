@@ -39,6 +39,10 @@ a.nav-link:hover {
 
 li {list-style-type: none;}
 
+h1, h2, h3 {
+  font-family: "Bebas Neue", sans-serif;
+}
+
 /* .p1 {
   font-family: "Times New Roman", Times, serif;
 }
