@@ -19,7 +19,7 @@ class Trips extends React.Component {
     render() {  
         return (
             <>
-                <h3>Trips</h3>
+                <h1>Trips</h1>
                 <div className="card">
                 {/* <div id="trip"> */}
                     {this.props.trips && this.props.trips.map( (trip, index) => 
