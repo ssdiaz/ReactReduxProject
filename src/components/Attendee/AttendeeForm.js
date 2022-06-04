@@ -4,7 +4,7 @@ const AttendeeForm = (props) => {
     return (
         <div className="alert alert-info" >
             <div className="card-body">
-                <h3>{props.formData.input_type === 'add' ? 'ADD ATTENDEE' : 'EDIT ATTENDEE'}</h3>
+                <h3><span className="headers">{props.formData.input_type === 'add' ? 'Add Attendee' : 'Edit Attendee'}</span></h3>
 
                 <form onSubmit={props.handleSubmit}>                       
                     

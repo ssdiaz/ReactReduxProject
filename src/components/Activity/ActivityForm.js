@@ -4,7 +4,7 @@ const ActivityForm = (props) => {
     return (
         <div className="alert alert-info" >
             <div className="card-body">
-                <h3>{props.formData.input_type === 'add' ? 'ADD ACTIVITY' : 'EDIT ACTIVITY'}</h3>
+                <h3><span className="headers">{props.formData.input_type === 'add' ? 'Add Activity' : 'Edit Activity'}</span></h3>
 
                 <form onSubmit={props.handleSubmit}>
 
