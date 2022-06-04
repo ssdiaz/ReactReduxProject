@@ -42,13 +42,16 @@ a.nav-link:hover {
 
 li {list-style-type: none;}
 
-h1, h2 {
-  /* font-family: 'Bebas Neue', cursive; */
+h1, h2, h3, .cursive  {
   font-family: 'Shadows Into Light', cursive;
 }
 
-h3, h4 {
+ h4, h5, h6 {
   font-family: 'Bebas Neue', cursive;
+}
+
+.headers {
+  font-family: 'Staatliches', cursive;
 }
 
 /* .p1 {

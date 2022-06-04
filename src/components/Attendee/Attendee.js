@@ -11,16 +11,16 @@ const Attendee = (props) => {
     return (
         <ListGroup>
             <Link to={`/trips/${attendee.trip_id}/attendees/${attendee.name}/edit`} className="list-group-item list-group-item-action flex-column align-items-start" >
-                <div className="fw-bold">{attendee.name}</div>
-                <li><i>{attendee.relationship}</i></li>
-                <li>Status: {attendee.status}</li>
-                <li>Lodging Budget: 
+                <h4><div className="cursive">{attendee.name}</div></h4>
+                <li><h5><i>{attendee.relationship}</i></h5></li>
+                <li><span className="headers">Status </span> {attendee.status}</li> 
+                <li><span className="headers">Lodging Budget: </span>
                     <NumberFormat thousandsGroupStyle="thousand" value={attendee.lodgingBudget} prefix="$" displayType="text" thousandSeparator={true} />
                 </li>
-                <li>Events Budget:   
+                <li><span className="headers">Events Budget </span>
                     <NumberFormat thousandsGroupStyle="thousand" value={attendee.eventsBudget} prefix="$" displayType="text" thousandSeparator={true} />
                 </li>
-                <li>Notes: {attendee.notes}</li>
+                <li><span className="headers">Notes </span> {attendee.notes}</li>
             </Link>
         </ListGroup>
     );
