@@ -9,7 +9,7 @@ const ActivityForm = (props) => {
                 <form onSubmit={props.handleSubmit}>
 
                     <div className="form-group">
-                        <label > Activity </label>
+                        <label> Activity </label>
                         <input type="text" className="form-control" placeholder='Name' value={props.formData.name} name="name" onChange={props.handleChange} /><br/>
                     </div>
 

@@ -37,7 +37,7 @@ class Activities extends React.Component {
 
         return(
             <>
-                <h3>Activities</h3>
+                <h2>Activities</h2>
 
                 <Table striped bordered hover>
                     <thead>

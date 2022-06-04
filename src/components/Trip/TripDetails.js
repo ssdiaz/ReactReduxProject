@@ -16,7 +16,7 @@ const TripDetails = (props) => {
         <div className="trip-card">
             <ul className="text-center" key={trip.id}>
                 <h4>Location:</h4> 
-                <h2>{trip.location}</h2>
+                <h1>{trip.location}</h1>
                 <li>Start Date: {start_date}</li>
                 <li>End Date: {trip.end_date}</li>
                 <li>Days Until Party: <Countdown date={start_date} renderer={renderer} /></li>

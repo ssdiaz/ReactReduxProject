@@ -35,7 +35,7 @@ class Attendees extends React.Component {
 
         return(  
             <>
-                <h3>Attendees</h3>
+                <h2>Attendees</h2>
                 <CardGroup>
                     {containers.map (container => 
                         <>

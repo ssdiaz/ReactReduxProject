@@ -46,22 +46,11 @@ h1, h2, h3, .cursive  {
   font-family: 'Shadows Into Light', cursive;
 }
 
- h4, h5, h6 {
-  font-family: 'Bebas Neue', cursive;
-}
-
-.headers {
+ h4, h5, h6, .headers {
+  /* font-family: 'Bebas Neue', cursive; */
   font-family: 'Staatliches', cursive;
 }
 
-/* .p1 {
-  font-family: "Times New Roman", Times, serif;
-}
-
-.p2 {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.p3 {
-  font-family: "Lucida Console", "Courier New", monospace;
+/* .headers {
+  font-family: 'Staatliches', cursive;
 } */
